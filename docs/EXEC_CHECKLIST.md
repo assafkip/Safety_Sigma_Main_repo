@@ -1,0 +1,5 @@
+- [ ] V-001 Indicators preserved (G-001..G-003 green) :contentReference[oaicite:28]{index=28}
+- [ ] V-002 Category grounding (G-010 green) :contentReference[oaicite:29]{index=29}
+- [ ] V-003 Audit completeness (spans/decisions/scores present) :contentReference[oaicite:30]{index=30}
+- [ ] V-004 Practitioner readiness (rule harness runs) :contentReference[oaicite:31]{index=31}
+- [ ] V-005 Exec guarantees (no UNSPECIFIED items) :contentReference[oaicite:32]{index=32}

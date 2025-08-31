@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+safety_sigma/__init__.py
+safety_sigma/demo.py
+safety_sigma/main.py
+safety_sigma_2.0.egg-info/PKG-INFO
+safety_sigma_2.0.egg-info/SOURCES.txt
+safety_sigma_2.0.egg-info/dependency_links.txt
+safety_sigma_2.0.egg-info/entry_points.txt
+safety_sigma_2.0.egg-info/requires.txt
+safety_sigma_2.0.egg-info/top_level.txt
+tests/test_parity_baseline.py

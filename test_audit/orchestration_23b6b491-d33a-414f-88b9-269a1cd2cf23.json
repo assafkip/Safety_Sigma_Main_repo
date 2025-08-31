@@ -1,0 +1,44 @@
+{
+  "orchestration_id": "23b6b491-d33a-414f-88b9-269a1cd2cf23",
+  "start_time": 1756441727.16883,
+  "end_time": 1756441727.1698408,
+  "duration_ms": 1.010894775390625,
+  "success": false,
+  "steps_executed": 1,
+  "steps_successful": 0,
+  "error": "Orchestration error: Cannot import Safety Sigma 1.0 from /Users/assafkip/Desktop/safety_sigma/phase_1: No module named 'PyPDF2'",
+  "metadata": {
+    "pipeline_definition": [
+      {
+        "step_name": "pdf_extraction",
+        "tool_class": "PDFTool",
+        "required": true,
+        "depends_on": []
+      },
+      {
+        "step_name": "ai_analysis",
+        "tool_class": "ExtractionTool",
+        "required": true,
+        "depends_on": [
+          "pdf_extraction"
+        ]
+      }
+    ],
+    "execution_summary": {
+      "total_steps": 2,
+      "steps_executed": 1,
+      "steps_successful": 0,
+      "success_rate": 0.0
+    },
+    "performance": {
+      "total_duration_ms": 1.010894775390625,
+      "average_step_duration_ms": 1.010894775390625
+    },
+    "compliance": {
+      "audit_logging": true,
+      "tool_abstraction": true,
+      "ss1_compatibility": true
+    }
+  },
+  "timestamp_iso": "2025-08-29T04:28:47Z"
+}

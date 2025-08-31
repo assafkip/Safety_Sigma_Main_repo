@@ -1,0 +1,30 @@
+{
+  "tool_name": "enhanced_extraction_tool",
+  "tool_version": "2.0.0",
+  "run_id": "fb63ad4c-c263-4798-ba23-c80dffd29bcd",
+  "start_time": 1756511055.302079,
+  "end_time": 1756511055.30212,
+  "duration_ms": 0.04100799560546875,
+  "success": false,
+  "input_summary": {
+    "instructions": "Analyze for information operations and apply dynamic rule detection",
+    "text_content": "\nAtlas Report: Information Laundering Networks\n\nThis analysis examines coordinated information laund... (truncated, length=713)",
+    "simulate": true
+  },
+  "output_summary": {},
+  "error": "AttributeError: 'EnhancedExtractionTool' object has no attribute 'log_info'",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "enhanced_extraction_tool",
+      "version": "2.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true
+  },
+  "timestamp_iso": "2025-08-29T23:44:15Z"
+}

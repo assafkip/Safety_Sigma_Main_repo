@@ -1,0 +1,2 @@
+[console_scripts]
+safety-sigma = safety_sigma.main:main

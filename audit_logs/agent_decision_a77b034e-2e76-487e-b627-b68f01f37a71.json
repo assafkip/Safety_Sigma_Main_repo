@@ -1,0 +1,73 @@
+{
+  "decision_id": "a77b034e-2e76-487e-b627-b68f01f37a71",
+  "agent_name": "simple_agent",
+  "agent_version": "1.0.0",
+  "timestamp": 1756484108.2003021,
+  "timestamp_iso": "2025-08-29T16:15:08Z",
+  "input_analysis": {
+    "document_type": "fraud_analysis",
+    "document_type_confidence": 0.95,
+    "complexity_level": "simple",
+    "complexity_confidence": 0.9,
+    "structure_analysis": {
+      "has_headers": true,
+      "has_lists": true,
+      "has_structured_data": false,
+      "line_count": 23,
+      "paragraph_count": 6,
+      "avg_line_length": 41.47826086956522,
+      "has_technical_formatting": false
+    },
+    "instruction_analysis": {
+      "length": 71,
+      "word_count": 10,
+      "has_specific_fields": false,
+      "requests_structured_output": false,
+      "mentions_compliance": false,
+      "mentions_detection": false,
+      "urgency_indicators": 0
+    },
+    "file_analysis": {
+      "file_provided": true,
+      "file_exists": true,
+      "file_extension": ".txt",
+      "estimated_size": "small",
+      "file_size_bytes": 954
+    },
+    "content_length": 954,
+    "analysis_timestamp": 1756484108.200292
+  },
+  "decision_logic": "Hardcoded Decision Tree Logic:\n1. Primary classification by document type analysis\n2. Confidence threshold filtering (>0.8 for specialized workflows)  \n3. Complexity-based workflow boosting\n4. Instruction analysis adjustments\n5. File size performance considerations\n6. Highest scoring workflow selection",
+  "selected_workflow": "fraud_analysis_workflow",
+  "confidence_score": 0.9,
+  "reasoning": [
+    "Document type detected: fraud_analysis (confidence: 0.95)",
+    "High confidence fraud content detected -> fraud_analysis_workflow prioritized",
+    "Selected fraud_analysis_workflow with confidence 0.90"
+  ],
+  "metadata": {
+    "workflow_scores": {
+      "fraud_analysis_workflow": 0.9
+    },
+    "decision_factors": {
+      "document_type": "fraud_analysis",
+      "complexity_level": "simple",
+      "instruction_focus": {
+        "length": 71,
+        "word_count": 10,
+        "has_specific_fields": false,
+        "requests_structured_output": false,
+        "mentions_compliance": false,
+        "mentions_detection": false,
+        "urgency_indicators": 0
+      },
+      "file_characteristics": {
+        "file_provided": true,
+        "file_exists": true,
+        "file_extension": ".txt",
+        "estimated_size": "small",
+        "file_size_bytes": 954
+      }
+    }
+  }
+}

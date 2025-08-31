@@ -1,0 +1,2 @@
+{"event": "orchestration_start", "orchestration_id": "23b6b491-d33a-414f-88b9-269a1cd2cf23", "timestamp": 1756441727.168833, "pipeline_steps": 2, "context_keys": ["pdf_file", "instructions", "output_dir", "simulate"]}
+{"event": "orchestration_error", "orchestration_id": "23b6b491-d33a-414f-88b9-269a1cd2cf23", "timestamp": 1756441727.169792, "error": "Orchestration error: Cannot import Safety Sigma 1.0 from /Users/assafkip/Desktop/safety_sigma/phase_1: No module named 'PyPDF2'"}

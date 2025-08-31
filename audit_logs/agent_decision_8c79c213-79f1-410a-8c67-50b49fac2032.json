@@ -1,0 +1,262 @@
+{
+  "decision_id": "8c79c213-79f1-410a-8c67-50b49fac2032",
+  "agent_name": "enhanced_agent",
+  "agent_version": "1.0.0",
+  "timestamp": 1756483379.912694,
+  "timestamp_iso": "2025-08-29T16:02:59Z",
+  "input_analysis": {
+    "rule_classification": {
+      "ruleset_name": "document_classification",
+      "ruleset_version": "1.0.0-fallback",
+      "context": {
+        "document_length": 160,
+        "word_count": 19,
+        "line_count": 1,
+        "paragraph_count": 1,
+        "content_lower": "this document contains evidence of fraudulent transactions, scam operations, phishing attempts, fake documents, deceptive practices, and other fraud indicators.",
+        "instructions_lower": "analyze this document for fraud indicators and financial crime patterns",
+        "has_pdf_file": true,
+        "pdf_filename": "test.pdf",
+        "fraud_keyword_count": 7,
+        "threat_keyword_count": 0,
+        "policy_keyword_count": 0,
+        "technical_keyword_count": 0,
+        "has_headers": false,
+        "has_lists": false,
+        "has_tables": false,
+        "has_urls": false,
+        "has_emails": false,
+        "has_phone_numbers": false,
+        "has_financial_data": false,
+        "instructions_mention_fraud": true,
+        "instructions_mention_threat": false,
+        "instructions_mention_policy": false,
+        "instructions_mention_extraction": false,
+        "instructions_mention_analysis": true,
+        "fraud_keyword_density": 0.3684210526315789,
+        "threat_keyword_density": 0.0,
+        "policy_keyword_density": 0.0,
+        "technical_keyword_density": 0.0,
+        "simulate": true
+      },
+      "root_results": [
+        {
+          "node_id": "fallback_fraud_detection",
+          "matched": true,
+          "confidence_boost": 0.3,
+          "workflow": "fraud_analysis_workflow",
+          "actions": [],
+          "children_results": []
+        },
+        {
+          "node_id": "fallback_general_analysis",
+          "matched": true,
+          "confidence_boost": 0.1,
+          "workflow": "general_analysis_workflow",
+          "actions": [],
+          "children_results": []
+        }
+      ],
+      "matched_workflows": [
+        "fraud_analysis_workflow",
+        "general_analysis_workflow"
+      ],
+      "total_confidence_boost": 0.4,
+      "recommended_workflow": "fraud_analysis_workflow",
+      "all_actions": []
+    },
+    "rule_recommended_workflow": "fraud_analysis_workflow",
+    "rule_confidence_score": 1.0,
+    "rule_matched_rules": [
+      "fallback_fraud_detection",
+      "fallback_general_analysis"
+    ],
+    "rule_actions": [],
+    "rule_decision_factors": {
+      "keyword_analysis": {
+        "fraud_density": 0.3684210526315789,
+        "threat_density": 0.0,
+        "policy_density": 0.0,
+        "technical_density": 0.0
+      },
+      "structure_analysis": {
+        "has_headers": false,
+        "has_lists": false,
+        "has_tables": false,
+        "has_financial_data": false
+      },
+      "instruction_analysis": {
+        "mentions_fraud": true,
+        "mentions_threat": false,
+        "mentions_policy": false
+      }
+    },
+    "document_type": "fraud_analysis",
+    "document_type_confidence": 1.0,
+    "complexity_level": "simple",
+    "complexity_confidence": 0.85,
+    "context": {
+      "document_length": 160,
+      "word_count": 19,
+      "line_count": 1,
+      "paragraph_count": 1,
+      "content_lower": "this document contains evidence of fraudulent transactions, scam operations, phishing attempts, fake documents, deceptive practices, and other fraud indicators.",
+      "instructions_lower": "analyze this document for fraud indicators and financial crime patterns",
+      "has_pdf_file": true,
+      "pdf_filename": "test.pdf",
+      "fraud_keyword_count": 7,
+      "threat_keyword_count": 0,
+      "policy_keyword_count": 0,
+      "technical_keyword_count": 0,
+      "has_headers": false,
+      "has_lists": false,
+      "has_tables": false,
+      "has_urls": false,
+      "has_emails": false,
+      "has_phone_numbers": false,
+      "has_financial_data": false,
+      "instructions_mention_fraud": true,
+      "instructions_mention_threat": false,
+      "instructions_mention_policy": false,
+      "instructions_mention_extraction": false,
+      "instructions_mention_analysis": true,
+      "fraud_keyword_density": 0.3684210526315789,
+      "threat_keyword_density": 0.0,
+      "policy_keyword_density": 0.0,
+      "technical_keyword_density": 0.0,
+      "simulate": true
+    },
+    "keyword_analysis": {
+      "fraud_density": 0.3684210526315789,
+      "threat_density": 0.0,
+      "policy_density": 0.0,
+      "technical_density": 0.0
+    },
+    "structure_analysis": {
+      "has_headers": false,
+      "has_lists": false,
+      "has_tables": false,
+      "has_financial_data": false
+    },
+    "instruction_analysis": {
+      "mentions_fraud": true,
+      "mentions_threat": false,
+      "mentions_policy": false
+    },
+    "file_analysis": {
+      "has_pdf": true,
+      "pdf_filename": "test.pdf",
+      "estimated_size": "small"
+    },
+    "content_length": 160,
+    "word_count": 19,
+    "has_structured_content": false,
+    "has_contact_info": false,
+    "has_financial_data": false
+  },
+  "decision_logic": "Advanced Rule Engine Decision Logic (Stage 3):\n1. YAML-based rule evaluation with conditional logic trees\n2. Multi-dimensional document analysis:\n   - Keyword density analysis with domain-specific vocabularies\n   - Document structure pattern recognition\n   - Instruction intent analysis\n   - Content complexity assessment\n3. Rule confidence scoring and accumulation\n4. Workflow recommendation with evidence-based reasoning\n5. Comprehensive audit trail with decision factors\n\nRule Engine Results:\n- Evaluated Rules: 2\n- Matched Rules: 2\n- Confidence Boosts Applied: 0.400\n- Final Confidence Score: 1.000",
+  "selected_workflow": "fraud_analysis_workflow",
+  "confidence_score": 1.0,
+  "reasoning": [
+    "Rule engine analysis completed with 2 matching rules",
+    "High fraud keyword density: 0.3684",
+    "Instructions explicitly mention fraud analysis",
+    "Matched decision rules: fallback_fraud_detection, fallback_general_analysis",
+    "Selected fraud_analysis_workflow with confidence 1.00"
+  ],
+  "metadata": {
+    "rule_engine_version": "1.0.0",
+    "rule_classification": {
+      "ruleset_name": "document_classification",
+      "ruleset_version": "1.0.0-fallback",
+      "context": {
+        "document_length": 160,
+        "word_count": 19,
+        "line_count": 1,
+        "paragraph_count": 1,
+        "content_lower": "this document contains evidence of fraudulent transactions, scam operations, phishing attempts, fake documents, deceptive practices, and other fraud indicators.",
+        "instructions_lower": "analyze this document for fraud indicators and financial crime patterns",
+        "has_pdf_file": true,
+        "pdf_filename": "test.pdf",
+        "fraud_keyword_count": 7,
+        "threat_keyword_count": 0,
+        "policy_keyword_count": 0,
+        "technical_keyword_count": 0,
+        "has_headers": false,
+        "has_lists": false,
+        "has_tables": false,
+        "has_urls": false,
+        "has_emails": false,
+        "has_phone_numbers": false,
+        "has_financial_data": false,
+        "instructions_mention_fraud": true,
+        "instructions_mention_threat": false,
+        "instructions_mention_policy": false,
+        "instructions_mention_extraction": false,
+        "instructions_mention_analysis": true,
+        "fraud_keyword_density": 0.3684210526315789,
+        "threat_keyword_density": 0.0,
+        "policy_keyword_density": 0.0,
+        "technical_keyword_density": 0.0,
+        "simulate": true
+      },
+      "root_results": [
+        {
+          "node_id": "fallback_fraud_detection",
+          "matched": true,
+          "confidence_boost": 0.3,
+          "workflow": "fraud_analysis_workflow",
+          "actions": [],
+          "children_results": []
+        },
+        {
+          "node_id": "fallback_general_analysis",
+          "matched": true,
+          "confidence_boost": 0.1,
+          "workflow": "general_analysis_workflow",
+          "actions": [],
+          "children_results": []
+        }
+      ],
+      "matched_workflows": [
+        "fraud_analysis_workflow",
+        "general_analysis_workflow"
+      ],
+      "total_confidence_boost": 0.4,
+      "recommended_workflow": "fraud_analysis_workflow",
+      "all_actions": []
+    },
+    "matched_rules": [
+      "fallback_fraud_detection",
+      "fallback_general_analysis"
+    ],
+    "decision_factors": {
+      "keyword_analysis": {
+        "fraud_density": 0.3684210526315789,
+        "threat_density": 0.0,
+        "policy_density": 0.0,
+        "technical_density": 0.0
+      },
+      "structure_analysis": {
+        "has_headers": false,
+        "has_lists": false,
+        "has_tables": false,
+        "has_financial_data": false
+      },
+      "instruction_analysis": {
+        "mentions_fraud": true,
+        "mentions_threat": false,
+        "mentions_policy": false
+      }
+    },
+    "workflow_mapping": {
+      "fraud_analysis_workflow": "Fraud Detection and Financial Crime Analysis",
+      "threat_intelligence_workflow": "Cybersecurity Threat Intelligence Analysis",
+      "policy_analysis_workflow": "Policy Compliance and Regulatory Analysis",
+      "technical_analysis_workflow": "Technical Documentation Analysis",
+      "compliance_audit_workflow": "Compliance Audit and Control Assessment",
+      "general_analysis_workflow": "General Purpose Document Analysis"
+    },
+    "fallback_used": false
+  }
+}

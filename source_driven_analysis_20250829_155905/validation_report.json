@@ -1,0 +1,15 @@
+{
+  "validation_results": {
+    "fraud_types_validated": true,
+    "financial_impact_validated": true,
+    "operational_methods_validated": true,
+    "targeting_analysis_validated": true,
+    "all_claims_have_evidence": true
+  },
+  "processing_metadata": {
+    "agent": "source_driven_agent",
+    "version": "1.0.0",
+    "success": true,
+    "error": null
+  }
+}

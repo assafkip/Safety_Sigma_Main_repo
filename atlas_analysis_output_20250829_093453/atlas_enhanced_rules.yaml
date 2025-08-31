@@ -1,0 +1,103 @@
+# Atlas-Derived Enhanced Fraud Detection Rules
+# Generated from comprehensive fraud intelligence analysis  
+# Classification: Stage 3 Advanced Decision Trees
+# Version: 1.0.0
+# Last Updated: 2025-08-29
+
+fraud_classification_enhanced:
+  version: "1.0.0"
+  description: "Enhanced fraud detection rules derived from Atlas scam and fraud analysis"
+  
+  rules:
+    # High-Impact Fraud Detection Rule
+    - name: "atlas_high_impact_fraud_detection"
+      description: "Detects documents with extremely high fraud content density"
+      conditions:
+        - field: "fraud_keyword_density"
+          operator: "gt"
+          value: 0.12
+        - field: "financial_loss_indicators"
+          operator: "contains"
+          value: ["$", "loss", "stolen", "fraud", "scam", "victim"]
+        - field: "document_length"
+          operator: "gt"
+          value: 1000
+      confidence_boost: 0.40
+      priority: "high"
+      workflow_recommendation: "fraud_analysis_workflow"
+      
+    # Regulatory Compliance Document Detection
+    - name: "atlas_regulatory_compliance_detection"
+      description: "Identifies comprehensive regulatory and compliance documents"
+      conditions:
+        - field: "regulatory_keywords"
+          operator: "ge"
+          value: 10
+        - field: "document_structure"
+          operator: "eq"
+          value: "comprehensive_policy"
+        - field: "agency_references"
+          operator: "contains"
+          value: ["FTC", "CFPB", "IC3", "FBI"]
+      confidence_boost: 0.30
+      priority: "high"
+      workflow_recommendation: "policy_analysis_workflow"
+      
+    # Advanced Threat Intelligence Rule
+    - name: "atlas_threat_intelligence_classification"
+      description: "Detects high-value threat intelligence and methodology documents"
+      conditions:
+        - field: "scam_methodology_present"
+          operator: "eq"
+          value: true
+        - field: "prevention_strategies_included"
+          operator: "eq"
+          value: true
+        - field: "case_studies_present"
+          operator: "eq"
+          value: true
+      confidence_boost: 0.25
+      priority: "medium"
+      workflow_recommendation: "threat_intelligence_workflow"
+      
+    # Financial Crime Specialization Rule  
+    - name: "atlas_financial_crime_specialization"
+      description: "Identifies specialized financial crime and banking fraud content"
+      conditions:
+        - field: "financial_crime_patterns"
+          operator: "contains"
+          value: ["wire fraud", "identity theft", "cryptocurrency", "investment fraud"]
+        - field: "banking_references"
+          operator: "gt"
+          value: 3
+        - field: "monetary_amounts_present"
+          operator: "eq"
+          value: true
+      confidence_boost: 0.20
+      priority: "medium"
+      workflow_recommendation: "financial_crime_workflow"
+
+# Keyword Analysis Configuration
+keyword_analysis_enhanced:
+  fraud_keywords:
+    high_priority: ["scam", "fraud", "victim", "stolen", "loss", "criminal", "investigate"]
+    medium_priority: ["suspicious", "report", "complaint", "illegal", "unauthorized", "fake"]
+    context_specific: ["romance", "investment", "cryptocurrency", "wire transfer", "identity"]
+    
+  regulatory_keywords:
+    federal_agencies: ["FTC", "CFPB", "IC3", "FBI", "Secret Service", "Postal Inspection"]
+    enforcement_terms: ["investigation", "prosecution", "penalty", "compliance", "violation"]
+    protection_terms: ["consumer", "victim", "prevention", "education", "awareness"]
+
+# Processing Configuration  
+processing_config:
+  confidence_thresholds:
+    high_confidence: 0.90
+    medium_confidence: 0.70
+    low_confidence: 0.50
+    
+  enhancement_factors:
+    fraud_density_multiplier: 2.5
+    regulatory_content_multiplier: 2.0
+    threat_intelligence_multiplier: 1.8
+    financial_crime_multiplier: 1.5

@@ -1,0 +1,39 @@
+{
+  "decision_id": "f6edabf9-f94d-4a30-b01c-8a1e4955e7d5",
+  "agent_name": "enhanced_agent",
+  "agent_version": "1.0.0",
+  "timestamp": 1756483324.749384,
+  "timestamp_iso": "2025-08-29T16:02:04Z",
+  "input_analysis": {
+    "document_type": "general_analysis",
+    "document_type_confidence": 0.5,
+    "complexity_level": "moderate",
+    "complexity_confidence": 0.6,
+    "rule_engine_failed": true,
+    "fallback_used": true,
+    "content_length": 142,
+    "has_pdf_file": true
+  },
+  "decision_logic": "Advanced Rule Engine Decision Logic (Stage 3):\n1. YAML-based rule evaluation with conditional logic trees\n2. Multi-dimensional document analysis:\n   - Keyword density analysis with domain-specific vocabularies\n   - Document structure pattern recognition\n   - Instruction intent analysis\n   - Content complexity assessment\n3. Rule confidence scoring and accumulation\n4. Workflow recommendation with evidence-based reasoning\n5. Comprehensive audit trail with decision factors\n\nRule Engine Results:\n- Evaluated Rules: 0\n- Matched Rules: 0\n- Confidence Boosts Applied: 0.000\n- Final Confidence Score: 0.700",
+  "selected_workflow": "general_analysis_workflow",
+  "confidence_score": 0.7,
+  "reasoning": [
+    "Rule engine analysis completed with 0 matching rules",
+    "Selected general_analysis_workflow with confidence 0.70"
+  ],
+  "metadata": {
+    "rule_engine_version": "1.0.0",
+    "rule_classification": {},
+    "matched_rules": [],
+    "decision_factors": {},
+    "workflow_mapping": {
+      "fraud_analysis_workflow": "Fraud Detection and Financial Crime Analysis",
+      "threat_intelligence_workflow": "Cybersecurity Threat Intelligence Analysis",
+      "policy_analysis_workflow": "Policy Compliance and Regulatory Analysis",
+      "technical_analysis_workflow": "Technical Documentation Analysis",
+      "compliance_audit_workflow": "Compliance Audit and Control Assessment",
+      "general_analysis_workflow": "General Purpose Document Analysis"
+    },
+    "fallback_used": false
+  }
+}

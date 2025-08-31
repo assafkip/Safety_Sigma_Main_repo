@@ -1,0 +1,239 @@
+name: Safety Sigma 2.0 CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  PYTHON_VERSION: '3.9'
+
+jobs:
+  parity-tests:
+    name: Parity Tests (v1.0 compatibility)
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Safety Sigma 2.0
+      uses: actions/checkout@v4
+      with:
+        path: safety-sigma-2.0
+    
+    - name: Checkout Safety Sigma 1.0 (for parity testing)
+      uses: actions/checkout@v4
+      with:
+        repository: safety-sigma/safety-sigma-1.0  # Update with actual repo
+        path: safety-sigma-1.0
+        token: ${{ secrets.SS1_ACCESS_TOKEN }}  # If private repo
+      continue-on-error: true  # Allow to continue if SS1 not accessible
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      working-directory: safety-sigma-2.0
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Set up test environment
+      working-directory: safety-sigma-2.0
+      run: |
+        # Set all feature toggles to OFF for parity testing
+        cat > .env << EOF
+        SS2_ENABLE_TOOLS=false
+        SS2_USE_AGENT=false
+        SS2_ENHANCE_DOCS=false
+        SS2_DYNAMIC_WORKFLOWS=false
+        SS2_MULTI_AGENT=false
+        SS2_SELF_IMPROVE=false
+        SS1_PATH=../safety-sigma-1.0
+        EOF
+    
+    - name: Run parity tests
+      working-directory: safety-sigma-2.0
+      run: |
+        python -m pytest tests/test_parity_baseline.py -v --tb=short
+      env:
+        # No API keys for parity tests (use mocked responses)
+        OPENAI_API_KEY: ""
+        ANTHROPIC_API_KEY: ""
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        feature-set:
+          - name: "Stage 0 (Baseline)"
+            env: |
+              SS2_ENABLE_TOOLS=false
+              SS2_USE_AGENT=false
+              SS2_ENHANCE_DOCS=false
+              SS2_DYNAMIC_WORKFLOWS=false
+              SS2_MULTI_AGENT=false
+              SS2_SELF_IMPROVE=false
+          - name: "Stage 1 (Tools)"
+            env: |
+              SS2_ENABLE_TOOLS=true
+              SS2_USE_AGENT=false
+              SS2_ENHANCE_DOCS=false
+              SS2_DYNAMIC_WORKFLOWS=false
+              SS2_MULTI_AGENT=false
+              SS2_SELF_IMPROVE=false
+          - name: "Stage 2 (Agent)"
+            env: |
+              SS2_ENABLE_TOOLS=true
+              SS2_USE_AGENT=true
+              SS2_ENHANCE_DOCS=false
+              SS2_DYNAMIC_WORKFLOWS=false
+              SS2_MULTI_AGENT=false
+              SS2_SELF_IMPROVE=false
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Create test environment
+      run: |
+        cat > .env << EOF
+        ${{ matrix.feature-set.env }}
+        EOF
+    
+    - name: Run tests - ${{ matrix.feature-set.name }}
+      run: |
+        python -m pytest tests/ -v --tb=short -x
+      env:
+        # No API keys for unit tests
+        OPENAI_API_KEY: ""
+        ANTHROPIC_API_KEY: ""
+
+  lint-and-format:
+    name: Lint and Format
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Check code formatting (black)
+      run: |
+        black --check safety_sigma/ tests/
+    
+    - name: Check import sorting (isort)
+      run: |
+        isort --check-only safety_sigma/ tests/
+    
+    - name: Lint code (flake8)
+      run: |
+        flake8 safety_sigma/ tests/
+    
+    - name: Type checking (mypy)
+      run: |
+        mypy safety_sigma/
+      continue-on-error: true  # Allow to continue if mypy issues
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install bandit
+      run: |
+        python -m pip install bandit[toml]
+    
+    - name: Run security scan
+      run: |
+        bandit -r safety_sigma/ -f json -o bandit-results.json
+      continue-on-error: true
+    
+    - name: Upload security scan results
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-scan-results
+        path: bandit-results.json
+      if: always()
+
+  build-and-test-install:
+    name: Test Package Build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install build tools
+      run: |
+        python -m pip install --upgrade pip build
+    
+    - name: Build package
+      run: |
+        python -m build
+    
+    - name: Test install from wheel
+      run: |
+        pip install dist/*.whl
+        python -c "import safety_sigma; print('Package installed successfully')"
+      continue-on-error: true  # Allow to continue if import fails in early stages
+
+  regression-tests:
+    name: Regression Tests
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python  
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+    
+    - name: Run regression tests
+      run: |
+        # This would run a more comprehensive test suite
+        # comparing outputs against known golden datasets
+        echo "Regression tests would run here"
+        echo "Comparing PR outputs against baseline..."
+      env:
+        # Mock API keys for testing
+        OPENAI_API_KEY: "mock-key-for-testing"
+        ANTHROPIC_API_KEY: "mock-key-for-testing"

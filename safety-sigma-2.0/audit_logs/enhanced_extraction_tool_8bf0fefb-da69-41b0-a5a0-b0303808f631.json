@@ -1,0 +1,35 @@
+{
+  "tool_name": "enhanced_extraction_tool",
+  "tool_version": "2.0.0",
+  "run_id": "8bf0fefb-da69-41b0-a5a0-b0303808f631",
+  "start_time": 1756511236.961921,
+  "end_time": 1756511236.962581,
+  "duration_ms": 0.659942626953125,
+  "success": true,
+  "input_summary": {
+    "instructions": "Extract intelligence using source-driven methodology with evidence validation",
+    "text_content": "\nAtlas Report: Chinese Information Laundering Networks\n\nAnalysis of coordinated information operatio... (truncated, length=477)",
+    "simulate": true
+  },
+  "output_summary": {
+    "type": "str",
+    "preview": "# Source-Driven Intelligence Analysis Report\n*Generated using Safety Sigma 2.0 Enhanced Extraction Tool*\n\n## Analysis Metadata\n- **Processing Mode**: Source-driven with mandatory evidence\n- **Tool Ver..."
+  },
+  "error": null,
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "enhanced_extraction_tool",
+      "version": "2.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true,
+    "source_driven_compliance": true,
+    "source_traceability": true
+  },
+  "timestamp_iso": "2025-08-29T23:47:16Z"
+}

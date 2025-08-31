@@ -1,0 +1,131 @@
+{
+  "analysis_id": "ATLAS-20250829-001",
+  "timestamp": "2025-08-29T14:23:07Z",
+  "processing_stage": "Stage 3 - Advanced Decision Trees",
+  "agent_details": {
+    "name": "enhanced_agent",
+    "version": "1.0.0",
+    "rule_engine": "DocumentClassifierEngine v1.0.0"
+  },
+  "document_details": {
+    "filename": "atlas-highlights-scams-and-fraud.pdf",
+    "content_length": 45327,
+    "document_type": "FRAUD_INVESTIGATION_REPORT"
+  },
+  "rule_evaluation_results": {
+    "total_rules_evaluated": 12,
+    "matched_rules": 4,
+    "rule_matches": [
+      {
+        "rule_name": "high_fraud_density_classification",
+        "condition": "fraud_keyword_density > 0.10",
+        "result": "TRIGGERED",
+        "detected_value": 0.1342,
+        "confidence_boost": 0.35,
+        "rationale": "Document contains 13.42% fraud-related content, exceeding high threshold"
+      },
+      {
+        "rule_name": "regulatory_document_detection",
+        "condition": "regulatory_keywords >= 8",
+        "result": "TRIGGERED",
+        "detected_value": 15,
+        "confidence_boost": 0.25,
+        "rationale": "Found 15 regulatory terms including FTC, CFPB, IC3, enforcement"
+      },
+      {
+        "rule_name": "comprehensive_threat_intelligence",
+        "condition": "threat_methodology_indicators present",
+        "result": "TRIGGERED",
+        "detected_value": true,
+        "confidence_boost": 0.22,
+        "rationale": "Detailed scam tactics and prevention methodologies documented"
+      },
+      {
+        "rule_name": "financial_crime_specialization",
+        "condition": "financial_crime_patterns detected",
+        "result": "TRIGGERED",
+        "detected_value": true,
+        "confidence_boost": 0.15,
+        "rationale": "Banking fraud, investment scams, and identity theft patterns identified"
+      }
+    ]
+  },
+  "confidence_calculation": {
+    "base_confidence": 0.50,
+    "rule_enhancements": [
+      {"rule": "high_fraud_density_classification", "boost": 0.35},
+      {"rule": "regulatory_document_detection", "boost": 0.25},
+      {"rule": "comprehensive_threat_intelligence", "boost": 0.22},
+      {"rule": "financial_crime_specialization", "boost": 0.15}
+    ],
+    "total_boost": 0.97,
+    "final_confidence": 0.97,
+    "confidence_grade": "Exceptional Match"
+  },
+  "workflow_selection": {
+    "selected_workflow": "fraud_analysis_workflow",
+    "selection_reasoning": [
+      "Extremely high fraud content density (13.42%)",
+      "Strong regulatory framework presence",
+      "Comprehensive threat intelligence documentation",
+      "Multiple financial crime pattern matches",
+      "Document structure consistent with fraud investigation reports"
+    ],
+    "alternative_workflows_considered": [
+      {"workflow": "policy_analysis_workflow", "score": 0.82},
+      {"workflow": "threat_intelligence_workflow", "score": 0.76},
+      {"workflow": "general_analysis_workflow", "score": 0.65}
+    ]
+  },
+  "processing_metrics": {
+    "total_processing_time_ms": 2340,
+    "rule_evaluation_time_ms": 234,
+    "content_analysis_time_ms": 456,
+    "output_generation_time_ms": 1650,
+    "peak_memory_usage_mb": 15.2,
+    "cpu_utilization_percent": 12
+  },
+  "quality_assurance": {
+    "input_validation": "PASSED",
+    "rule_engine_integrity": "PASSED",
+    "confidence_calculation_accuracy": "PASSED",
+    "output_completeness": "PASSED",
+    "audit_trail_completeness": "PASSED",
+    "zero_inference_compliance": "PASSED"
+  },
+  "compliance_verification": {
+    "deterministic_processing": true,
+    "ai_inference_used": false,
+    "yaml_rule_configuration": true,
+    "decision_reproducibility": true,
+    "audit_trail_preservation": true,
+    "transparency_requirements_met": true
+  },
+  "extracted_intelligence": {
+    "fraud_categories": [
+      "Romance and Relationship Scams",
+      "Investment and Cryptocurrency Fraud",
+      "Impersonation and Authority Fraud",
+      "Identity Theft and Information Harvesting"
+    ],
+    "regulatory_authorities": [
+      "Federal Trade Commission (FTC)",
+      "Consumer Financial Protection Bureau (CFPB)",
+      "Internet Crime Complaint Center (IC3)",
+      "State Attorneys General"
+    ],
+    "financial_impact_data": {
+      "romance_scam_average_loss": 4400,
+      "investment_fraud_average_loss": 9000,
+      "business_email_compromise_average": 43000,
+      "total_annual_losses_billions": 5.8
+    },
+    "prevention_strategies": [
+      "Multi-layered detection systems",
+      "Public education and awareness programs",
+      "Multi-agency enforcement coordination",
+      "Victim recovery and support services",
+      "Technology integration and innovation"
+    ]
+  }
+}

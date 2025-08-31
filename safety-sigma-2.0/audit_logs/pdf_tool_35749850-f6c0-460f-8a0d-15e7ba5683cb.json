@@ -1,0 +1,37 @@
+{
+  "tool_name": "pdf_tool",
+  "tool_version": "1.0.0",
+  "run_id": "35749850-f6c0-460f-8a0d-15e7ba5683cb",
+  "start_time": 1756440435.321734,
+  "end_time": 1756440435.321818,
+  "duration_ms": 0.08416175842285156,
+  "success": false,
+  "input_summary": {
+    "pdf_path": "nonexistent.pdf"
+  },
+  "output_summary": {},
+  "error": "FileNotFoundError: PDF file not found: nonexistent.pdf",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "pdf_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    },
+    "tool_specific": {
+      "backend": "safety_sigma_processor",
+      "pdf_processing": {
+        "file_path": "nonexistent.pdf",
+        "extraction_method": "PyPDF2"
+      },
+      "compatibility": {
+        "ss1_version": "1.0",
+        "maintains_byte_parity": true
+      }
+    }
+  },
+  "compliance_flags": {},
+  "timestamp_iso": "2025-08-29T04:07:15Z"
+}

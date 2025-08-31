@@ -1,0 +1,79 @@
+{
+  "information_operations_enhanced": {
+    "version": "2.0.0",
+    "description": "Enhanced information operations detection with Atlas-derived rules",
+    "source": "dynamic_rule_generator + atlas_document_analysis",
+    "rules": [
+      {
+        "name": "information_operations_social_platform_coordination",
+        "description": "Detects coordinated activity across multiple social platforms",
+        "conditions": [
+          {
+            "field": "social_platforms",
+            "operator": "contains_any",
+            "value": [
+              "Instagram",
+              "Facebook",
+              "LinkedIn",
+              "Twitter"
+            ]
+          }
+        ],
+        "confidence_boost": 0.3,
+        "priority": "medium",
+        "workflow_recommendation": "information_operations_workflow"
+      },
+      {
+        "name": "information_operations_ai_assisted_operations",
+        "description": "Detects potential AI-assisted information operations",
+        "conditions": [
+          {
+            "field": "ai_tool_mentions",
+            "operator": "ge",
+            "value": 2
+          }
+        ],
+        "confidence_boost": 0.4,
+        "priority": "high",
+        "workflow_recommendation": "ai_assisted_analysis_workflow"
+      },
+      {
+        "name": "information_operations_geographic_targeting",
+        "description": "Detects content with specific geographic targeting patterns",
+        "conditions": [
+          {
+            "field": "geographic_mentions",
+            "operator": "contains_any",
+            "value": [
+              "Europe",
+              "America",
+              "Taiwan",
+              "Beijing",
+              "China"
+            ]
+          }
+        ],
+        "confidence_boost": 0.25,
+        "priority": "medium",
+        "workflow_recommendation": "geographic_analysis_workflow"
+      },
+      {
+        "name": "information_operations_information_laundering",
+        "description": "Detects information laundering and narrative manipulation techniques",
+        "conditions": [
+          {
+            "field": "laundering_indicators",
+            "operator": "contains_any",
+            "value": [
+              "Laundering",
+              "laundering"
+            ]
+          }
+        ],
+        "confidence_boost": 0.5,
+        "priority": "high",
+        "workflow_recommendation": "information_laundering_workflow"
+      }
+    ]
+  }
+}

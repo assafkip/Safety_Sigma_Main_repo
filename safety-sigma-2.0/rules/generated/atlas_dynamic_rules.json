@@ -1,0 +1,116 @@
+{
+  "rule_set": {
+    "name": "information_operations_dynamic_rules",
+    "version": "1.0.0",
+    "generated_from": "atlas_document_analysis",
+    "generated_at": "2025-08-29T16:41:10.093038",
+    "total_patterns_extracted": 20,
+    "total_rules_generated": 4,
+    "extracted_patterns": {
+      "social_platforms": [
+        "Instagram",
+        "Facebook",
+        "LinkedIn",
+        "Twitter"
+      ],
+      "ai_tools": [
+        "ai",
+        "DALL-E",
+        "AI"
+      ],
+      "laundering_methods": [
+        "Laundering",
+        "laundering"
+      ],
+      "targeting": [
+        "targeting",
+        "Targeting",
+        "audience",
+        "Audience"
+      ],
+      "geographic_regions": [
+        "Europe",
+        "America",
+        "Taiwan",
+        "Beijing",
+        "China",
+        "Chinese"
+      ],
+      "organizations": [
+        "Graphika"
+      ]
+    },
+    "detection_rules": [
+      {
+        "rule_name": "information_operations_social_platform_coordination",
+        "description": "Detects coordinated activity across multiple social platforms",
+        "conditions": [
+          {
+            "field": "social_platforms",
+            "operator": "contains_any",
+            "value": [
+              "Instagram",
+              "Facebook",
+              "LinkedIn",
+              "Twitter"
+            ]
+          }
+        ],
+        "confidence_boost": 0.3,
+        "priority": "medium",
+        "workflow_recommendation": "information_operations_workflow"
+      },
+      {
+        "rule_name": "information_operations_ai_assisted_operations",
+        "description": "Detects potential AI-assisted information operations",
+        "conditions": [
+          {
+            "field": "ai_tool_mentions",
+            "operator": "ge",
+            "value": 2
+          }
+        ],
+        "confidence_boost": 0.4,
+        "priority": "high",
+        "workflow_recommendation": "ai_assisted_analysis_workflow"
+      },
+      {
+        "rule_name": "information_operations_geographic_targeting",
+        "description": "Detects content with specific geographic targeting patterns",
+        "conditions": [
+          {
+            "field": "geographic_mentions",
+            "operator": "contains_any",
+            "value": [
+              "Europe",
+              "America",
+              "Taiwan",
+              "Beijing",
+              "China"
+            ]
+          }
+        ],
+        "confidence_boost": 0.25,
+        "priority": "medium",
+        "workflow_recommendation": "geographic_analysis_workflow"
+      },
+      {
+        "rule_name": "information_operations_information_laundering",
+        "description": "Detects information laundering and narrative manipulation techniques",
+        "conditions": [
+          {
+            "field": "laundering_indicators",
+            "operator": "contains_any",
+            "value": [
+              "Laundering",
+              "laundering"
+            ]
+          }
+        ],
+        "confidence_boost": 0.5,
+        "priority": "high",
+        "workflow_recommendation": "information_laundering_workflow"
+      }
+    ]
+  }
+}

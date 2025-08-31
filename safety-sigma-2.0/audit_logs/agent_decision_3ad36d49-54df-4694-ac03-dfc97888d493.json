@@ -1,0 +1,257 @@
+{
+  "decision_id": "3ad36d49-54df-4694-ac03-dfc97888d493",
+  "agent_name": "enhanced_agent",
+  "agent_version": "1.0.0",
+  "timestamp": 1756509890.4204092,
+  "timestamp_iso": "2025-08-29T23:24:50Z",
+  "input_analysis": {
+    "rule_classification": {
+      "ruleset_name": "document_classification",
+      "ruleset_version": "1.0.0-fallback",
+      "context": {
+        "document_length": 5000,
+        "word_count": 589,
+        "line_count": 1,
+        "paragraph_count": 1,
+        "content_lower": " \n \n \n \n  \n0\n \n\n\n \nfalsos\n \namigos\n \nnetwork\n \nof\n \ndomains\n \nand\n \nsocial\n \nmedia\n \naccounts\n \nuses\n \nai\n \ntools\n \nto\n \nlaunder\n \nreports\n \nfrom\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn\n \nin\n \nmultiple\n \nlanguages\n \n \nkey\n \nfindings\n \n●\n \ngraphika\n \nidentiﬁed\n \na\n \nnetwork\n \nof\n \n11\n \ndomains\n \nand\n \n16\n \ncompanion\n \nsocial\n \nmedia\n \naccounts\n \nthat\n \nlaundered\n \nexclusively\n \nenglish-language\n \narticles\n \noriginally\n \npublished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \nthe\n \nidentiﬁed\n \naccounts\n \nare\n \nactive\n \non\n \nfacebook,\n \ninstagram,\n \nmastodon,\n \nthreads,\n \nand\n \nx.\n \n●\n \nthe\n \nassets\n \nalmost\n \ncertainly\n \nused\n \nai\n \ntools\n \nto\n \ntranslate\n \nand\n \nsummarize\n \narticles\n \nfrom\n \ncgtn,\n \nlikely\n \nin\n \nan\n \nattempt\n \nto\n \ndisguise\n \nthe\n \ncontent's\n \norigin.\n \n \n●\n \nthe\n \nnetwork\n \nassets\n \ndisseminated\n \nprimarily\n \npro-china,\n \nanti-west\n \ncontent\n \nin\n \nenglish,\n \nfrench,\n \nspanish,\n \nand\n \nvietnamese.\n \nthey\n \nalso\n \nutilized\n \nai\n \ntools\n \nto\n \ngenerate\n \nlogos\n \nand\n \ntext\n \nspeciﬁcally\n \ndesigned\n \nto\n \ntarget\n \ndifferent\n \naudiences,\n \nincluding\n \nyoung\n \naudiences\n \nin\n \nafrica,\n \nthe\n \namericas,\n \nasia,\n \nand\n \neurope.\n \n●\n \nthe\n \nnetwork’s\n \nsocial\n \nmedia\n \naccounts\n \nfailed\n \nto\n \nreceive\n \nany\n \norganic\n \ntraction.\n \non\n \nfacebook,\n \nwe\n \nidentiﬁed\n \npages\n \nthat\n \nare\n \npart\n \nof\n \nthe\n \nnetwork\n \nand\n \nran\n \nads\n \nto\n \npromote\n \ntheir\n \ncontent\n \nand\n \nincrease\n \ntheir\n \nvisibility.\n \non\n \nx,\n \nposts\n \nfrom\n \nthe\n \nassociated\n \naccounts\n \nappeared\n \nin\n \ntop\n \nsearch\n \nresults\n \nfor\n \nsome\n \ntopics.\n \n \n●\n \nwe\n \ncould\n \nnot\n \nattribute\n \nthese\n \ndomains\n \nand\n \ntheir\n \nrelated\n \naccounts\n \nto\n \na\n \nspeciﬁc\n \nactor(s)\n \nbased\n \non\n \nopen-source\n \ninformation.\n \nwe\n \nassess\n \nthat\n \nthe\n \nactor(s)\n \nbehind\n \nthe\n \nactivity\n \nare\n \nvery\n \nlikely\n \nlocated\n \nin\n \nchina\n \nbased\n \non\n \nthe\n \ntechnical\n \nindicators\n \nof\n \nthe\n \ndomains\n \nand\n \nsocial\n \nmedia\n \naccounts.\n \n \n \n \n \n \n \n \n \n \n \n  \n1\n \n\n\n \n \nactors\n \n \nnetwork\n \nassessment\n \nwe\n \nidentiﬁed\n \nan\n \ninformation\n \nlaundering\n \noperation\n \nconsisting\n \nof\n \n11\n \ndomains\n \nand\n \n16\n \naccounts\n \nor\n \npages\n \non\n \nfacebook,\n \ninstagram,\n \nmastodon,\n \nthreads,\n \nand\n \nx\n \nthat\n \nalmost\n \ncertainly\n \nused\n \nai\n \ntools\n \nto\n \ntranslate\n \nand\n \nsummarize\n \nnews\n \ncontent\n \noriginally\n \npublished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \n \nten\n \ndomains\n \n–\n \nseveral\n \nof\n \nwhich\n \nused\n \nthe\n \nterm\n \n“amigo”\n \n–\n \nare\n \nactive\n \nand\n \ntranslated\n \nthe\n \ncgtn\n \ncontent\n \ninto\n \nenglish,\n \nfrench,\n \nspanish,\n \nand\n \nvietnamese.\n \nthe\n \n11th\n \ndomain\n \nonly\n \nresolved\n \nto\n \na\n \nwordpress\n \ntemplate.\n \nat\n \nleast\n \nthree\n \nof\n \nthe\n \nidentiﬁed\n \nfacebook\n \npages\n \nin\n \nthis\n \noperation\n \nran\n \nads\n \non\n \nmeta\n \nplatforms.\n \nwe\n \ncould\n \nnot\n \nattribute\n \nthese\n \ndomains\n \nand\n \nthe\n \nrelated\n \naccounts\n \nto\n \na\n \nspeciﬁc\n \nactor(s)\n \nbased\n \non\n \nopen-source\n \ninformation.\n \nwe\n \nassess\n \nthat\n \nthe\n \nactor(s)\n \nbehind\n \nthe\n \nactivity\n \nare\n \nvery\n \nlikely\n \nlocated\n \nin\n \nchina\n \nbased\n \non\n \nthe\n \nfollowing\n \nindicators:\n \n●\n \nthe\n \ndomain\n \nregistrar\n \nfor\n \nall\n \n11\n \ndomains\n \nis\n \nalibaba\n \ncloud\n \ncomputing\n \nltd.\n \nd/b/a\n \nhichina.\n \n●\n \nthe\n \ndomain\n \nregistrant\n \nlocation\n \nfor\n \nall\n \n11\n \ndomains\n \nis\n \nchina,\n \nwith\n \n10\n \nlisting\n \nbeijing\n \nspeciﬁcally.\n \n●\n \none\n \ndomain\n \nlists\n \n环\n球\n国\n际\n视\n频\n通\n讯\n社\n有\n限\n公\n司\n \n(global\n \ninternational\n \nvideo\n \ncommunications\n \nco.,\n \nltd.)\n \nas\n \nits\n \nssl\n \norganization.\n \nglobal\n \ninternational\n \nvideo\n \ncommunications\n \nco.,\n \nltd.\n \nis\n \na\n \nstate-owned\n \nenterprise\n \njointly\n \nestablished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlets\n \nchina\n \ncentral\n \ntelevision\n \n(cctv)\n \nand\n \nchina\n \nglobal\n \ntelevision\n \nnetwork\n \n(cgtn)\n \nin\n \ndecember\n \n2010.\n \n \n●\n \nfacebook’s\n \npage\n \ntransparency\n \ntool\n \nshows\n \nthat\n \nfour\n \nof\n \nthe\n \nﬁve\n \nidentiﬁed\n \nfacebook\n \npages\n \nhave\n \na\n \npage\n \nmanager\n \nlocated\n \nin\n \nchina.\n \nthe\n \nﬁfth\n \npage\n \ndid\n \nnot\n \ninclude\n \na\n \npage\n \nmanager\n \nlocation.\n \n \n \n \n  \n2\n \n\n\n \n \nexamples\n \nof\n \nthe\n \npage\n \ntranspar ency\n \ninformation\n \nfor\n \ntwo\n \nof\n \nthe\n \nfacebook\n \npages\n \nwe\n \nassess\n \nare\n \ninvolved\n \nin\n \nthe\n \nnetwork,\n \nwhich\n \ndispla y\n \npage\n \nmanager\n \nlocations\n \nin\n \nchina.\n \n \ndomains\n \nthe\n \n10\n \nactive\n \ndomains\n \npresent\n \nas\n \nnews\n \noutlets\n \nand\n \nprovide\n \ntranslated\n \nsummaries\n \nor\n \ntranslations\n \nof\n \narticles\n \nfrom\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \nanother\n \ndomain,\n \nsoleilactu[.]com,\n \nonly\n \nresolves\n \nto\n \na\n \nwordpress\n \ntemplate\n \nwith\n \na\n \nsingle\n \n“hello\n \nworld!”\n \nmessage.\n \n \nwe\n \nlinked\n \nthese\n \ndomains\n \nthrough\n \nmultiple\n \nshared\n \ntechnical\n \nindicators,\n \nincluding\n \nautonomous\n \nsystem\n \nnumbers\n \n(asn),\n \nssl\n \ncertiﬁcate\n \nhashes,\n \nand\n \nregistrar\n \nand\n \nregistrant\n \ninformation.\n \nthey\n \nalso\n \nshared\n \nadvertising\n \ncodes,\n \nsimilar\n \nwebsite\n \ndesigns\n \nand\n \ncontent,\n \nand\n \nsimilarities\n \namong\n \nthe\n \nsocial\n \nmedia\n \naccounts\n \naﬃliated\n \nwith\n \neach\n \n",
+        "instructions_lower": "analyze for information operations and fraud patterns",
+        "has_pdf_file": true,
+        "pdf_filename": "../phase_1/atlas-highlights-scams-and-fraud.pdf",
+        "fraud_keyword_count": 0,
+        "threat_keyword_count": 0,
+        "policy_keyword_count": 0,
+        "technical_keyword_count": 10,
+        "has_headers": false,
+        "has_lists": true,
+        "has_tables": false,
+        "has_urls": false,
+        "has_emails": false,
+        "has_phone_numbers": false,
+        "has_financial_data": false,
+        "instructions_mention_fraud": true,
+        "instructions_mention_threat": false,
+        "instructions_mention_policy": false,
+        "instructions_mention_extraction": false,
+        "instructions_mention_analysis": true,
+        "fraud_keyword_density": 0.0,
+        "threat_keyword_density": 0.0,
+        "policy_keyword_density": 0.0,
+        "technical_keyword_density": 0.01697792869269949,
+        "simulate": true
+      },
+      "root_results": [
+        {
+          "node_id": "fallback_fraud_detection",
+          "matched": false,
+          "confidence_boost": 0.0,
+          "workflow": null,
+          "actions": [],
+          "children_results": []
+        },
+        {
+          "node_id": "fallback_general_analysis",
+          "matched": true,
+          "confidence_boost": 0.1,
+          "workflow": "general_analysis_workflow",
+          "actions": [],
+          "children_results": []
+        }
+      ],
+      "matched_workflows": [
+        "general_analysis_workflow"
+      ],
+      "total_confidence_boost": 0.1,
+      "recommended_workflow": "general_analysis_workflow",
+      "all_actions": []
+    },
+    "rule_recommended_workflow": "general_analysis_workflow",
+    "rule_confidence_score": 0.7999999999999999,
+    "rule_matched_rules": [
+      "fallback_general_analysis"
+    ],
+    "rule_actions": [],
+    "rule_decision_factors": {
+      "keyword_analysis": {
+        "fraud_density": 0.0,
+        "threat_density": 0.0,
+        "policy_density": 0.0,
+        "technical_density": 0.01697792869269949
+      },
+      "structure_analysis": {
+        "has_headers": false,
+        "has_lists": true,
+        "has_tables": false,
+        "has_financial_data": false
+      },
+      "instruction_analysis": {
+        "mentions_fraud": true,
+        "mentions_threat": false,
+        "mentions_policy": false
+      }
+    },
+    "document_type": "general_analysis",
+    "document_type_confidence": 0.7999999999999999,
+    "complexity_level": "moderate",
+    "complexity_confidence": 0.85,
+    "context": {
+      "document_length": 5000,
+      "word_count": 589,
+      "line_count": 1,
+      "paragraph_count": 1,
+      "content_lower": " \n \n \n \n  \n0\n \n\n\n \nfalsos\n \namigos\n \nnetwork\n \nof\n \ndomains\n \nand\n \nsocial\n \nmedia\n \naccounts\n \nuses\n \nai\n \ntools\n \nto\n \nlaunder\n \nreports\n \nfrom\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn\n \nin\n \nmultiple\n \nlanguages\n \n \nkey\n \nfindings\n \n●\n \ngraphika\n \nidentiﬁed\n \na\n \nnetwork\n \nof\n \n11\n \ndomains\n \nand\n \n16\n \ncompanion\n \nsocial\n \nmedia\n \naccounts\n \nthat\n \nlaundered\n \nexclusively\n \nenglish-language\n \narticles\n \noriginally\n \npublished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \nthe\n \nidentiﬁed\n \naccounts\n \nare\n \nactive\n \non\n \nfacebook,\n \ninstagram,\n \nmastodon,\n \nthreads,\n \nand\n \nx.\n \n●\n \nthe\n \nassets\n \nalmost\n \ncertainly\n \nused\n \nai\n \ntools\n \nto\n \ntranslate\n \nand\n \nsummarize\n \narticles\n \nfrom\n \ncgtn,\n \nlikely\n \nin\n \nan\n \nattempt\n \nto\n \ndisguise\n \nthe\n \ncontent's\n \norigin.\n \n \n●\n \nthe\n \nnetwork\n \nassets\n \ndisseminated\n \nprimarily\n \npro-china,\n \nanti-west\n \ncontent\n \nin\n \nenglish,\n \nfrench,\n \nspanish,\n \nand\n \nvietnamese.\n \nthey\n \nalso\n \nutilized\n \nai\n \ntools\n \nto\n \ngenerate\n \nlogos\n \nand\n \ntext\n \nspeciﬁcally\n \ndesigned\n \nto\n \ntarget\n \ndifferent\n \naudiences,\n \nincluding\n \nyoung\n \naudiences\n \nin\n \nafrica,\n \nthe\n \namericas,\n \nasia,\n \nand\n \neurope.\n \n●\n \nthe\n \nnetwork’s\n \nsocial\n \nmedia\n \naccounts\n \nfailed\n \nto\n \nreceive\n \nany\n \norganic\n \ntraction.\n \non\n \nfacebook,\n \nwe\n \nidentiﬁed\n \npages\n \nthat\n \nare\n \npart\n \nof\n \nthe\n \nnetwork\n \nand\n \nran\n \nads\n \nto\n \npromote\n \ntheir\n \ncontent\n \nand\n \nincrease\n \ntheir\n \nvisibility.\n \non\n \nx,\n \nposts\n \nfrom\n \nthe\n \nassociated\n \naccounts\n \nappeared\n \nin\n \ntop\n \nsearch\n \nresults\n \nfor\n \nsome\n \ntopics.\n \n \n●\n \nwe\n \ncould\n \nnot\n \nattribute\n \nthese\n \ndomains\n \nand\n \ntheir\n \nrelated\n \naccounts\n \nto\n \na\n \nspeciﬁc\n \nactor(s)\n \nbased\n \non\n \nopen-source\n \ninformation.\n \nwe\n \nassess\n \nthat\n \nthe\n \nactor(s)\n \nbehind\n \nthe\n \nactivity\n \nare\n \nvery\n \nlikely\n \nlocated\n \nin\n \nchina\n \nbased\n \non\n \nthe\n \ntechnical\n \nindicators\n \nof\n \nthe\n \ndomains\n \nand\n \nsocial\n \nmedia\n \naccounts.\n \n \n \n \n \n \n \n \n \n \n \n  \n1\n \n\n\n \n \nactors\n \n \nnetwork\n \nassessment\n \nwe\n \nidentiﬁed\n \nan\n \ninformation\n \nlaundering\n \noperation\n \nconsisting\n \nof\n \n11\n \ndomains\n \nand\n \n16\n \naccounts\n \nor\n \npages\n \non\n \nfacebook,\n \ninstagram,\n \nmastodon,\n \nthreads,\n \nand\n \nx\n \nthat\n \nalmost\n \ncertainly\n \nused\n \nai\n \ntools\n \nto\n \ntranslate\n \nand\n \nsummarize\n \nnews\n \ncontent\n \noriginally\n \npublished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \n \nten\n \ndomains\n \n–\n \nseveral\n \nof\n \nwhich\n \nused\n \nthe\n \nterm\n \n“amigo”\n \n–\n \nare\n \nactive\n \nand\n \ntranslated\n \nthe\n \ncgtn\n \ncontent\n \ninto\n \nenglish,\n \nfrench,\n \nspanish,\n \nand\n \nvietnamese.\n \nthe\n \n11th\n \ndomain\n \nonly\n \nresolved\n \nto\n \na\n \nwordpress\n \ntemplate.\n \nat\n \nleast\n \nthree\n \nof\n \nthe\n \nidentiﬁed\n \nfacebook\n \npages\n \nin\n \nthis\n \noperation\n \nran\n \nads\n \non\n \nmeta\n \nplatforms.\n \nwe\n \ncould\n \nnot\n \nattribute\n \nthese\n \ndomains\n \nand\n \nthe\n \nrelated\n \naccounts\n \nto\n \na\n \nspeciﬁc\n \nactor(s)\n \nbased\n \non\n \nopen-source\n \ninformation.\n \nwe\n \nassess\n \nthat\n \nthe\n \nactor(s)\n \nbehind\n \nthe\n \nactivity\n \nare\n \nvery\n \nlikely\n \nlocated\n \nin\n \nchina\n \nbased\n \non\n \nthe\n \nfollowing\n \nindicators:\n \n●\n \nthe\n \ndomain\n \nregistrar\n \nfor\n \nall\n \n11\n \ndomains\n \nis\n \nalibaba\n \ncloud\n \ncomputing\n \nltd.\n \nd/b/a\n \nhichina.\n \n●\n \nthe\n \ndomain\n \nregistrant\n \nlocation\n \nfor\n \nall\n \n11\n \ndomains\n \nis\n \nchina,\n \nwith\n \n10\n \nlisting\n \nbeijing\n \nspeciﬁcally.\n \n●\n \none\n \ndomain\n \nlists\n \n环\n球\n国\n际\n视\n频\n通\n讯\n社\n有\n限\n公\n司\n \n(global\n \ninternational\n \nvideo\n \ncommunications\n \nco.,\n \nltd.)\n \nas\n \nits\n \nssl\n \norganization.\n \nglobal\n \ninternational\n \nvideo\n \ncommunications\n \nco.,\n \nltd.\n \nis\n \na\n \nstate-owned\n \nenterprise\n \njointly\n \nestablished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlets\n \nchina\n \ncentral\n \ntelevision\n \n(cctv)\n \nand\n \nchina\n \nglobal\n \ntelevision\n \nnetwork\n \n(cgtn)\n \nin\n \ndecember\n \n2010.\n \n \n●\n \nfacebook’s\n \npage\n \ntransparency\n \ntool\n \nshows\n \nthat\n \nfour\n \nof\n \nthe\n \nﬁve\n \nidentiﬁed\n \nfacebook\n \npages\n \nhave\n \na\n \npage\n \nmanager\n \nlocated\n \nin\n \nchina.\n \nthe\n \nﬁfth\n \npage\n \ndid\n \nnot\n \ninclude\n \na\n \npage\n \nmanager\n \nlocation.\n \n \n \n \n  \n2\n \n\n\n \n \nexamples\n \nof\n \nthe\n \npage\n \ntranspar ency\n \ninformation\n \nfor\n \ntwo\n \nof\n \nthe\n \nfacebook\n \npages\n \nwe\n \nassess\n \nare\n \ninvolved\n \nin\n \nthe\n \nnetwork,\n \nwhich\n \ndispla y\n \npage\n \nmanager\n \nlocations\n \nin\n \nchina.\n \n \ndomains\n \nthe\n \n10\n \nactive\n \ndomains\n \npresent\n \nas\n \nnews\n \noutlets\n \nand\n \nprovide\n \ntranslated\n \nsummaries\n \nor\n \ntranslations\n \nof\n \narticles\n \nfrom\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \nanother\n \ndomain,\n \nsoleilactu[.]com,\n \nonly\n \nresolves\n \nto\n \na\n \nwordpress\n \ntemplate\n \nwith\n \na\n \nsingle\n \n“hello\n \nworld!”\n \nmessage.\n \n \nwe\n \nlinked\n \nthese\n \ndomains\n \nthrough\n \nmultiple\n \nshared\n \ntechnical\n \nindicators,\n \nincluding\n \nautonomous\n \nsystem\n \nnumbers\n \n(asn),\n \nssl\n \ncertiﬁcate\n \nhashes,\n \nand\n \nregistrar\n \nand\n \nregistrant\n \ninformation.\n \nthey\n \nalso\n \nshared\n \nadvertising\n \ncodes,\n \nsimilar\n \nwebsite\n \ndesigns\n \nand\n \ncontent,\n \nand\n \nsimilarities\n \namong\n \nthe\n \nsocial\n \nmedia\n \naccounts\n \naﬃliated\n \nwith\n \neach\n \n",
+      "instructions_lower": "analyze for information operations and fraud patterns",
+      "has_pdf_file": true,
+      "pdf_filename": "../phase_1/atlas-highlights-scams-and-fraud.pdf",
+      "fraud_keyword_count": 0,
+      "threat_keyword_count": 0,
+      "policy_keyword_count": 0,
+      "technical_keyword_count": 10,
+      "has_headers": false,
+      "has_lists": true,
+      "has_tables": false,
+      "has_urls": false,
+      "has_emails": false,
+      "has_phone_numbers": false,
+      "has_financial_data": false,
+      "instructions_mention_fraud": true,
+      "instructions_mention_threat": false,
+      "instructions_mention_policy": false,
+      "instructions_mention_extraction": false,
+      "instructions_mention_analysis": true,
+      "fraud_keyword_density": 0.0,
+      "threat_keyword_density": 0.0,
+      "policy_keyword_density": 0.0,
+      "technical_keyword_density": 0.01697792869269949,
+      "simulate": true
+    },
+    "keyword_analysis": {
+      "fraud_density": 0.0,
+      "threat_density": 0.0,
+      "policy_density": 0.0,
+      "technical_density": 0.01697792869269949
+    },
+    "structure_analysis": {
+      "has_headers": false,
+      "has_lists": true,
+      "has_tables": false,
+      "has_financial_data": false
+    },
+    "instruction_analysis": {
+      "mentions_fraud": true,
+      "mentions_threat": false,
+      "mentions_policy": false
+    },
+    "file_analysis": {
+      "has_pdf": true,
+      "pdf_filename": "../phase_1/atlas-highlights-scams-and-fraud.pdf",
+      "estimated_size": "medium"
+    },
+    "content_length": 5000,
+    "word_count": 589,
+    "has_structured_content": false,
+    "has_contact_info": false,
+    "has_financial_data": false
+  },
+  "decision_logic": "Advanced Rule Engine Decision Logic (Stage 3):\n1. YAML-based rule evaluation with conditional logic trees\n2. Multi-dimensional document analysis:\n   - Keyword density analysis with domain-specific vocabularies\n   - Document structure pattern recognition\n   - Instruction intent analysis\n   - Content complexity assessment\n3. Rule confidence scoring and accumulation\n4. Workflow recommendation with evidence-based reasoning\n5. Comprehensive audit trail with decision factors\n\nRule Engine Results:\n- Evaluated Rules: 2\n- Matched Rules: 1\n- Confidence Boosts Applied: 0.100\n- Final Confidence Score: 0.800",
+  "selected_workflow": "general_analysis_workflow",
+  "confidence_score": 0.7999999999999999,
+  "reasoning": [
+    "Rule engine analysis completed with 1 matching rules",
+    "Instructions explicitly mention fraud analysis",
+    "Matched decision rules: fallback_general_analysis",
+    "Selected general_analysis_workflow with confidence 0.80"
+  ],
+  "metadata": {
+    "rule_engine_version": "1.0.0",
+    "rule_classification": {
+      "ruleset_name": "document_classification",
+      "ruleset_version": "1.0.0-fallback",
+      "context": {
+        "document_length": 5000,
+        "word_count": 589,
+        "line_count": 1,
+        "paragraph_count": 1,
+        "content_lower": " \n \n \n \n  \n0\n \n\n\n \nfalsos\n \namigos\n \nnetwork\n \nof\n \ndomains\n \nand\n \nsocial\n \nmedia\n \naccounts\n \nuses\n \nai\n \ntools\n \nto\n \nlaunder\n \nreports\n \nfrom\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn\n \nin\n \nmultiple\n \nlanguages\n \n \nkey\n \nfindings\n \n●\n \ngraphika\n \nidentiﬁed\n \na\n \nnetwork\n \nof\n \n11\n \ndomains\n \nand\n \n16\n \ncompanion\n \nsocial\n \nmedia\n \naccounts\n \nthat\n \nlaundered\n \nexclusively\n \nenglish-language\n \narticles\n \noriginally\n \npublished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \nthe\n \nidentiﬁed\n \naccounts\n \nare\n \nactive\n \non\n \nfacebook,\n \ninstagram,\n \nmastodon,\n \nthreads,\n \nand\n \nx.\n \n●\n \nthe\n \nassets\n \nalmost\n \ncertainly\n \nused\n \nai\n \ntools\n \nto\n \ntranslate\n \nand\n \nsummarize\n \narticles\n \nfrom\n \ncgtn,\n \nlikely\n \nin\n \nan\n \nattempt\n \nto\n \ndisguise\n \nthe\n \ncontent's\n \norigin.\n \n \n●\n \nthe\n \nnetwork\n \nassets\n \ndisseminated\n \nprimarily\n \npro-china,\n \nanti-west\n \ncontent\n \nin\n \nenglish,\n \nfrench,\n \nspanish,\n \nand\n \nvietnamese.\n \nthey\n \nalso\n \nutilized\n \nai\n \ntools\n \nto\n \ngenerate\n \nlogos\n \nand\n \ntext\n \nspeciﬁcally\n \ndesigned\n \nto\n \ntarget\n \ndifferent\n \naudiences,\n \nincluding\n \nyoung\n \naudiences\n \nin\n \nafrica,\n \nthe\n \namericas,\n \nasia,\n \nand\n \neurope.\n \n●\n \nthe\n \nnetwork’s\n \nsocial\n \nmedia\n \naccounts\n \nfailed\n \nto\n \nreceive\n \nany\n \norganic\n \ntraction.\n \non\n \nfacebook,\n \nwe\n \nidentiﬁed\n \npages\n \nthat\n \nare\n \npart\n \nof\n \nthe\n \nnetwork\n \nand\n \nran\n \nads\n \nto\n \npromote\n \ntheir\n \ncontent\n \nand\n \nincrease\n \ntheir\n \nvisibility.\n \non\n \nx,\n \nposts\n \nfrom\n \nthe\n \nassociated\n \naccounts\n \nappeared\n \nin\n \ntop\n \nsearch\n \nresults\n \nfor\n \nsome\n \ntopics.\n \n \n●\n \nwe\n \ncould\n \nnot\n \nattribute\n \nthese\n \ndomains\n \nand\n \ntheir\n \nrelated\n \naccounts\n \nto\n \na\n \nspeciﬁc\n \nactor(s)\n \nbased\n \non\n \nopen-source\n \ninformation.\n \nwe\n \nassess\n \nthat\n \nthe\n \nactor(s)\n \nbehind\n \nthe\n \nactivity\n \nare\n \nvery\n \nlikely\n \nlocated\n \nin\n \nchina\n \nbased\n \non\n \nthe\n \ntechnical\n \nindicators\n \nof\n \nthe\n \ndomains\n \nand\n \nsocial\n \nmedia\n \naccounts.\n \n \n \n \n \n \n \n \n \n \n \n  \n1\n \n\n\n \n \nactors\n \n \nnetwork\n \nassessment\n \nwe\n \nidentiﬁed\n \nan\n \ninformation\n \nlaundering\n \noperation\n \nconsisting\n \nof\n \n11\n \ndomains\n \nand\n \n16\n \naccounts\n \nor\n \npages\n \non\n \nfacebook,\n \ninstagram,\n \nmastodon,\n \nthreads,\n \nand\n \nx\n \nthat\n \nalmost\n \ncertainly\n \nused\n \nai\n \ntools\n \nto\n \ntranslate\n \nand\n \nsummarize\n \nnews\n \ncontent\n \noriginally\n \npublished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \n \nten\n \ndomains\n \n–\n \nseveral\n \nof\n \nwhich\n \nused\n \nthe\n \nterm\n \n“amigo”\n \n–\n \nare\n \nactive\n \nand\n \ntranslated\n \nthe\n \ncgtn\n \ncontent\n \ninto\n \nenglish,\n \nfrench,\n \nspanish,\n \nand\n \nvietnamese.\n \nthe\n \n11th\n \ndomain\n \nonly\n \nresolved\n \nto\n \na\n \nwordpress\n \ntemplate.\n \nat\n \nleast\n \nthree\n \nof\n \nthe\n \nidentiﬁed\n \nfacebook\n \npages\n \nin\n \nthis\n \noperation\n \nran\n \nads\n \non\n \nmeta\n \nplatforms.\n \nwe\n \ncould\n \nnot\n \nattribute\n \nthese\n \ndomains\n \nand\n \nthe\n \nrelated\n \naccounts\n \nto\n \na\n \nspeciﬁc\n \nactor(s)\n \nbased\n \non\n \nopen-source\n \ninformation.\n \nwe\n \nassess\n \nthat\n \nthe\n \nactor(s)\n \nbehind\n \nthe\n \nactivity\n \nare\n \nvery\n \nlikely\n \nlocated\n \nin\n \nchina\n \nbased\n \non\n \nthe\n \nfollowing\n \nindicators:\n \n●\n \nthe\n \ndomain\n \nregistrar\n \nfor\n \nall\n \n11\n \ndomains\n \nis\n \nalibaba\n \ncloud\n \ncomputing\n \nltd.\n \nd/b/a\n \nhichina.\n \n●\n \nthe\n \ndomain\n \nregistrant\n \nlocation\n \nfor\n \nall\n \n11\n \ndomains\n \nis\n \nchina,\n \nwith\n \n10\n \nlisting\n \nbeijing\n \nspeciﬁcally.\n \n●\n \none\n \ndomain\n \nlists\n \n环\n球\n国\n际\n视\n频\n通\n讯\n社\n有\n限\n公\n司\n \n(global\n \ninternational\n \nvideo\n \ncommunications\n \nco.,\n \nltd.)\n \nas\n \nits\n \nssl\n \norganization.\n \nglobal\n \ninternational\n \nvideo\n \ncommunications\n \nco.,\n \nltd.\n \nis\n \na\n \nstate-owned\n \nenterprise\n \njointly\n \nestablished\n \nby\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlets\n \nchina\n \ncentral\n \ntelevision\n \n(cctv)\n \nand\n \nchina\n \nglobal\n \ntelevision\n \nnetwork\n \n(cgtn)\n \nin\n \ndecember\n \n2010.\n \n \n●\n \nfacebook’s\n \npage\n \ntransparency\n \ntool\n \nshows\n \nthat\n \nfour\n \nof\n \nthe\n \nﬁve\n \nidentiﬁed\n \nfacebook\n \npages\n \nhave\n \na\n \npage\n \nmanager\n \nlocated\n \nin\n \nchina.\n \nthe\n \nﬁfth\n \npage\n \ndid\n \nnot\n \ninclude\n \na\n \npage\n \nmanager\n \nlocation.\n \n \n \n \n  \n2\n \n\n\n \n \nexamples\n \nof\n \nthe\n \npage\n \ntranspar ency\n \ninformation\n \nfor\n \ntwo\n \nof\n \nthe\n \nfacebook\n \npages\n \nwe\n \nassess\n \nare\n \ninvolved\n \nin\n \nthe\n \nnetwork,\n \nwhich\n \ndispla y\n \npage\n \nmanager\n \nlocations\n \nin\n \nchina.\n \n \ndomains\n \nthe\n \n10\n \nactive\n \ndomains\n \npresent\n \nas\n \nnews\n \noutlets\n \nand\n \nprovide\n \ntranslated\n \nsummaries\n \nor\n \ntranslations\n \nof\n \narticles\n \nfrom\n \nthe\n \nchinese\n \nstate\n \nmedia\n \noutlet\n \ncgtn.\n \nanother\n \ndomain,\n \nsoleilactu[.]com,\n \nonly\n \nresolves\n \nto\n \na\n \nwordpress\n \ntemplate\n \nwith\n \na\n \nsingle\n \n“hello\n \nworld!”\n \nmessage.\n \n \nwe\n \nlinked\n \nthese\n \ndomains\n \nthrough\n \nmultiple\n \nshared\n \ntechnical\n \nindicators,\n \nincluding\n \nautonomous\n \nsystem\n \nnumbers\n \n(asn),\n \nssl\n \ncertiﬁcate\n \nhashes,\n \nand\n \nregistrar\n \nand\n \nregistrant\n \ninformation.\n \nthey\n \nalso\n \nshared\n \nadvertising\n \ncodes,\n \nsimilar\n \nwebsite\n \ndesigns\n \nand\n \ncontent,\n \nand\n \nsimilarities\n \namong\n \nthe\n \nsocial\n \nmedia\n \naccounts\n \naﬃliated\n \nwith\n \neach\n \n",
+        "instructions_lower": "analyze for information operations and fraud patterns",
+        "has_pdf_file": true,
+        "pdf_filename": "../phase_1/atlas-highlights-scams-and-fraud.pdf",
+        "fraud_keyword_count": 0,
+        "threat_keyword_count": 0,
+        "policy_keyword_count": 0,
+        "technical_keyword_count": 10,
+        "has_headers": false,
+        "has_lists": true,
+        "has_tables": false,
+        "has_urls": false,
+        "has_emails": false,
+        "has_phone_numbers": false,
+        "has_financial_data": false,
+        "instructions_mention_fraud": true,
+        "instructions_mention_threat": false,
+        "instructions_mention_policy": false,
+        "instructions_mention_extraction": false,
+        "instructions_mention_analysis": true,
+        "fraud_keyword_density": 0.0,
+        "threat_keyword_density": 0.0,
+        "policy_keyword_density": 0.0,
+        "technical_keyword_density": 0.01697792869269949,
+        "simulate": true
+      },
+      "root_results": [
+        {
+          "node_id": "fallback_fraud_detection",
+          "matched": false,
+          "confidence_boost": 0.0,
+          "workflow": null,
+          "actions": [],
+          "children_results": []
+        },
+        {
+          "node_id": "fallback_general_analysis",
+          "matched": true,
+          "confidence_boost": 0.1,
+          "workflow": "general_analysis_workflow",
+          "actions": [],
+          "children_results": []
+        }
+      ],
+      "matched_workflows": [
+        "general_analysis_workflow"
+      ],
+      "total_confidence_boost": 0.1,
+      "recommended_workflow": "general_analysis_workflow",
+      "all_actions": []
+    },
+    "matched_rules": [
+      "fallback_general_analysis"
+    ],
+    "decision_factors": {
+      "keyword_analysis": {
+        "fraud_density": 0.0,
+        "threat_density": 0.0,
+        "policy_density": 0.0,
+        "technical_density": 0.01697792869269949
+      },
+      "structure_analysis": {
+        "has_headers": false,
+        "has_lists": true,
+        "has_tables": false,
+        "has_financial_data": false
+      },
+      "instruction_analysis": {
+        "mentions_fraud": true,
+        "mentions_threat": false,
+        "mentions_policy": false
+      }
+    },
+    "workflow_mapping": {
+      "fraud_analysis_workflow": "Fraud Detection and Financial Crime Analysis",
+      "threat_intelligence_workflow": "Cybersecurity Threat Intelligence Analysis",
+      "policy_analysis_workflow": "Policy Compliance and Regulatory Analysis",
+      "technical_analysis_workflow": "Technical Documentation Analysis",
+      "compliance_audit_workflow": "Compliance Audit and Control Assessment",
+      "general_analysis_workflow": "General Purpose Document Analysis"
+    },
+    "fallback_used": false
+  }
+}

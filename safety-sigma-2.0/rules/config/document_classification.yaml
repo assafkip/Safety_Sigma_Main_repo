@@ -1,0 +1,221 @@
+name: document_classification
+version: "1.0.0"
+description: "Advanced document classification rules for workflow selection"
+default_workflow: general_analysis_workflow
+
+metadata:
+  author: "Safety Sigma Team"
+  created: "2025-08-29"
+  purpose: "Classify documents and select appropriate processing workflows"
+
+rules:
+  # High-confidence fraud detection
+  - id: fraud_primary
+    name: "Primary Fraud Detection"
+    operator: AND
+    workflow: fraud_analysis_workflow
+    confidence_boost: 0.3
+    conditions:
+      - field: fraud_keyword_density
+        operator: gt
+        value: 0.02
+        weight: 1.0
+      - field: fraud_keyword_count
+        operator: ge
+        value: 3
+        weight: 0.8
+    actions:
+      - type: log
+        message: "High fraud keyword density detected"
+    children:
+      # Enhanced fraud detection with instruction matching
+      - id: fraud_enhanced
+        name: "Enhanced Fraud Detection"
+        operator: OR
+        confidence_boost: 0.15
+        conditions:
+          - field: instructions_mention_fraud
+            operator: eq
+            value: true
+            weight: 1.0
+          - field: has_financial_data
+            operator: eq
+            value: true
+            weight: 0.8
+        actions:
+          - type: enhance_instructions
+            enhancement: "fraud_detection_focus"
+
+  # Threat intelligence detection
+  - id: threat_primary
+    name: "Primary Threat Intelligence Detection"
+    operator: AND
+    workflow: threat_intelligence_workflow
+    confidence_boost: 0.25
+    conditions:
+      - field: threat_keyword_density
+        operator: gt
+        value: 0.015
+        weight: 1.0
+      - field: threat_keyword_count
+        operator: ge
+        value: 2
+        weight: 0.8
+    actions:
+      - type: log
+        message: "Threat intelligence indicators detected"
+    children:
+      # Technical threat analysis
+      - id: threat_technical
+        name: "Technical Threat Analysis"
+        operator: AND
+        confidence_boost: 0.12
+        conditions:
+          - field: technical_keyword_count
+            operator: ge
+            value: 3
+            weight: 1.0
+          - field: instructions_mention_threat
+            operator: eq
+            value: true
+            weight: 0.9
+        actions:
+          - type: enhance_instructions
+            enhancement: "technical_threat_focus"
+
+  # Policy compliance analysis
+  - id: policy_primary
+    name: "Policy Compliance Detection"
+    operator: AND
+    workflow: policy_analysis_workflow
+    confidence_boost: 0.2
+    conditions:
+      - field: policy_keyword_density
+        operator: gt
+        value: 0.01
+        weight: 1.0
+      - field: policy_keyword_count
+        operator: ge
+        value: 2
+        weight: 0.8
+    actions:
+      - type: log
+        message: "Policy compliance content detected"
+    children:
+      # Regulatory compliance
+      - id: policy_regulatory
+        name: "Regulatory Compliance Focus"
+        operator: OR
+        confidence_boost: 0.1
+        conditions:
+          - field: content_lower
+            operator: contains
+            value: "gdpr"
+            weight: 1.0
+          - field: content_lower
+            operator: contains
+            value: "sox"
+            weight: 1.0
+          - field: content_lower
+            operator: contains
+            value: "hipaa"
+            weight: 1.0
+          - field: instructions_mention_policy
+            operator: eq
+            value: true
+            weight: 0.8
+
+  # Complex document handling
+  - id: complex_document
+    name: "Complex Document Analysis"
+    operator: AND
+    workflow: general_analysis_workflow
+    confidence_boost: 0.1
+    conditions:
+      - field: word_count
+        operator: gt
+        value: 2000
+        weight: 1.0
+      - field: has_headers
+        operator: eq
+        value: true
+        weight: 0.6
+      - field: has_lists
+        operator: eq
+        value: true
+        weight: 0.6
+    actions:
+      - type: log
+        message: "Complex structured document detected"
+    children:
+      # Technical documentation
+      - id: technical_document
+        name: "Technical Documentation"
+        operator: AND
+        confidence_boost: 0.08
+        conditions:
+          - field: technical_keyword_density
+            operator: gt
+            value: 0.01
+            weight: 1.0
+          - field: has_tables
+            operator: eq
+            value: true
+            weight: 0.8
+
+  # Instruction-driven workflow selection
+  - id: instruction_driven
+    name: "Instruction-Driven Classification"
+    operator: OR
+    confidence_boost: 0.15
+    conditions:
+      - field: instructions_mention_extraction
+        operator: eq
+        value: true
+        weight: 1.0
+      - field: instructions_mention_analysis
+        operator: eq
+        value: true
+        weight: 0.8
+    actions:
+      - type: log
+        message: "Instruction-specific processing required"
+    children:
+      # Extraction focus
+      - id: extraction_focus
+        name: "Data Extraction Focus"
+        operator: AND
+        workflow: general_analysis_workflow
+        confidence_boost: 0.05
+        conditions:
+          - field: instructions_mention_extraction
+            operator: eq
+            value: true
+            weight: 1.0
+          - field: document_length
+            operator: gt
+            value: 500
+            weight: 0.5
+
+  # Fallback for small documents
+  - id: simple_document
+    name: "Simple Document Processing"
+    operator: AND
+    workflow: general_analysis_workflow
+    confidence_boost: 0.05
+    conditions:
+      - field: word_count
+        operator: lt
+        value: 500
+        weight: 1.0
+      - field: fraud_keyword_count
+        operator: lt
+        value: 2
+        weight: 0.8
+      - field: threat_keyword_count
+        operator: lt
+        value: 2
+        weight: 0.8
+    actions:
+      - type: log
+        message: "Simple document - using general analysis"

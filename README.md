@@ -1,3 +1,5 @@
+![Golden Tests](https://github.com/assafkip/Safety_Sigma_Main_repo/actions/workflows/golden.yml/badge.svg)
+
 # docs# Safety Sigma: AI-Powered Threat Intelligence to Detection Rules
 
 [![Status](https://img.shields.io/badge/Status-MVP%20Development-yellow)](https://github.com/safety-sigma)

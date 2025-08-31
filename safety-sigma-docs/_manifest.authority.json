@@ -1,15 +1,15 @@
 {
 "version": "2025-08-31",
 "documents": [
-{ "path": "/docs/product/overview.md", "authority": "authoritative" },
-{ "path": "/docs/policy/guardrails.md", "authority": "authoritative" },
-{ "path": "/docs/tests/golden_cases.md", "authority": "authoritative" },
-{ "path": "/docs/ir/schema.md", "authority": "authoritative" },
-{ "path": "/docs/validation/contract.md", "authority": "authoritative" },
-{ "path": "/docs/specs/current_build.md", "authority": "advisory" },
-{ "path": "/docs/arch/options.md", "authority": "advisory" },
-{ "path": "/docs/ops/roadmap.md", "authority": "advisory" },
-{ "path": "/docs/ops/adr/ADR-0001-template.md", "authority": "advisory" }
+{ "path": "/safety-sigma-docs/product/overview.md", "authority": "authoritative" },
+{ "path": "/safety-sigma-docs/policy/guardrails.md", "authority": "authoritative" },
+{ "path": "/safety-sigma-docs/tests/golden_cases.md", "authority": "authoritative" },
+{ "path": "/safety-sigma-docs/ir/schema.md", "authority": "authoritative" },
+{ "path": "/safety-sigma-docs/validation/contract.md", "authority": "authoritative" },
+{ "path": "/safety-sigma-docs/specs/current_build.md", "authority": "advisory" },
+{ "path": "/safety-sigma-docs/arch/options.md", "authority": "advisory" },
+{ "path": "/safety-sigma-docs/ops/roadmap.md", "authority": "advisory" },
+{ "path": "/safety-sigma-docs/ops/adr/ADR-0001-template.md", "authority": "advisory" }
 ],
 "precedence": [
 "user_clarification_latest",

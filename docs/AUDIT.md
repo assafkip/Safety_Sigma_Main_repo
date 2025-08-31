@@ -1,3 +1,9 @@
+> **Authority note**: Audit requirements are binding:
+> - Guardrails (append-only audit; record inputs, spans, decisions, scores): Safety-Sigma-Docs/policy/guardrails.md:contentReference[oaicite:3]{index=3}
+> - Validation contract (V-003 Audit completeness + evidence list): Safety-Sigma-Docs/validation/contract.md:contentReference[oaicite:4]{index=4}
+> This file is **operational**: storage format, samples, and CI artifacts.
+
+
 Purpose
 
 Guarantee append-only auditability for all outputs.

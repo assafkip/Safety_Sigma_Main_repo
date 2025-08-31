@@ -1,3 +1,9 @@
+> **Authority note**: IR structure and invariants:
+> - IR Schema (C-001 amounts keep exact `value` + numeric `norm`; C-002 links literal; C-003 categories mapped to spans): Safety-Sigma-Docs/ir/schema.md:contentReference[oaicite:5]{index=5}
+> - Guardrails (exact indicator preservation; category validation): Safety-Sigma-Docs/policy/guardrails.md:contentReference[oaicite:6]{index=6}
+> This file is **operational**: examples, do/don’t, and integration notes.
+
+
 Principles
 
 Lossless for indicators and categories.

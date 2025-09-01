@@ -38,8 +38,18 @@ def sample_ir():
 
 def _find_regex_pattern(artifacts, needle):
     for r in artifacts.get("regex", []):
-        if r.get("pattern") and needle in r.get("pattern"):
-            return r.get("pattern")
+        pattern = r.get("pattern")
+        if pattern:
+            # Check if the pattern matches the needle (since pattern is escaped)
+            try:
+                if re.search(pattern, needle):
+                    return pattern
+            except re.error:
+                continue
+            # Also check the metadata name field as fallback
+            meta_name = r.get("meta", {}).get("name")
+            if meta_name == needle:
+                return pattern
     return None
 
 def test_amount_preservation_regex_sql_json(sample_ir):

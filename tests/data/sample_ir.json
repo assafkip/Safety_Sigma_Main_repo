@@ -1,0 +1,9 @@
+{
+  "extractions": [],
+  "indicators": [
+    {"kind":"amount","verbatim":"$1,998.88","numeric":1998.88,"category_id":"payments","span_id":"s_amt"},
+    {"kind":"text","verbatim":"VOID 2000","category_id":"fraud_marker","span_id":"s_void"},
+    {"kind":"link","literal":"wa.me/123456789","category_id":"comm","span_id":"s_link"}
+  ],
+  "categories":{"payments":{},"fraud_marker":{},"comm":{}}
+}

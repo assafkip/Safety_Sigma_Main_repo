@@ -1,13 +1,15 @@
-.PHONY: bootstrap test lint demo clean test-parity help
+.PHONY: bootstrap test lint demo clean test-parity help test-v02 bundle
 
 # Default target
 help:
 	@echo "Safety Sigma 2.0 - Available targets:"
 	@echo "  bootstrap     - Initialize repository and dependencies"
 	@echo "  test         - Run all tests including parity checks"
+	@echo "  test-v02     - Run v0.2 validation tests (golden, unit, audit)"
 	@echo "  test-parity  - Run parity tests against Safety Sigma 1.0"
 	@echo "  lint         - Run code formatting and linting"
-	@echo "  demo         - Run demo with sample data"
+	@echo "  demo         - Run v0.2 PDF processing demo (atlas->html/json)"
+	@echo "  bundle       - Create artifacts bundle with demo outputs"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -41,8 +43,33 @@ format:
 	@source .venv/bin/activate && isort safety_sigma/ tests/
 
 demo:
-	@echo "Running demo..."
-	@source .venv/bin/activate && python -m safety_sigma.demo
+	@echo "🎬 Running Safety Sigma v0.2 PDF Demo..."
+	./demo/run_demo.sh
+
+test-v02:
+	@echo "🧪 Running v0.2 validation tests..."
+	@echo "Testing V-001,V-002 (Golden Cases):"
+	@PYTHONPATH=. pytest -q tests/golden_cases
+	@echo "Testing rule compiler (Unit Tests):"
+	@PYTHONPATH=. pytest -q tests/unit  
+	@echo "Testing V-003..V-005 (Audit Tests):"
+	@PYTHONPATH=. pytest -q tests/audit
+	@echo "✅ All v0.2 validation gates passed"
+
+bundle:
+	@echo "📦 Creating artifacts bundle..."
+	@mkdir -p artifacts
+	@echo "Running demo to ensure fresh artifacts..."
+	@$(MAKE) demo
+	@echo "Creating audit bundle..."
+	@zip -r artifacts/audit_bundle.zip \
+		Reports/*.pdf \
+		artifacts/*.json \
+		artifacts/*.html \
+		demo/sample_outputs/* \
+		|| true
+	@echo "Bundle created: artifacts/audit_bundle.zip"
+	@ls -lh artifacts/audit_bundle.zip || true
 
 clean:
 	@echo "Cleaning build artifacts..."

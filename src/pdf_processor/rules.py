@@ -43,6 +43,9 @@ def _required_fields(kind: str) -> List[str]:
     # "text" covers memo/markers with verbatim content
     if kind in ("text", "memo"):
         return ["kind", "verbatim", "category_id", "span_id"]
+    # New types in schema v0.2: domain, phone, email, account, behavior
+    if kind in ("domain", "phone", "email", "account", "behavior"):
+        return ["kind", "verbatim", "category_id", "span_id"]
     # default: require verbatim if present; remain strict on span refs
     return ["kind", "category_id", "span_id"]
 
@@ -138,7 +141,9 @@ def compile_rules(ir: Dict[str, Any], options: Optional[CompileOptions] = None) 
                     lit = ind["verbatim"]
                 elif kind == "link":
                     lit = ind["literal"]
-                else:  # "text" or others that have verbatim
+                elif kind in ("text", "memo", "domain", "phone", "email", "account", "behavior"):
+                    lit = ind.get("verbatim")
+                else:  # fallback for other types
                     lit = ind.get("verbatim")
                 if not isinstance(lit, str):
                     # Skip impossible cases; unit tests expect strict failure on missing before this point.
@@ -188,7 +193,13 @@ def compile_rules(ir: Dict[str, Any], options: Optional[CompileOptions] = None) 
                     kept["literal"] = ind["literal"]
                 kept.update(_provenance_meta(ind["category_id"], ind["span_id"]))
                 inds_out.append(kept)
-            artifacts["json"] = {"categories": categories, "indicators": inds_out}
+            json_output = {"categories": categories, "indicators": inds_out}
+            
+            # If input IR had links, carry them through untouched
+            if "links" in ir_in:
+                json_output["links"] = ir_in["links"]
+            
+            artifacts["json"] = json_output
 
     # Category diff ==  (compiled JSON vs IR)
     if "json" in artifacts:

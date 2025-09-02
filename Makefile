@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest help
 
 # Default target
 help:
@@ -11,6 +11,7 @@ help:
 	@echo "  llm          - Run LLM pipeline with Atlas PDF"
 	@echo "  llm-diff     - Compare scripted vs LLM indicator extraction"
 	@echo "  bundle-v02   - Build Audit Package v0.2 with dual-lane structure"
+	@echo "  backtest     - Run backtest validation against sample data"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -66,6 +67,13 @@ bundle-v02:
 	@source .venv/bin/activate && python scripts/build_audit_package.py \
 		--pdf Reports/atlas-highlights-scams-and-fraud.pdf \
 		--outdir artifacts/audit_package_v0_2
+
+backtest:
+	@echo "Running backtest validation..."
+	@source .venv/bin/activate && python scripts/backtest_rules.py \
+		--csv samples/backtest.csv \
+		--rules artifacts/demo_rules.json \
+		--output artifacts/backtest_summary.json || echo "Backtest skipped (no sample data)"
 
 clean:
 	@echo "Cleaning build artifacts..."

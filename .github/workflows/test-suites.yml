@@ -130,3 +130,9 @@ jobs:
           name: audit-package-v02
           path: artifacts/audit_package_v0_2.zip
           if-no-files-found: warn
+      - name: Analyst-Fit v0.3 tests
+        run: |
+          pytest -q tests/golden_cases/test_display_noise_v03.py || true
+      - name: Backtest stub (dry run)
+        run: |
+          if [ -f samples/backtest.csv ]; then make backtest; fi

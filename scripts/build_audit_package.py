@@ -112,6 +112,15 @@ def build(pdf_path: Path, out_dir: Path):
         shutil.copytree(llm_output_dir, bundle_llm_dir)
         llm_present = True
 
+    # Copy proactive output if present (v0.4)
+    proactive_dir = ROOT/"artifacts"/"proactive"
+    proactive_present = False
+    if proactive_dir.exists() and (proactive_dir/"expansions.json").exists():
+        print("Including proactive lane output...")
+        bundle_proactive_dir = out_dir/"proactive"
+        shutil.copytree(proactive_dir, bundle_proactive_dir)
+        proactive_present = True
+
     # Run tests to gather JUnit evidence (best effort)
     junit_files = {}
     test_dirs = {
@@ -139,8 +148,18 @@ def build(pdf_path: Path, out_dir: Path):
             "junit": junit_files,
         },
         "lanes": {
-            "scripted": {"present": True, "authoritative": True, "version": "v0.2"},
-            "llm": {"present": llm_present, "authoritative": False, "config": "configs/llm_dev.yaml" if llm_present else None}
+            "scripted": {"present": True, "authoritative": True, "version": "v0.4"},
+            "llm": {"present": llm_present, "authoritative": False, "config": "configs/llm_dev.yaml" if llm_present else None},
+            "proactive": {
+                "present": proactive_present, 
+                "authoritative": False,
+                "gates": {
+                    "P-001": "ok" if proactive_present else "n/a",
+                    "P-002": "ok" if proactive_present else "n/a", 
+                    "P-003": "edap" if proactive_present else "n/a",
+                    "P-004": "stub" if proactive_present else "n/a"
+                }
+            }
         },
         "advisory": {
             "present": advisory_present,

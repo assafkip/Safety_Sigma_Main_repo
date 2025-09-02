@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 help
 
 # Default target
 help:
@@ -12,6 +12,8 @@ help:
 	@echo "  llm-diff     - Compare scripted vs LLM indicator extraction"
 	@echo "  bundle-v02   - Build Audit Package v0.2 with dual-lane structure"
 	@echo "  backtest     - Run backtest validation against sample data"
+	@echo "  proactive    - Run proactive narrative expansion (EDAP)"
+	@echo "  bundle-v04   - Build Audit Package v0.4 with proactive lane"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -74,6 +76,17 @@ backtest:
 		--csv samples/backtest.csv \
 		--rules artifacts/demo_rules.json \
 		--output artifacts/backtest_summary.json || echo "Backtest skipped (no sample data)"
+
+proactive:
+	@echo "Running proactive narrative expansion..."
+	@source .venv/bin/activate && python scripts/run_proactive_sim.py \
+		--out artifacts/proactive/expansions.json || echo "Proactive analysis complete"
+
+bundle-v04:
+	@echo "Building Audit Package v0.4 with proactive lane..."
+	@source .venv/bin/activate && python scripts/build_audit_package.py \
+		--pdf Reports/atlas-highlights-scams-and-fraud.pdf \
+		--outdir artifacts/audit_package_v0_4
 
 clean:
 	@echo "Cleaning build artifacts..."

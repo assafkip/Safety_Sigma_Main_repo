@@ -281,6 +281,15 @@ def generate_html_report(pdf_path: Path, indicators: List[Dict[str, Any]],
         h2 {{ color: #495057; border-bottom: 2px solid #e9ecef; padding-bottom: 8px; }}
         .findings-list li {{ margin: 8px 0; }}
         .no-data {{ text-align: center; color: #6c757d; font-style: italic; padding: 20px; }}
+        .advisory-content {{ line-height: 1.6; }}
+        .advisory-content h1, .advisory-content h2 {{ margin-top: 24px; margin-bottom: 12px; }}
+        .advisory-content h1 {{ font-size: 1.5em; }}
+        .advisory-content h2 {{ font-size: 1.3em; }}
+        .advisory-content p {{ margin: 12px 0; }}
+        .advisory-content ul {{ margin: 12px 0; padding-left: 20px; }}
+        .advisory-content li {{ margin: 4px 0; }}
+        .advisory-content strong {{ color: #495057; }}
+        .advisory-content code {{ background: #e9ecef; padding: 2px 4px; border-radius: 3px; font-family: monospace; }}
     </style>
 </head>
 <body>

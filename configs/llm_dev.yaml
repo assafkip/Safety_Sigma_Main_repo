@@ -1,0 +1,123 @@
+# Safety Sigma LLM Integration Configuration v0.1
+# Development configuration for LLM integration layer
+
+# Model Configuration
+model_name: "claude-3-haiku-20240307"  # Fast, deterministic model for development
+model_provider: "anthropic"
+api_endpoint: "https://api.anthropic.com/v1/messages"
+
+# Decoding Parameters (Deterministic)
+temperature: 0.0          # Maximum determinism
+max_tokens: 4096          # Cap to prevent drift
+top_p: 1.0               # No nucleus sampling
+top_k: -1                # Disabled
+repetition_penalty: 1.0  # No penalty
+
+# Rule Targets (enabled compilation targets)
+targets:
+  - "regex"    # Always enabled for golden tests
+  - "json"     # Structured rule format
+  - "python"   # Optional: Python detection functions
+  # - "sql"    # Optional: SQL queries (disable for dev to avoid DB deps)
+
+# Processing Configuration
+processing_mode: "zero-inference"  # Strict zero-inference mode
+cite_or_omit: true                 # Only use explicitly sourced content
+exact_preservation: true           # Preserve indicators verbatim
+category_grounding: true           # Categories only if in source with spans
+
+# Validation Gates (V-001 through V-005)
+validation:
+  enforce_gates: true              # Fail if any gate fails
+  required_gates:
+    - "V-001"  # Indicator preservation
+    - "V-002"  # Category grounding  
+    - "V-003"  # Audit completeness
+    - "V-004"  # Practitioner readiness
+    - "V-005"  # Execution guarantees
+  
+  # Golden test requirements
+  golden_indicators:
+    - "$1,998.88"        # Amount with comma and decimal
+    - "VOID 2000"        # Alphanumeric code
+    - "wa.me/123456789"  # WhatsApp link format
+  
+  fail_on_invention: true          # Fail if categories/facts are invented
+  require_provenance: true         # Every extraction needs provenance
+  no_unspecified: true            # No UNSPECIFIED in production outputs
+
+# Audit Configuration
+audit:
+  enabled: true
+  redact_sensitive: true           # Redact API keys, credentials in logs
+  tamper_evident: true            # Use hash chain for integrity
+  log_model_interactions: true    # Log prompts/responses (redacted)
+  retention_days: 90              # How long to keep audit logs
+
+# Output Configuration
+output:
+  schema_version: "v0.4"          # IR Schema version
+  include_metadata: true          # Add processing metadata
+  preserve_formatting: true      # Keep original text formatting where possible
+  
+  narrative:
+    include_verification_checklist: true  # V-001..V-005 checklist in narrative
+    quote_with_spans: true               # Always include [p:X start-end] references
+    operational_focus: true              # Focus on detection, not speculation
+    
+  rules:
+    include_source_refs: true           # Reference extractions by index
+    add_comments: true                  # Include header comments with extraction indices
+    escape_regex: true                  # Properly escape regex special chars
+    validate_syntax: true              # Check syntax before saving
+
+# Safety & Compliance
+safety:
+  max_prompt_length: 100000       # Prevent DoS via large prompts
+  input_sanitization: true        # Sanitize inputs to prevent injection
+  output_validation: true         # Validate outputs match expected format
+  
+  # Content filtering (what NOT to generate)
+  prohibited_content:
+    - "invented_categories"       # No categories not in source
+    - "normalized_indicators"     # No reformatting of exact indicators
+    - "speculative_attribution"   # No threat actor speculation
+    - "synthetic_relationships"   # No invented connections
+
+# Development/Debug Options
+debug:
+  verbose_logging: false          # Extra logging (dev only)
+  save_prompts: true             # Save rendered prompts to files
+  validate_determinism: true     # Check repeated runs are identical
+  mock_llm_calls: true          # Use deterministic mock instead of real LLM (dev)
+  
+# Performance
+performance:
+  request_timeout: 30            # API request timeout in seconds
+  max_retries: 3                # Retry failed requests
+  batch_size: 10                # Max extractions per LLM call
+  
+# Integration Settings
+integration:
+  pdf_extractor: "demo_script"   # Use existing demo script for PDF processing  
+  validation_harness: "pytest"  # Test framework for validation
+  
+  # Paths (relative to project root)
+  paths:
+    audit_logs: "audit_logs/"
+    artifacts: "artifacts/"
+    tests: "tests/"
+    golden_data: "tests/golden_cases/"
+
+# Environment-specific overrides
+# These can be overridden via environment variables prefixed with SAFETY_SIGMA_
+env_overrides:
+  api_key_env: "ANTHROPIC_API_KEY"        # Environment variable for API key
+  model_name_env: "SAFETY_SIGMA_MODEL"    # Override model name
+  debug_env: "SAFETY_SIGMA_DEBUG"         # Enable debug mode
+
+# Version and Compatibility  
+version: "0.1.0"
+min_python_version: "3.8"
+compatible_ir_schemas: ["v0.4"]
+compatible_validation_contracts: ["v1.0"]

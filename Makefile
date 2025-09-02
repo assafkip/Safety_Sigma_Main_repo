@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity help
+.PHONY: bootstrap test lint demo clean test-parity help advisory audit-bundle
 
 # Default target
 help:
@@ -8,6 +8,8 @@ help:
 	@echo "  test-parity  - Run parity tests against Safety Sigma 1.0"
 	@echo "  lint         - Run code formatting and linting"
 	@echo "  demo         - Run demo with sample data"
+	@echo "  advisory     - Generate NON-AUTHORITATIVE narrative from rules"
+	@echo "  audit-bundle - Build Audit Package v0.1 (PDF + rules + advisory + manifest)"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -43,6 +45,15 @@ format:
 demo:
 	@echo "Running demo..."
 	@source .venv/bin/activate && python -m safety_sigma.demo
+
+advisory:
+	@echo "📝 Generating Advisory Narrative (NON-AUTHORITATIVE)..."
+	@python3 scripts/generate_advisory.py --rules artifacts/demo_rules.json --outdir advisory
+
+audit-bundle:
+	@echo "📋 Building Audit Package v0.1..."
+	@python3 scripts/build_audit_package.py --pdf Reports/atlas-highlights-scams-and-fraud.pdf --outdir artifacts/audit_package_v0_1
+	@echo "Bundle at artifacts/audit_package_v0_1.zip"
 
 clean:
 	@echo "Cleaning build artifacts..."

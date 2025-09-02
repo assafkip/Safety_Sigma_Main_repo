@@ -103,6 +103,15 @@ def build(pdf_path: Path, out_dir: Path):
     if privacy_note.exists():
         shutil.copy2(privacy_note, out_dir/"docs"/"ops"/"privacy_legal_note_v0.1.md")
 
+    # Copy LLM output if present
+    llm_output_dir = ROOT/"artifacts"/"llm_output"
+    llm_present = False
+    if llm_output_dir.exists():
+        print("Including LLM lane output...")
+        bundle_llm_dir = out_dir/"llm_output"
+        shutil.copytree(llm_output_dir, bundle_llm_dir)
+        llm_present = True
+
     # Run tests to gather JUnit evidence (best effort)
     junit_files = {}
     test_dirs = {
@@ -132,6 +141,11 @@ def build(pdf_path: Path, out_dir: Path):
         "advisory": {
             "present": advisory_present,
             "authoritative": False
+        },
+        "llm_lane": {
+            "present": llm_present,
+            "authoritative": False,
+            "config": "configs/llm_dev.yaml" if llm_present else None
         },
         "documentation": {
             "privacy_legal_note": "docs/ops/privacy_legal_note_v0.1.md" if privacy_note.exists() else None

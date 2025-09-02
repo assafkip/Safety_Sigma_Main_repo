@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff help
 
 # Default target
 help:
@@ -8,6 +8,8 @@ help:
 	@echo "  test-parity  - Run parity tests against Safety Sigma 1.0"
 	@echo "  lint         - Run code formatting and linting"
 	@echo "  demo         - Run demo with sample data"
+	@echo "  llm          - Run LLM pipeline with Atlas PDF"
+	@echo "  llm-diff     - Compare scripted vs LLM indicator extraction"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -43,6 +45,20 @@ format:
 demo:
 	@echo "Running demo..."
 	@source .venv/bin/activate && python -m safety_sigma.demo
+
+llm:
+	@echo "Running LLM pipeline with Atlas PDF..."
+	@source .venv/bin/activate && python scripts/run_llm_pipeline.py \
+		--doc Reports/atlas-highlights-scams-and-fraud.pdf \
+		--config configs/llm_dev.yaml \
+		--out artifacts/llm_output
+
+llm-diff:
+	@echo "Comparing scripted vs LLM indicator extraction..."
+	@source .venv/bin/activate && python scripts/diff_ir.py \
+		--scripted artifacts/demo_rules.json \
+		--llm artifacts/llm_output/ir.json \
+		--verbose
 
 clean:
 	@echo "Cleaning build artifacts..."

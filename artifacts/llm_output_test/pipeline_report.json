@@ -1,0 +1,178 @@
+{
+  "pipeline_id": "pipeline_1756829770_atlas-highlights-scams-and-fraud",
+  "timestamp": 1756829770.803537,
+  "config": {
+    "model_name": "claude-3-haiku-20240307",
+    "model_provider": "anthropic",
+    "api_endpoint": "https://api.anthropic.com/v1/messages",
+    "temperature": 0.0,
+    "max_tokens": 4096,
+    "top_p": 1.0,
+    "top_k": -1,
+    "repetition_penalty": 1.0,
+    "targets": [
+      "regex",
+      "json",
+      "python"
+    ],
+    "processing_mode": "zero-inference",
+    "cite_or_omit": true,
+    "exact_preservation": true,
+    "category_grounding": true,
+    "validation": {
+      "enforce_gates": true,
+      "required_gates": [
+        "V-001",
+        "V-002",
+        "V-003",
+        "V-004",
+        "V-005"
+      ],
+      "golden_indicators": [
+        "$1,998.88",
+        "VOID 2000",
+        "wa.me/123456789"
+      ],
+      "fail_on_invention": true,
+      "require_provenance": true,
+      "no_unspecified": true
+    },
+    "audit": {
+      "enabled": true,
+      "redact_sensitive": true,
+      "tamper_evident": true,
+      "log_model_interactions": true,
+      "retention_days": 90
+    },
+    "output": {
+      "schema_version": "v0.4",
+      "include_metadata": true,
+      "preserve_formatting": true,
+      "narrative": {
+        "include_verification_checklist": true,
+        "quote_with_spans": true,
+        "operational_focus": true
+      },
+      "rules": {
+        "include_source_refs": true,
+        "add_comments": true,
+        "escape_regex": true,
+        "validate_syntax": true
+      }
+    },
+    "safety": {
+      "max_prompt_length": 100000,
+      "input_sanitization": true,
+      "output_validation": true,
+      "prohibited_content": [
+        "invented_categories",
+        "normalized_indicators",
+        "speculative_attribution",
+        "synthetic_relationships"
+      ]
+    },
+    "debug": {
+      "verbose_logging": false,
+      "save_prompts": true,
+      "validate_determinism": true,
+      "mock_llm_calls": true
+    },
+    "performance": {
+      "request_timeout": 30,
+      "max_retries": 3,
+      "batch_size": 10
+    },
+    "integration": {
+      "pdf_extractor": "demo_script",
+      "validation_harness": "pytest",
+      "paths": {
+        "audit_logs": "audit_logs/",
+        "artifacts": "artifacts/",
+        "tests": "tests/",
+        "golden_data": "tests/golden_cases/"
+      }
+    },
+    "env_overrides": {
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "model_name_env": "SAFETY_SIGMA_MODEL",
+      "debug_env": "SAFETY_SIGMA_DEBUG"
+    },
+    "version": "0.1.0",
+    "min_python_version": "3.8",
+    "compatible_ir_schemas": [
+      "v0.4"
+    ],
+    "compatible_validation_contracts": [
+      "v1.0"
+    ]
+  },
+  "source_document": {
+    "id": "atlas-highlights-scams-and-fraud",
+    "path": "Reports/atlas-highlights-scams-and-fraud.pdf",
+    "pages": 1
+  },
+  "processing_stats": {
+    "extractions_processed": 0,
+    "ir_extractions": 0,
+    "rules_generated": [
+      "regex",
+      "json",
+      "python"
+    ],
+    "narrative_length": 458
+  },
+  "validation": {
+    "all_gates_passed": true,
+    "gates": {
+      "V-001": {
+        "passed": true,
+        "issues": [],
+        "test_cases": []
+      },
+      "V-002": {
+        "passed": true,
+        "issues": [],
+        "categories_found": [],
+        "ungrounded_categories": []
+      },
+      "V-003": {
+        "passed": true,
+        "issues": [],
+        "missing_provenance": [],
+        "missing_spans": []
+      },
+      "V-004": {
+        "passed": true,
+        "issues": []
+      },
+      "V-005": {
+        "passed": true,
+        "issues": [],
+        "unspecified_found": []
+      }
+    },
+    "summary": {
+      "total_gates": 5,
+      "passed_gates": 5,
+      "gate_status": {
+        "V-001": true,
+        "V-002": true,
+        "V-003": true,
+        "V-004": true,
+        "V-005": true
+      }
+    },
+    "issues": []
+  },
+  "outputs": {
+    "ir": "artifacts/llm_output_test/ir.json",
+    "rules": [
+      "artifacts/llm_output_test/rules/rules.regex",
+      "artifacts/llm_output_test/rules/rules.json",
+      "artifacts/llm_output_test/rules/rules.python"
+    ],
+    "narrative": "artifacts/llm_output_test/narrative.md",
+    "validation_report": "artifacts/llm_output_test/validation_report.json",
+    "audit_log": "artifacts/llm_output_test/audit/log.jsonl"
+  }
+}

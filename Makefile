@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 help
 
 # Default target
 help:
@@ -14,6 +14,8 @@ help:
 	@echo "  backtest     - Run backtest validation against sample data"
 	@echo "  proactive    - Run proactive narrative expansion (EDAP)"
 	@echo "  bundle-v04   - Build Audit Package v0.4 with proactive lane"
+	@echo "  report-v05   - Generate HTML report v0.5 with backtesting metrics"
+	@echo "  bundle-v05   - Build Audit Package v0.5 with backtesting & behavioral context"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -71,11 +73,7 @@ bundle-v02:
 		--outdir artifacts/audit_package_v0_2
 
 backtest:
-	@echo "Running backtest validation..."
-	@source .venv/bin/activate && python scripts/backtest_rules.py \
-		--csv samples/backtest.csv \
-		--rules artifacts/demo_rules.json \
-		--output artifacts/backtest_summary.json || echo "Backtest skipped (no sample data)"
+	python3 scripts/run_backtest.py --rules artifacts/demo_rules.json --clean samples/clean.csv --labeled samples/labeled.csv --out artifacts/proactive/backtest_report.json || true
 
 proactive:
 	@echo "Running proactive narrative expansion..."
@@ -87,6 +85,12 @@ bundle-v04:
 	@source .venv/bin/activate && python scripts/build_audit_package.py \
 		--pdf Reports/atlas-highlights-scams-and-fraud.pdf \
 		--outdir artifacts/audit_package_v0_4
+
+report-v05:
+	PYTHONPATH=. python3 scripts/render_report_v05.py
+
+bundle-v05:
+	python3 scripts/build_audit_package.py --pdf Reports/atlas-highlights-scams-and-fraud.pdf --outdir artifacts/audit_package_v0_5
 
 clean:
 	@echo "Cleaning build artifacts..."

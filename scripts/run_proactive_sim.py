@@ -110,11 +110,12 @@ def main():
             "operator": exp.operator,
             "evidence_sent_id": exp.evidence_sent_id,
             "evidence_quote": exp.evidence_quote,
-            "status": exp.status
+            "status": exp.status,
+            "justification": exp.justification
         })
     
     output_json = {
-        "schema_version": "v0.4",
+        "schema_version": "v0.5",
         "processing_mode": "proactive_edap",
         "total_sentences": len(sentences),
         "total_expansions": len(expansions),

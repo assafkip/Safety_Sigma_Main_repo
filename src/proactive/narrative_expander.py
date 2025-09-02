@@ -17,8 +17,10 @@ class Expansion:
     evidence_sent_id: str
     evidence_quote: str
     status: str          # "ready" | "advisory"
+    justification: str = ""  # Operator + Evidence Quote + Sentence ID
 
 EDAP_THRESHOLD = {"repeat_min": 2}
+GENERIC_DISPLAY = {"apps","payments","transfers"}
 
 def extract_evidence(sentences: List[Evidence]) -> List[Expansion]:
     """Extract expansions from narrative sentences using EDAP criteria"""
@@ -30,11 +32,16 @@ def extract_evidence(sentences: List[Evidence]) -> List[Expansion]:
         if (" or " in t.lower()) or ("such as" in t.lower()) or ("including" in t.lower()):
             alts = _extract_alternatives(t)
             for alt in alts:
+                # Filter out generic tokens at generation time
+                if alt.strip().lower() in GENERIC_DISPLAY:
+                    continue
                 # compile literal set expansion for platforms/domains named explicitly
                 pat = _literal_to_pattern(alt)
+                just = f"ALT_ENUM from {s.sent_id}: {t}"
                 exps.append(Expansion(pattern=pat, kind="behavior_or_platform",
                                       parent_spans=s.spans, operator="ALT_ENUM",
-                                      evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory"))
+                                      evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory",
+                                      justification=just))
 
         # RANGE_DIGITS: "3-4 digit code", "6+ digits"
         rng = _extract_digit_range(t)
@@ -43,17 +50,21 @@ def extract_evidence(sentences: List[Evidence]) -> List[Expansion]:
             # example: VOID <digits> where VOID is in parent spans
             if any("VOID" in s.text for s in sentences):
                 pat = r"VOID[ ]\\d{" + (f"{lo},{hi}" if hi else f"{lo},") + "}"
+                just = f"RANGE_DIGITS from {s.sent_id}: {t}"
                 exps.append(Expansion(pattern=pat, kind="text",
                                       parent_spans=s.spans, operator="RANGE_DIGITS",
-                                      evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory"))
+                                      evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory",
+                                      justification=just))
 
         # LITERAL_SET: explicitly named variants
         literals = _extract_literal_set(t)
         for lit in literals:
             pat = _literal_to_pattern(lit)
+            just = f"LITERAL_SET from {s.sent_id}: {t}"
             exps.append(Expansion(pattern=pat, kind="domain_or_url",
                                   parent_spans=s.spans, operator="LITERAL_SET", 
-                                  evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory"))
+                                  evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory",
+                                  justification=just))
 
     # EDAP: auto-promote if E1/E2/E3 holds
     return _apply_edap(exps, sentences)

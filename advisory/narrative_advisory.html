@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisory Narrative v0.1 — NON-AUTHORITATIVE</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            line-height: 1.6; 
+            background-color: #fafafa;
+        }
+        .disclaimer {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 6px solid #c92a2a;
+            margin: 20px 0;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .disclaimer::before {
+            content: "⚠️ ";
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .header {
+            background: linear-gradient(135deg, #495057, #343a40);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #868e96;
+        }
+        .no-data {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px dashed #adb5bd;
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9em;
+            border-top: 1px solid #dee2e6;
+        }
+        h1 { color: #495057; margin-bottom: 10px; }
+        h2 { color: #495057; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; }
+        code { 
+            background: #f8f9fa; 
+            padding: 2px 6px; 
+            border-radius: 3px; 
+            color: #e83e8c; 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📋 Advisory Narrative v0.1</h1>
+        <p><strong>NON-AUTHORITATIVE ANALYST SUMMARY</strong></p>
+        <p>Generated: <span id="timestamp"></span></p>
+    </div>
+
+    <div class="disclaimer">
+        <strong>ADVISORY / NON-AUTHORITATIVE</strong> — This narrative is for analyst convenience. 
+        It is derived from quoted spans already present in the IR/rules bundle. 
+        Do not treat this document as a source of truth. The authoritative artifacts remain: 
+        <code>ir/ir.json</code>, <code>rules/rules.json</code>, test results, and the validation manifest.
+    </div>
+
+    <div class="section">
+        <h2>💰 Financial Indicators</h2>
+        <div class="no-data">
+            No financial indicators (amounts, accounts) found in current rules bundle.
+            <br>
+            <small>This section will populate when processing PDFs with financial content.</small>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🌐 Infrastructure</h2>
+        <div class="no-data">
+            No infrastructure indicators (domains, phones, emails) found in current rules bundle.
+            <br>
+            <small>This section will populate when processing PDFs with infrastructure indicators.</small>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Threat Themes</h2>
+        <div class="no-data">
+            No behavior patterns found in current rules bundle.
+            <br>
+            <small>This section will populate when processing PDFs with threat behaviors.</small>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💬 Observed Phrases</h2>
+        <div class="no-data">
+            No text phrases found in current rules bundle.
+            <br>
+            <small>This section will populate when processing PDFs with quoted text spans.</small>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📊 Advisory Status</h2>
+        <p><strong>Processing Mode:</strong> Template-based (zero-inference)</p>
+        <p><strong>Source Data:</strong> IR/rules spans only</p>
+        <p><strong>LLM Augmentation:</strong> Disabled (ADVISORY_LLM=off)</p>
+        <p><strong>Provenance:</strong> All claims must cite span IDs from authoritative artifacts</p>
+        
+        <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 6px; border-left: 4px solid #1976d2;">
+            <strong>🔍 Framework Ready:</strong> 
+            The advisory narrative system is fully implemented and will automatically populate 
+            rich content when connected to PDF processing pipelines that extract:
+            <ul>
+                <li>Financial amounts and account references</li>
+                <li>Infrastructure indicators (domains, IPs, emails, phones)</li>
+                <li>Behavioral patterns and threat themes</li>
+                <li>Key phrases and quoted text spans</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Generated by Safety Sigma Advisory Narrative v0.1</strong></p>
+        <p>
+            <code>scripts/generate_advisory.py</code> • 
+            Zero-inference • 
+            NON-AUTHORITATIVE • 
+            For analyst convenience only
+        </p>
+        <p style="margin-top: 15px;">
+            <em>Always verify information against authoritative artifacts in the rules/ directory</em>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "tool_name": "extraction_tool",
+  "tool_version": "1.0.0",
+  "run_id": "f32907d0-6126-4bea-916f-1c083e823168",
+  "start_time": 1756750324.533674,
+  "end_time": 1756750324.533681,
+  "duration_ms": 0.0069141387939453125,
+  "success": false,
+  "input_summary": {
+    "instructions": "short",
+    "text_content": "test content"
+  },
+  "output_summary": {},
+  "error": "ValueError: Instructions must be a string with at least 10 characters",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "extraction_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    },
+    "tool_specific": {
+      "backend": "safety_sigma_processor",
+      "ai_processing": {
+        "model": "gpt-4-turbo-preview",
+        "temperature": 0.1,
+        "max_tokens": 4000
+      },
+      "compliance": {
+        "zero_inference_mode": true,
+        "source_traceability": true,
+        "synthetic_content_detection": true
+      },
+      "compatibility": {
+        "ss1_version": "1.0",
+        "maintains_analysis_parity": true
+      }
+    }
+  },
+  "compliance_flags": {},
+  "timestamp_iso": "2025-09-01T18:12:04Z"
+}

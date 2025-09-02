@@ -1,0 +1,51 @@
+{
+  "tool_name": "extraction_tool",
+  "tool_version": "1.0.0",
+  "run_id": "206d97d5-c680-4793-8059-44f9312212e7",
+  "start_time": 1756750324.5329092,
+  "end_time": 1756750324.532979,
+  "duration_ms": 0.06985664367675781,
+  "success": true,
+  "input_summary": {
+    "instructions": "Extract key information from the document",
+    "text_content": "This is test content for extraction",
+    "simulate": true
+  },
+  "output_summary": {
+    "type": "str",
+    "preview": "Safety Sigma Analysis - Simulated Mode\n\nDocument Information:\n- Content length: 35 characters\n- Instructions length: 41 characters  \n- Processing mode: Simulation\n- Zero-inference: ENABLED\n\nContent Su..."
+  },
+  "error": null,
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "extraction_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    },
+    "tool_specific": {
+      "backend": "safety_sigma_processor",
+      "ai_processing": {
+        "model": "gpt-4-turbo-preview",
+        "temperature": 0.1,
+        "max_tokens": 4000
+      },
+      "compliance": {
+        "zero_inference_mode": true,
+        "source_traceability": true,
+        "synthetic_content_detection": true
+      },
+      "compatibility": {
+        "ss1_version": "1.0",
+        "maintains_analysis_parity": true
+      }
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true,
+    "source_traceability": true
+  },
+  "timestamp_iso": "2025-09-01T18:12:04Z"
+}

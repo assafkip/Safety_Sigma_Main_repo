@@ -39,9 +39,9 @@ def build(pdf_path: Path, out_dir: Path):
     advisory_script = ROOT/"scripts"/"generate_advisory.py"
     has_advisory = advisory_script.exists()
     
-    # Create bundle structure
+    # Create bundle structure (v0.2 dual-lane)
     (out_dir/"input").mkdir(exist_ok=True, parents=True)
-    (out_dir/"rules").mkdir(exist_ok=True)
+    (out_dir/"scripted").mkdir(exist_ok=True)  # Authoritative scripted lane
     (out_dir/"tests").mkdir(exist_ok=True)
     (out_dir/"advisory").mkdir(exist_ok=True)
     (out_dir/"docs"/"ops").mkdir(exist_ok=True, parents=True)
@@ -74,11 +74,11 @@ def build(pdf_path: Path, out_dir: Path):
             }
             demo_json.write_text(json.dumps(minimal_rules, indent=2))
 
-    # Copy rules and report if they exist
+    # Copy scripted lane artifacts (authoritative)
     if demo_json.exists():
-        shutil.copy2(demo_json, out_dir/"rules"/"rules.json")
+        shutil.copy2(demo_json, out_dir/"scripted"/"rules.json")
     if demo_html.exists():
-        shutil.copy2(demo_html, out_dir/"rules"/"report.html")
+        shutil.copy2(demo_html, out_dir/"scripted"/"report.html")
 
     # Generate advisory narrative if script available
     advisory_present = False
@@ -129,23 +129,22 @@ def build(pdf_path: Path, out_dir: Path):
                 shutil.copy2(junit_path, out_dir/"tests"/f"junit_{test_name}.xml")
                 junit_files[test_name] = f"tests/junit_{test_name}.xml"
 
-    # Create manifest with advisory tracking and gate evaluation
+    # Create manifest with dual-lane architecture (v0.2)
     manifest = {
         "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "source_pdf": pdf_path.name,
         "artifacts": {
-            "rules_json": "rules/rules.json",
-            "report_html": "rules/report.html",
+            "rules_json": "scripted/rules.json",
+            "report_html": "scripted/report.html",
             "junit": junit_files,
+        },
+        "lanes": {
+            "scripted": {"present": True, "authoritative": True, "version": "v0.2"},
+            "llm": {"present": llm_present, "authoritative": False, "config": "configs/llm_dev.yaml" if llm_present else None}
         },
         "advisory": {
             "present": advisory_present,
             "authoritative": False
-        },
-        "llm_lane": {
-            "present": llm_present,
-            "authoritative": False,
-            "config": "configs/llm_dev.yaml" if llm_present else None
         },
         "documentation": {
             "privacy_legal_note": "docs/ops/privacy_legal_note_v0.1.md" if privacy_note.exists() else None

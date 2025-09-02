@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 help
 
 # Default target
 help:
@@ -10,6 +10,7 @@ help:
 	@echo "  demo         - Run demo with sample data"
 	@echo "  llm          - Run LLM pipeline with Atlas PDF"
 	@echo "  llm-diff     - Compare scripted vs LLM indicator extraction"
+	@echo "  bundle-v02   - Build Audit Package v0.2 with dual-lane structure"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -59,6 +60,12 @@ llm-diff:
 		--scripted artifacts/demo_rules.json \
 		--llm artifacts/llm_output/ir.json \
 		--verbose
+
+bundle-v02:
+	@echo "Building Audit Package v0.2 with dual-lane structure..."
+	@source .venv/bin/activate && python scripts/build_audit_package.py \
+		--pdf Reports/atlas-highlights-scams-and-fraud.pdf \
+		--outdir artifacts/audit_package_v0_2
 
 clean:
 	@echo "Cleaning build artifacts..."

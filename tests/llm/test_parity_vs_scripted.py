@@ -32,14 +32,25 @@ class TestParityVsScripted:
         self.project_root = project_root
         self.artifacts_dir = self.project_root / "artifacts"
         
-        # Paths for comparison
+        # Paths for dual-lane comparison (v0.2)
         self.scripted_rules_path = self.artifacts_dir / "demo_rules.json"
         self.llm_output_dir = self.artifacts_dir / "llm_output"
         self.llm_ir_path = self.llm_output_dir / "ir.json"
         self.llm_rules_path = self.llm_output_dir / "rules"
+        
+        # Bundle paths
+        self.bundle_dir = self.artifacts_dir / "audit_package_with_llm"
+        self.bundle_scripted_rules = self.bundle_dir / "scripted" / "rules.json"
+        self.bundle_llm_dir = self.bundle_dir / "llm_output"
     
     def load_scripted_artifacts(self) -> Dict[str, Any]:
-        """Load artifacts from scripted pipeline"""
+        """Load artifacts from scripted lane (try bundle first, fallback to artifacts)"""
+        # Try bundle location first (v0.2 dual-lane)
+        if self.bundle_scripted_rules.exists():
+            with open(self.bundle_scripted_rules, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        
+        # Fallback to direct artifacts
         if not self.scripted_rules_path.exists():
             # Try to generate scripted artifacts
             try:
@@ -54,7 +65,14 @@ class TestParityVsScripted:
             return json.load(f)
     
     def load_llm_artifacts(self) -> Dict[str, Any]:
-        """Load artifacts from LLM pipeline"""
+        """Load artifacts from LLM lane (try bundle first, fallback to artifacts)"""
+        # Try bundle location first (v0.2 dual-lane)
+        bundle_llm_ir = self.bundle_llm_dir / "ir.json"
+        if bundle_llm_ir.exists():
+            with open(bundle_llm_ir, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        
+        # Fallback to direct artifacts  
         if not self.llm_ir_path.exists():
             # Try to generate LLM artifacts
             try:
@@ -145,28 +163,40 @@ class TestParityVsScripted:
         return indicators
     
     def extract_indicators_from_llm_rules(self) -> Set[str]:
-        """Extract indicators from LLM rules files"""
+        """Extract indicators from LLM rules files (try bundle first, fallback)"""
         indicators = set()
         
-        # Check regex rules
-        regex_rules_path = self.llm_rules_path / "rules.regex"
-        if regex_rules_path.exists():
-            content = regex_rules_path.read_text(encoding='utf-8')
-            # Extract patterns from regex rules (simplified)
-            for golden in self.GOLDEN_INDICATORS:
-                if golden in content or golden.replace(".", "\\.") in content:
-                    indicators.add(golden)
+        # Try bundle location first
+        bundle_llm_rules = self.bundle_llm_dir / "rules"
+        llm_rules_to_check = [bundle_llm_rules, self.llm_rules_path]
         
-        # Check JSON rules
-        json_rules_path = self.llm_rules_path / "rules.json"
-        if json_rules_path.exists():
-            with open(json_rules_path, 'r', encoding='utf-8') as f:
-                rules_data = json.load(f)
+        for rules_path in llm_rules_to_check:
+            if not rules_path.exists():
+                continue
+                
+            # Check regex rules
+            regex_rules_path = rules_path / "rules.regex"
+            if regex_rules_path.exists():
+                content = regex_rules_path.read_text(encoding='utf-8')
+                # Extract patterns from regex rules (simplified)
+                for golden in self.GOLDEN_INDICATORS:
+                    if golden in content or golden.replace(".", "\\.") in content:
+                        indicators.add(golden)
             
-            rules = rules_data.get("rules", [])
-            for rule in rules:
-                if "pattern" in rule:
-                    indicators.add(rule["pattern"])
+            # Check JSON rules
+            json_rules_path = rules_path / "rules.json"
+            if json_rules_path.exists():
+                with open(json_rules_path, 'r', encoding='utf-8') as f:
+                    rules_data = json.load(f)
+                
+                rules = rules_data.get("rules", [])
+                for rule in rules:
+                    if "pattern" in rule:
+                        indicators.add(rule["pattern"])
+            
+            # If we found rules in bundle, don't check fallback
+            if indicators:
+                break
         
         return indicators
     

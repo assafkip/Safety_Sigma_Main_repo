@@ -1,0 +1,54 @@
+{
+  "created_at": "2025-09-02T16:53:43Z",
+  "source_pdf": "atlas-highlights-scams-and-fraud.pdf",
+  "artifacts": {
+    "rules_json": "scripted/rules.json",
+    "report_html": "scripted/report.html",
+    "junit": {
+      "golden": "tests/junit_golden.xml",
+      "unit": "tests/junit_unit.xml",
+      "audit": "tests/junit_audit.xml"
+    }
+  },
+  "lanes": {
+    "scripted": {
+      "present": true,
+      "authoritative": true,
+      "version": "v0.2"
+    },
+    "llm": {
+      "present": true,
+      "authoritative": false,
+      "config": "configs/llm_dev.yaml"
+    }
+  },
+  "advisory": {
+    "present": true,
+    "authoritative": false
+  },
+  "documentation": {
+    "privacy_legal_note": "docs/ops/privacy_legal_note_v0.1.md"
+  },
+  "gates": {
+    "V-001": {
+      "status": "evidence_available",
+      "note": "Requires golden test validation"
+    },
+    "V-002": {
+      "status": "evidence_available",
+      "note": "Requires category grounding check"
+    },
+    "V-003": {
+      "status": "evidence_available",
+      "note": "Requires audit completeness check"
+    },
+    "V-004": {
+      "status": "evidence_available",
+      "note": "Requires practitioner readiness check"
+    },
+    "V-005": {
+      "status": "evidence_available",
+      "note": "Requires execution guarantees check"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity help test-v02 bundle
+.PHONY: bootstrap test lint demo clean test-parity help test-v02 bundle audit-bundle
 
 # Default target
 help:
@@ -10,6 +10,7 @@ help:
 	@echo "  lint         - Run code formatting and linting"
 	@echo "  demo         - Run v0.2 PDF processing demo (atlas->html/json)"
 	@echo "  bundle       - Create artifacts bundle with demo outputs"
+	@echo "  audit-bundle - Build Audit Package v0.1 (source PDF + rules + tests + manifest)"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -70,6 +71,11 @@ bundle:
 		|| true
 	@echo "Bundle created: artifacts/audit_bundle.zip"
 	@ls -lh artifacts/audit_bundle.zip || true
+
+audit-bundle:
+	@echo "📋 Building Audit Package v0.1..."
+	@python3 scripts/build_audit_package.py --pdf Reports/atlas-highlights-scams-and-fraud.pdf --outdir artifacts/audit_package_v0_1
+	@echo "Bundle at artifacts/audit_package_v0_1.zip"
 
 clean:
 	@echo "Cleaning build artifacts..."

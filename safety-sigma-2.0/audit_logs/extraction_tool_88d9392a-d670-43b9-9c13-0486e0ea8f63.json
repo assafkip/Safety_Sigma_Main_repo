@@ -1,0 +1,24 @@
+{
+  "tool_name": "extraction_tool",
+  "tool_version": "1.0.0",
+  "run_id": "88d9392a-d670-43b9-9c13-0486e0ea8f63",
+  "start_time": 1756688150.13602,
+  "end_time": 1756688150.1360278,
+  "duration_ms": 0.007867813110351562,
+  "success": false,
+  "input_summary": {},
+  "output_summary": {},
+  "error": "ValueError: Missing required parameters: ['instructions', 'text_content']",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "extraction_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {},
+  "timestamp_iso": "2025-09-01T00:55:50Z"
+}

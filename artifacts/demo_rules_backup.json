@@ -1,0 +1,1 @@
+{"json": {"indicators": [{"kind": "amount", "verbatim": "$1,998.88", "category_id": "financial", "span_id": "s_amt"}, {"kind": "account", "verbatim": "Zelle ID 123456789", "category_id": "financial", "span_id": "s_acc"}], "categories": {"financial": {}}, "links": [{"from": "s_amt", "to": "s_acc", "type": "co_occurs"}]}}

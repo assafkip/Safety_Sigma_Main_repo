@@ -1,0 +1,5 @@
+text,label
+no matches here,neg
+another benign line,neg  
+VOID 1234,pos
+hello world,neg

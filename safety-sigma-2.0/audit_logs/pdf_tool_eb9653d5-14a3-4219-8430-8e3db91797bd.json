@@ -1,0 +1,35 @@
+{
+  "tool_name": "pdf_tool",
+  "tool_version": "1.0.0",
+  "run_id": "eb9653d5-14a3-4219-8430-8e3db91797bd",
+  "start_time": 1756688035.83872,
+  "end_time": 1756688035.8387341,
+  "duration_ms": 0.014066696166992188,
+  "success": true,
+  "input_summary": {
+    "pdf_path": "test_orchestration/test.pdf",
+    "orchestration_id": "a3f21467-368c-4297-bf98-1e21e19c86b4",
+    "step_name": "pdf_extraction",
+    "simulate": true
+  },
+  "output_summary": {
+    "type": "str",
+    "preview": "SIMULATED: Mock PDF extracted text"
+  },
+  "error": null,
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "pdf_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true,
+    "source_traceability": true
+  },
+  "timestamp_iso": "2025-09-01T00:53:55Z"
+}

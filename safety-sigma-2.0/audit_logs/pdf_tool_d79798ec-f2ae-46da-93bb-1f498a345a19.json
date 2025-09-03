@@ -1,0 +1,28 @@
+{
+  "tool_name": "pdf_tool",
+  "tool_version": "1.0.0",
+  "run_id": "d79798ec-f2ae-46da-93bb-1f498a345a19",
+  "start_time": 1756688084.430518,
+  "end_time": 1756688084.430596,
+  "duration_ms": 0.0782012939453125,
+  "success": false,
+  "input_summary": {
+    "pdf_path": "nonexistent.pdf"
+  },
+  "output_summary": {},
+  "error": "FileNotFoundError: PDF file not found: nonexistent.pdf",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "pdf_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true
+  },
+  "timestamp_iso": "2025-09-01T00:54:44Z"
+}

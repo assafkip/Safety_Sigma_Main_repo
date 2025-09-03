@@ -1,1 +1,244 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="4" time="0.010" timestamp="2025-09-02T09:53:43.147980-07:00" hostname="mac.lan"><testcase classname="tests.unit.test_rule_compiler" name="test_amount_preservation_regex_sql_json" time="0.000" /><testcase classname="tests.unit.test_rule_compiler" name="test_link_literal_preservation" time="0.000" /><testcase classname="tests.unit.test_rule_compiler" name="test_category_diff_and_void_exact" time="0.000" /><testcase classname="tests.unit.test_rule_compiler" name="test_missing_fields_raise" time="0.000" /></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="9" skipped="0" tests="14" time="0.089" timestamp="2025-09-02T13:33:04.877533-07:00" hostname="mac.lan"><testcase classname="tests.unit.test_audit_log" name="test_audit_log_append_only" time="0.001" /><testcase classname="tests.unit.test_audit_log" name="test_audit_log_required_keys" time="0.000"><failure message="AssertionError: Should have raised ValueError for missing module_version&#10;assert False">def test_audit_log_required_keys():
+        """Test that audit log requires all V-003 keys."""
+    
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
+            log_path = tmp.name
+    
+        try:
+            # Test missing module_version
+            invalid_record = {
+                'action': 'test',
+                'doc_id': 'test',
+                'spans': [{'text': 'test', 'start': 0, 'end': 4, 'page': 1}],
+                'decisions': [{'decision_point': 'test', 'reasoning': 'test', 'outcome': 'test'}],
+                'validation_scores': {'confidence': 0.95}
+            }
+    
+            try:
+                append_jsonl(invalid_record, log_path)
+&gt;               assert False, "Should have raised ValueError for missing module_version"
+E               AssertionError: Should have raised ValueError for missing module_version
+E               assert False
+
+tests/unit/test_audit_log.py:134: AssertionError</failure></testcase><testcase classname="tests.unit.test_audit_log" name="test_audit_log_span_validation" time="0.000"><failure message="AssertionError: Should have raised ValueError for span missing text&#10;assert False">def test_audit_log_span_validation():
+        """Test that spans are validated for required provenance fields."""
+    
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
+            log_path = tmp.name
+    
+        try:
+            # Test span missing 'text' field
+            invalid_record = {
+                'action': 'test',
+                'module_version': 'v1.0.0',
+                'doc_id': 'test',
+                'spans': [{'start': 0, 'end': 4, 'page': 1}],  # Missing 'text'
+                'decisions': [{'decision_point': 'test', 'reasoning': 'test', 'outcome': 'test'}],
+                'validation_scores': {'confidence': 0.95}
+            }
+    
+            try:
+                append_jsonl(invalid_record, log_path)
+&gt;               assert False, "Should have raised ValueError for span missing text"
+E               AssertionError: Should have raised ValueError for span missing text
+E               assert False
+
+tests/unit/test_audit_log.py:192: AssertionError</failure></testcase><testcase classname="tests.unit.test_audit_log" name="test_audit_log_decision_validation" time="0.000"><failure message="AssertionError: Should have raised ValueError for decision missing reasoning&#10;assert False">def test_audit_log_decision_validation():
+        """Test that decisions are validated for required fields."""
+    
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.jsonl', delete=False) as tmp:
+            log_path = tmp.name
+    
+        try:
+            # Test decision missing 'reasoning' field
+            invalid_record = {
+                'action': 'test',
+                'module_version': 'v1.0.0',
+                'doc_id': 'test',
+                'spans': [{'text': 'test', 'start': 0, 'end': 4, 'page': 1}],
+                'decisions': [{'decision_point': 'test', 'outcome': 'test'}],  # Missing 'reasoning'
+                'validation_scores': {'confidence': 0.95}
+            }
+    
+            try:
+                append_jsonl(invalid_record, log_path)
+&gt;               assert False, "Should have raised ValueError for decision missing reasoning"
+E               AssertionError: Should have raised ValueError for decision missing reasoning
+E               assert False
+
+tests/unit/test_audit_log.py:236: AssertionError</failure></testcase><testcase classname="tests.unit.test_exec_checklist" name="test_v005_exec_checklist_all_boxes_checked" time="0.001"><failure message="AssertionError: Expected at least 30 checklist items for V-001..V-005, found 5&#10;assert 5 &gt;= 30">def test_v005_exec_checklist_all_boxes_checked():
+        """
+        Test V-005: All boxes in execution checklist must be checked.
+    
+        This test fails on PRs to main if any validation requirement is unchecked,
+        enforcing contract-ready status per V-005.
+        """
+        # Path to execution checklist
+        checklist_path = Path(__file__).parent.parent.parent / "docs" / "EXEC_CHECKLIST.md"
+    
+        # Verify checklist exists
+        assert checklist_path.exists(), f"Execution checklist not found: {checklist_path}"
+    
+        # Read checklist content
+        with open(checklist_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    
+        # Find all checkboxes
+        unchecked_boxes = re.findall(r'- \[ \].*', content)  # Unchecked: - [ ]
+        checked_boxes_x = re.findall(r'- \[x\].*', content)  # Checked: - [x]
+        checked_boxes_X = re.findall(r'- \[X\].*', content)  # Checked: - [X]
+    
+        total_checked = len(checked_boxes_x) + len(checked_boxes_X)
+        total_unchecked = len(unchecked_boxes)
+        total_boxes = total_checked + total_unchecked
+    
+        # Report findings
+        print(f"\nV-005 Execution Checklist Validation:")
+        print(f"  Total checkboxes: {total_boxes}")
+        print(f"  Checked: {total_checked}")
+        print(f"  Unchecked: {total_unchecked}")
+    
+        # Verify minimum expected V-001..V-005 items
+&gt;       assert total_boxes &gt;= 30, f"Expected at least 30 checklist items for V-001..V-005, found {total_boxes}"
+E       AssertionError: Expected at least 30 checklist items for V-001..V-005, found 5
+E       assert 5 &gt;= 30
+
+tests/unit/test_exec_checklist.py:44: AssertionError</failure></testcase><testcase classname="tests.unit.test_exec_checklist" name="test_v005_required_validation_content" time="0.000"><failure message="AssertionError: V-005 validation: Checklist missing required elements: ['G-002', 'C-001', 'C-002', 'C-003', 'verbatim', 'normalization', 'span_ids', 'src/pdf_processor/ingest.py', 'src/pdf_processor/extract.py', 'src/pdf_processor/ir.py', 'src/pdf_processor/audit.py', 'scripts/run_rule.py', 'tests/unit/test_pdf_processor_ir.py', 'tests/unit/test_run_rule.py', 'provenance', 'page/character offsets', 'append-only', 'module_version', 'doc_id', 'validation_scores']. All validation requirements must be documented for contract compliance.&#10;assert False">def test_v005_required_validation_content():
+        """Test V-005: Checklist contains all required validation content."""
+        checklist_path = Path(__file__).parent.parent.parent / "docs" / "EXEC_CHECKLIST.md"
+    
+        with open(checklist_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    
+        # Required validation elements for contract compliance
+        required_elements = [
+            # Golden test references
+            "G-001", "G-002", "G-003", "G-010",
+    
+            # IR compliance requirements
+            "C-001", "C-002", "C-003",
+            "verbatim", "normalization", "span_ids",
+    
+            # Key file paths
+            "src/pdf_processor/ingest.py", "src/pdf_processor/extract.py",
+            "src/pdf_processor/ir.py", "src/pdf_processor/audit.py",
+            "scripts/run_rule.py",
+    
+            # Test files
+            "tests/unit/test_pdf_processor_ir.py", "tests/unit/test_run_rule.py",
+    
+            # Core concepts
+            "provenance", "page/character offsets", "append-only",
+            "module_version", "doc_id", "spans", "decisions", "validation_scores",
+    
+            # Compliance gates
+            "V-001", "V-002", "V-003", "V-004", "V-005"
+        ]
+    
+        missing_elements = []
+        for element in required_elements:
+            if element not in content:
+                missing_elements.append(element)
+    
+        if missing_elements:
+&gt;           assert False, (
+                f"V-005 validation: Checklist missing required elements: {missing_elements}. "
+                f"All validation requirements must be documented for contract compliance."
+            )
+E           AssertionError: V-005 validation: Checklist missing required elements: ['G-002', 'C-001', 'C-002', 'C-003', 'verbatim', 'normalization', 'span_ids', 'src/pdf_processor/ingest.py', 'src/pdf_processor/extract.py', 'src/pdf_processor/ir.py', 'src/pdf_processor/audit.py', 'scripts/run_rule.py', 'tests/unit/test_pdf_processor_ir.py', 'tests/unit/test_run_rule.py', 'provenance', 'page/character offsets', 'append-only', 'module_version', 'doc_id', 'validation_scores']. All validation requirements must be documented for contract compliance.
+E           assert False
+
+tests/unit/test_exec_checklist.py:107: AssertionError</failure></testcase><testcase classname="tests.unit.test_exec_checklist" name="test_v005_specific_gate_items" time="0.000"><failure message="AssertionError: V-005: Missing gate requirement pattern: Golden tests G-001.*G-002.*G-003.*pass&#10;assert False">def test_v005_specific_gate_items():
+        """Test V-005: Specific gate items are present and checked."""
+        checklist_path = Path(__file__).parent.parent.parent / "docs" / "EXEC_CHECKLIST.md"
+    
+        with open(checklist_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    
+        # Key gate requirements that must be checked
+        gate_requirements = [
+            "Golden tests G-001.*G-002.*G-003.*pass",
+            "Golden test G-010.*pass",
+            "C-001.*preserve verbatim",
+            "C-002.*literal.*NO normalization",
+            "C-003.*explicit span_ids",
+            "module_version.*doc_id.*spans.*decisions.*validation_scores",
+            "scripts/run_rule.py.*loads.*executes",
+            "V-004 compliance"
+        ]
+    
+        for requirement in gate_requirements:
+            if not re.search(requirement, content, re.IGNORECASE):
+&gt;               assert False, f"V-005: Missing gate requirement pattern: {requirement}"
+E               AssertionError: V-005: Missing gate requirement pattern: Golden tests G-001.*G-002.*G-003.*pass
+E               assert False
+
+tests/unit/test_exec_checklist.py:134: AssertionError</failure></testcase><testcase classname="tests.unit.test_rule_compiler" name="test_amount_preservation_regex_sql_json" time="0.000" /><testcase classname="tests.unit.test_rule_compiler" name="test_link_literal_preservation" time="0.000" /><testcase classname="tests.unit.test_rule_compiler" name="test_category_diff_and_void_exact" time="0.000" /><testcase classname="tests.unit.test_rule_compiler" name="test_missing_fields_raise" time="0.000" /><testcase classname="tests.unit.test_run_rule" name="test_run_rule_script_executes" time="0.020"><failure message="AssertionError: Missing V-004 compliance marker&#10;assert 'V-004 COMPLIANCE' in ''">def test_run_rule_script_executes():
+        """Test V-004: Rule execution script runs successfully with exit code 0."""
+    
+        # Path to the rule execution script
+        script_path = Path(__file__).parent.parent.parent / "scripts" / "run_rule.py"
+    
+        # Verify script exists
+        assert script_path.exists(), f"Rule execution script not found: {script_path}"
+    
+        # Run the script using subprocess
+        result = subprocess.run(
+            [sys.executable, str(script_path)],
+            capture_output=True,
+            text=True,
+            cwd=script_path.parent.parent  # Run from repo root
+        )
+    
+        # V-004 requirement: exit non-zero if no match or runtime error
+        assert result.returncode == 0, f"V-004 failure: Script exited with code {result.returncode}. Stderr: {result.stderr}"
+    
+        # Verify expected output content
+        output = result.stdout
+&gt;       assert "V-004 COMPLIANCE" in output, "Missing V-004 compliance marker"
+E       AssertionError: Missing V-004 compliance marker
+E       assert 'V-004 COMPLIANCE' in ''
+
+tests/unit/test_run_rule.py:33: AssertionError</failure></testcase><testcase classname="tests.unit.test_run_rule" name="test_run_rule_matches_golden_indicators" time="0.017"><failure message="AssertionError: Must match golden test amount&#10;assert '$1,998.88' in ''">def test_run_rule_matches_golden_indicators():
+        """Test V-004: Rule execution finds golden test indicators."""
+    
+        script_path = Path(__file__).parent.parent.parent / "scripts" / "run_rule.py"
+    
+        result = subprocess.run(
+            [sys.executable, str(script_path)],
+            capture_output=True,
+            text=True,
+            cwd=script_path.parent.parent
+        )
+    
+        assert result.returncode == 0, f"Script failed: {result.stderr}"
+    
+        output = result.stdout
+    
+        # Verify golden test indicators are matched
+&gt;       assert "$1,998.88" in output, "Must match golden test amount"
+E       AssertionError: Must match golden test amount
+E       assert '$1,998.88' in ''
+
+tests/unit/test_run_rule.py:61: AssertionError</failure></testcase><testcase classname="tests.unit.test_run_rule" name="test_run_rule_ir_integration" time="0.017"><failure message="AssertionError: Must load IR sample&#10;assert 'Loaded IR sample with 3 objects' in ''">def test_run_rule_ir_integration():
+        """Test V-004: Rule execution integrates with IR objects correctly."""
+    
+        script_path = Path(__file__).parent.parent.parent / "scripts" / "run_rule.py"
+    
+        result = subprocess.run(
+            [sys.executable, str(script_path)],
+            capture_output=True,
+            text=True,
+            cwd=script_path.parent.parent
+        )
+    
+        assert result.returncode == 0, f"Script failed: {result.stderr}"
+    
+        output = result.stdout
+    
+        # Verify IR-to-rule pipeline works
+&gt;       assert "Loaded IR sample with 3 objects" in output, "Must load IR sample"
+E       AssertionError: Must load IR sample
+E       assert 'Loaded IR sample with 3 objects' in ''
+
+tests/unit/test_run_rule.py:87: AssertionError</failure></testcase></testsuite></testsuites>

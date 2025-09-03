@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.010" timestamp="2025-09-02T10:46:00.223318-07:00" hostname="mac.lan"><testcase classname="tests.audit.test_audit_package" name="test_audit_package_acceptance" time="0.002" /></testsuite></testsuites>

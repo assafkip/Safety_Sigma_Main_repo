@@ -1,0 +1,33 @@
+{
+  "tool_name": "extraction_tool",
+  "tool_version": "1.0.0",
+  "run_id": "5cea6790-58b6-4646-a113-fe81ebb9baec",
+  "start_time": 1756688048.2223449,
+  "end_time": 1756688048.222356,
+  "duration_ms": 0.011205673217773438,
+  "success": true,
+  "input_summary": {
+    "instructions": "valid instructions",
+    "text_content": "short"
+  },
+  "output_summary": {
+    "type": "str",
+    "preview": ""
+  },
+  "error": null,
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "extraction_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true,
+    "source_traceability": true
+  },
+  "timestamp_iso": "2025-09-01T00:54:08Z"
+}

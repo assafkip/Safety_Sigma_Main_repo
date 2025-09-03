@@ -1,0 +1,24 @@
+# Code ownership for Safety Sigma repository
+#
+# This file defines ownership patterns for automatic review assignment.
+# Documentation changes require approval from assafkip to maintain
+# compliance with Safety Sigma validation requirements.
+
+# Safety-Sigma-Docs repository content requires explicit approval
+/Safety-Sigma-Docs/* @assafkip
+
+# Core compliance documentation requires approval
+/docs/EXEC_CHECKLIST.md @assafkip
+/docs/IR_SCHEMA.md @assafkip
+/docs/AUDIT.md @assafkip
+/docs/TESTING.md @assafkip
+/docs/specs/ @assafkip
+
+# Pull request template enforcement
+/.github/pull_request_template.md @assafkip
+
+# Documentation automation scripts
+/scripts/check_docs_freshness.py @assafkip
+
+# GitHub workflow files for docs automation
+/.github/workflows/docs-*.yml @assafkip

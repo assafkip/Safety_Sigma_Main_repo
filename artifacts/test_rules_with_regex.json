@@ -1,0 +1,7 @@
+{
+  "regex": [
+    {"pattern": "VOID[ ]\\d{3,4}"},
+    {"pattern": "\\$\\d+,\\d+\\.\\d{2}"},
+    {"pattern": "Zelle ID \\d+"}
+  ]
+}

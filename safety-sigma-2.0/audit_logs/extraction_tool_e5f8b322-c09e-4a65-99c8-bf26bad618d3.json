@@ -1,0 +1,29 @@
+{
+  "tool_name": "extraction_tool",
+  "tool_version": "1.0.0",
+  "run_id": "e5f8b322-c09e-4a65-99c8-bf26bad618d3",
+  "start_time": 1756688150.1361432,
+  "end_time": 1756688150.136152,
+  "duration_ms": 0.008821487426757812,
+  "success": false,
+  "input_summary": {
+    "instructions": "short",
+    "text_content": "test content"
+  },
+  "output_summary": {},
+  "error": "ValueError: instructions too short",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "extraction_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true
+  },
+  "timestamp_iso": "2025-09-01T00:55:50Z"
+}

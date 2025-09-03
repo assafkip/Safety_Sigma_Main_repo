@@ -1,0 +1,32 @@
+{
+  "tool_name": "test_tool",
+  "tool_version": "0.1.0",
+  "run_id": "2147e1ca-c6b0-4030-86c8-defeef18ced6",
+  "start_time": 1756688150.132719,
+  "end_time": 1756688150.13273,
+  "duration_ms": 0.010967254638671875,
+  "success": true,
+  "input_summary": {
+    "required_param": "test_value"
+  },
+  "output_summary": {
+    "type": "str",
+    "preview": "test_result"
+  },
+  "error": null,
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "test_tool",
+      "version": "0.1.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true,
+    "source_traceability": true
+  },
+  "timestamp_iso": "2025-09-01T00:55:50Z"
+}

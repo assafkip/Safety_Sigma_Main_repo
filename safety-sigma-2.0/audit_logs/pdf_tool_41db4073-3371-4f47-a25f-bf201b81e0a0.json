@@ -1,0 +1,28 @@
+{
+  "tool_name": "pdf_tool",
+  "tool_version": "1.0.0",
+  "run_id": "41db4073-3371-4f47-a25f-bf201b81e0a0",
+  "start_time": 1756688107.7853498,
+  "end_time": 1756688107.7854059,
+  "duration_ms": 0.05602836608886719,
+  "success": false,
+  "input_summary": {
+    "pdf_path": "test_pdf_outputs/test.pdf"
+  },
+  "output_summary": {},
+  "error": "FileNotFoundError: PDF file not found: test_pdf_outputs/test.pdf",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "pdf_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true
+  },
+  "timestamp_iso": "2025-09-01T00:55:07Z"
+}

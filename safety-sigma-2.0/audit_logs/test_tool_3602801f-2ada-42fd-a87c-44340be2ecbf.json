@@ -1,0 +1,24 @@
+{
+  "tool_name": "test_tool",
+  "tool_version": "0.1.0",
+  "run_id": "3602801f-2ada-42fd-a87c-44340be2ecbf",
+  "start_time": 1756687303.78097,
+  "end_time": 1756687303.780986,
+  "duration_ms": 0.015974044799804688,
+  "success": false,
+  "input_summary": {},
+  "output_summary": {},
+  "error": "ValueError: Missing required parameters: ['required_param']",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "test_tool",
+      "version": "0.1.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {},
+  "timestamp_iso": "2025-09-01T00:41:43Z"
+}

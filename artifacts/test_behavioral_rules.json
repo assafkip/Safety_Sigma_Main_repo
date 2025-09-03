@@ -1,0 +1,4 @@
+{"json": {"indicators": [
+  {"kind": "amount", "verbatim": "$1,998.88", "category_id": "financial", "span_id": "s_amt", "ip_reputation": "low", "velocity_event_count": 5, "account_age_days": 2},
+  {"kind": "account", "verbatim": "Zelle ID 123456789", "category_id": "financial", "span_id": "s_acc", "ip_reputation": "high", "velocity_event_count": 15}
+], "categories": {"financial": {}}, "links": [{"from": "s_amt", "to": "s_acc", "type": "co_occurs"}]}}

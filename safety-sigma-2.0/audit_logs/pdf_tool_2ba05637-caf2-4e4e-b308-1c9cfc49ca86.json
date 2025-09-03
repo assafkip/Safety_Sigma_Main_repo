@@ -1,0 +1,28 @@
+{
+  "tool_name": "pdf_tool",
+  "tool_version": "1.0.0",
+  "run_id": "2ba05637-caf2-4e4e-b308-1c9cfc49ca86",
+  "start_time": 1756688150.1348438,
+  "end_time": 1756688150.1348639,
+  "duration_ms": 0.02002716064453125,
+  "success": false,
+  "input_summary": {
+    "pdf_path": "test_pdf_outputs/test.pdf"
+  },
+  "output_summary": {},
+  "error": "ValueError: PDF exceeds max size limit",
+  "metadata": {
+    "zero_inference_mode": true,
+    "source_traceability_required": true,
+    "fail_on_validation": true,
+    "tool_configuration": {
+      "name": "pdf_tool",
+      "version": "1.0.0",
+      "audit_enabled": true
+    }
+  },
+  "compliance_flags": {
+    "zero_inference": true
+  },
+  "timestamp_iso": "2025-09-01T00:55:50Z"
+}

@@ -6,8 +6,9 @@ from typing import Dict, List
 def _key_of(ind: Dict) -> str:
     """Generate consistent key for indicator patterns."""
     # Prefer explicit value (verbatim/literal), else regex pattern name if present
-    v = ind.get("verbatim") or ind.get("literal") or ind.get("pattern")
-    return f"{ind.get('kind','unknown')}::{v}".strip()
+    v = ind.get("verbatim") or ind.get("literal") or ind.get("pattern") or ind.get("value")
+    kind = ind.get("kind") or ind.get("type") or "unknown"
+    return f"{kind}::{v}".strip()
 
 def build_or_update_index(repo_root: Path, case_id: str|None=None) -> Path:
     """
@@ -42,6 +43,16 @@ def build_or_update_index(repo_root: Path, case_id: str|None=None) -> Path:
                  "evidence_quote": e.get("evidence_quote"), "source":"proactive",
                  "report_id": e.get("report_id"), "case_id": e.get("case_id")}
             sources.append(i)
+    
+    # Load behavioral indicators if available
+    behaviors = art/"behaviors"/"extracted_behaviors.json"
+    if behaviors.exists():
+        bd = json.loads(behaviors.read_text(encoding="utf-8"))
+        for b in bd.get("behaviors", []):
+            i = {"type": b.get("type","behavior"), "value": b.get("value"),
+                 "category": b.get("category"), "source":"behavioral",
+                 "report_id": b.get("report_id"), "case_id": b.get("case_id")}
+            sources.append(i)
 
     # Process each source indicator
     for s in sources:
@@ -53,14 +64,18 @@ def build_or_update_index(repo_root: Path, case_id: str|None=None) -> Path:
         # Update sets (converting to/from sets for deduplication)
         kinds = set(rec.get("kinds") or [])
         cases = set(rec.get("cases") or [])
+        categories = set(rec.get("categories") or [])
         
         if s.get("kind"): kinds.add(s["kind"])
+        if s.get("type"): kinds.add(s["type"])
         if case_id: cases.add(case_id)
         if s.get("case_id"): cases.add(s["case_id"])
+        if s.get("category"): categories.add(s["category"])
         
         # Convert sets back to sorted lists for JSON serialization
         rec["kinds"] = sorted(kinds)
         rec["cases"] = sorted(cases)
+        rec["categories"] = sorted(categories) if categories else []
         
         # Update timestamps & counts
         rec["count"] = int(rec.get("count", 0)) + 1
@@ -75,6 +90,8 @@ def build_or_update_index(repo_root: Path, case_id: str|None=None) -> Path:
             rec["kinds"] = sorted(list(rec["kinds"]))
         if isinstance(rec.get("cases"), set):   
             rec["cases"] = sorted(list(rec["cases"]))
+        if isinstance(rec.get("categories"), set):   
+            rec["categories"] = sorted(list(rec["categories"]))
 
     # Write updated index
     idx_path.write_text(json.dumps(idx, indent=2), encoding="utf-8")

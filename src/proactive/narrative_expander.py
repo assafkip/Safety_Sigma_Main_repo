@@ -28,17 +28,21 @@ def extract_evidence(sentences: List[Evidence]) -> List[Expansion]:
     for s in sentences:
         t = s.text
 
-        # ALT_ENUM: "WhatsApp or Telegram" / "such as A, B"
+        # ALT_ENUM: "WhatsApp or Telegram" / "such as A, B" / behavioral enumerations
         if (" or " in t.lower()) or ("such as" in t.lower()) or ("including" in t.lower()):
             alts = _extract_alternatives(t)
             for alt in alts:
                 # Filter out generic tokens at generation time
                 if alt.strip().lower() in GENERIC_DISPLAY:
                     continue
-                # compile literal set expansion for platforms/domains named explicitly
+                # compile literal set expansion for platforms/domains/behaviors named explicitly
                 pat = _literal_to_pattern(alt)
                 just = f"ALT_ENUM from {s.sent_id}: {t}"
-                exps.append(Expansion(pattern=pat, kind="behavior_or_platform",
+                
+                # Determine kind based on content
+                kind = _classify_alt_kind(alt, t)
+                
+                exps.append(Expansion(pattern=pat, kind=kind,
                                       parent_spans=s.spans, operator="ALT_ENUM",
                                       evidence_sent_id=s.sent_id, evidence_quote=t, status="advisory",
                                       justification=just))
@@ -98,7 +102,7 @@ def _apply_edap(exps: List[Expansion], sentences: List[Evidence]) -> List[Expans
     return exps
 
 def _extract_alternatives(text: str) -> List[str]:
-    """Extract alternatives from enumeration patterns"""
+    """Extract alternatives from enumeration patterns, including behavioral enumerations"""
     import re
     lowers = text.lower()
     alternatives = []
@@ -111,8 +115,18 @@ def _extract_alternatives(text: str) -> List[str]:
     if " or " in lowers:
         # Extract from "A or B" patterns
         parts = [p.strip() for p in re.split(r'\s+or\s+', text, flags=re.IGNORECASE)]
-        # Take last word of each part as the alternative
-        alternatives.extend([p.split()[-1].strip(".,;:()") for p in parts if p.strip()])
+        
+        # For behavioral patterns, try to capture more context
+        for part in parts:
+            if part.strip():
+                # Look for behavioral phrases (multi-word patterns)
+                words = part.split()
+                if len(words) >= 2 and any(word in ["cards", "transfers", "payments", "cryptocurrency"] for word in words):
+                    # Take full phrase for payment methods
+                    alternatives.append(part.strip(".,;:()"))
+                else:
+                    # Take last word for platforms/apps
+                    alternatives.append(words[-1].strip(".,;:()"))
     
     if "including" in lowers:
         # Extract after "including"
@@ -120,6 +134,26 @@ def _extract_alternatives(text: str) -> List[str]:
         alternatives.extend([a.strip().strip(".,;:()") for a in seg.split(",") if a.strip()])
     
     return [alt for alt in alternatives if alt and len(alt) > 1]
+
+def _classify_alt_kind(alt: str, context: str) -> str:
+    """Classify alternative type based on content and context"""
+    alt_lower = alt.lower()
+    context_lower = context.lower()
+    
+    # Payment method indicators
+    if any(term in alt_lower for term in ["card", "cards", "transfer", "crypto", "bitcoin", "wire", "money"]):
+        return "behavior_payment"
+    
+    # Platform/communication indicators  
+    if any(term in alt_lower for term in ["whatsapp", "telegram", "signal", "discord", "app"]):
+        return "behavior_platform"
+    
+    # Domain/URL indicators
+    if any(char in alt for char in [".", "@", "/"]) or "domain" in context_lower:
+        return "domain_or_url"
+    
+    # Default to generic behavior
+    return "behavior_or_platform"
 
 def _extract_digit_range(text: str) -> Tuple[int,int] | None:
     """Extract digit range specifications"""

@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test adapters share-export share-import report-v08 memory-index report-v09 help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test adapters share-export share-import report-v08 memory-index report-v09 report-v09b help
 
 # Default target
 help:
@@ -24,6 +24,7 @@ help:
 	@echo "  report-v08   - Generate HTML report v0.8 with agentic plan"
 	@echo "  memory-index - Build/update cumulative reuse index (v0.9)"
 	@echo "  report-v09   - Generate HTML report v0.9 with Living Knowledge Base"
+	@echo "  report-v09b  - Generate HTML report v0.9b with Behavioral Slice features"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -125,6 +126,9 @@ memory-index:
 
 report-v09:
 	PYTHONPATH=. python3 scripts/render_report_v09.py || true
+
+report-v09b:
+	PYTHONPATH=. python3 scripts/render_report_v09b.py || true
 
 clean:
 	@echo "Cleaning build artifacts..."

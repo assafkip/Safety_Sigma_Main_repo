@@ -3,6 +3,7 @@ from typing import Any, Dict, Iterable
 
 BEHAVIORAL_KEYS = ("velocity_event_count","ip_reputation","account_age_days")
 CASE_KEYS = ("case_id","report_id")
+BEHAVIOR_KEYS = ("behavior","category","provenance")
 
 def to_ir_objects(spans):
     """Convert normalized spans into IR with value|norm|provenance (C-001..C-003)."""
@@ -45,3 +46,13 @@ def indicators_with_ids(indicators: Iterable[Dict[str,Any]], report_id: str|None
         if case_id and "case_id" not in ii:
             ii["case_id"] = case_id
         yield ii
+
+def make_behavior(verbatim: str, category: str|None, report_id: str, span_id: str) -> dict:
+    """Create a behavior indicator with verbatim text and provenance."""
+    return {
+        "type":"behavior",
+        "value": verbatim,
+        "category": category,
+        "report_id": report_id,
+        "span_id": span_id
+    }

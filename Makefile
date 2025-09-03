@@ -95,10 +95,10 @@ bundle-v05:
 	python3 scripts/build_audit_package.py --pdf Reports/atlas-highlights-scams-and-fraud.pdf --outdir artifacts/audit_package_v0_5
 
 agentic:
-	python3 scripts/run_agentic.py
+	PYTHONPATH=. python3 scripts/run_agentic.py
 
 agentic-test:
-	pytest -q tests/agentic/test_agentic_workflow.py
+	PYTHONPATH=. pytest -q tests/agentic/test_agentic_workflow.py
 
 clean:
 	@echo "Cleaning build artifacts..."

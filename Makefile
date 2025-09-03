@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test adapters share-export share-import help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test adapters share-export share-import report-v08 help
 
 # Default target
 help:
@@ -21,6 +21,7 @@ help:
 	@echo "  adapters     - Compile deployment adapters (V-006)"
 	@echo "  share-export - Export bundle with checksums (V-007)"
 	@echo "  share-import - Import and validate bundle (V-007)"
+	@echo "  report-v08   - Generate HTML report v0.8 with agentic plan"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -101,7 +102,7 @@ agentic:
 	PYTHONPATH=. python3 scripts/run_agentic.py
 
 agentic-test:
-	PYTHONPATH=. pytest -q tests/agentic/test_agentic_workflow.py
+	PYTHONPATH=. pytest -q tests/agentic/test_agentic_v08.py
 
 adapters:
 	python3 adapters/splunk/compile.py || true
@@ -113,6 +114,9 @@ share-export:
 
 share-import:
 	python3 scripts/share_import.py artifacts/audit_package_v0_7_*.zip || ls -1 artifacts/audit_package_v0_*.zip | tail -1 | xargs python3 scripts/share_import.py || true
+
+report-v08:
+	PYTHONPATH=. python3 scripts/render_report_v08.py || true
 
 clean:
 	@echo "Cleaning build artifacts..."

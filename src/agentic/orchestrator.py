@@ -3,43 +3,39 @@ import json, time
 from pathlib import Path
 from src.agentic.audit import AuditLog
 from src.agentic.policy import DEFAULT_POLICY
-from src.agentic.actions import load_proactive_expansions, load_backtest_metrics, choose_ready_deploy, plan_adapters
+from src.agentic.decisions import pick_candidates, assign_targets
+
+def _read_json(p: Path):
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
 class Orchestrator:
-    """Advisory orchestrator: reads artifacts, proposes next actions, never edits authoritative outputs."""
+    """Advisory-only orchestrator. Reads artifacts, proposes next actions, never mutates authoritative outputs."""
     def __init__(self, repo_root: Path):
         self.root = repo_root
         self.art = repo_root / "artifacts"
-        self.out = repo_root / "agentic"
+        self.out = repo_root / "agentic" / f"run_{int(time.time())}"
         self.out.mkdir(parents=True, exist_ok=True)
         self.audit = AuditLog(repo_root)
 
     def run(self) -> Path:
-        run_dir = self.out / f"run_{int(time.time())}"
-        run_dir.mkdir(parents=True, exist_ok=True)
-        self.audit.append("orchestrator.start", {"run_dir": str(run_dir)})
+        self.audit.append("orchestrator.start", {"run_dir": str(self.out)})
 
-        # Load advisory artifacts
-        exps = load_proactive_expansions(self.art)
-        self.audit.append("load.expansions", {"count": len(exps.get("expansions", []))})
-        bt = load_backtest_metrics(self.art)
-        self.audit.append("load.backtest", {"rule_count": len(bt.get("rules", {}))})
+        exps = _read_json(self.art / "proactive" / "expansions.json") or {"expansions":[]}
+        bt   = _read_json(self.art / "proactive" / "backtest_report.json") or {"rules":{}}
+        self.audit.append("load.artifacts", {"expansions": len(exps["expansions"]), "bt_rules": len(bt["rules"])})
 
-        # Decide candidates for deployment
-        cand = choose_ready_deploy(exps, bt, DEFAULT_POLICY)
-        self.audit.append("decide.ready_deploy", {"count": len(cand)})
+        cand = pick_candidates(exps, bt, DEFAULT_POLICY)
+        self.audit.append("decide.candidates", {"count": len(cand)})
 
-        # Assign adapters (advisory)
-        proposals = plan_adapters(cand, DEFAULT_POLICY)
-        self.audit.append("decide.adapter_targets", {"count": len(proposals)})
+        props = assign_targets(cand, DEFAULT_POLICY)
+        self.audit.append("decide.proposals", {"count": len(props)})
 
-        # Write proposals (safe write zone)
-        prop_dir = run_dir / "proposals"
-        prop_dir.mkdir(parents=True, exist_ok=True)
-        (prop_dir / "deployment_proposals.json").write_text(json.dumps({"proposals": proposals}, indent=2), encoding="utf-8")
-        self.audit.append("write.proposals", {"path": str(prop_dir / "deployment_proposals.json")})
+        # Write outputs (advisory-only safe zone)
+        (self.out / "plan.json").write_text(json.dumps({"candidates": cand}, indent=2), encoding="utf-8")
+        (self.out / "decisions.json").write_text(json.dumps({"proposals": props}, indent=2), encoding="utf-8")
+        prop_dir = self.out / "proposals"; prop_dir.mkdir(exist_ok=True)
+        (prop_dir / "deployment_proposals.json").write_text(json.dumps({"proposals": props}, indent=2), encoding="utf-8")
+        self.audit.append("write.outputs", {"plan": "plan.json", "decisions": "decisions.json", "proposals": "proposals/deployment_proposals.json"})
 
-        # Summarize decisions
-        (run_dir / "plan.json").write_text(json.dumps({"candidates": cand}, indent=2), encoding="utf-8")
-        self.audit.append("orchestrator.end", {"status": "ok"})
-        return run_dir
+        self.audit.append("orchestrator.end", {"status":"ok"})
+        return self.out

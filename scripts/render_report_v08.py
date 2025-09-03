@@ -315,7 +315,19 @@ th {{ background:#f8f8f8; }}
                                 f"<td class='small'>{quote}</td><td class='small'>{justification}</td></tr>")
                 parts.append("</tbody></table>")
             else:
-                parts.append("<p class='note'>No deployment proposals generated in latest agentic run.</p>")
+                # Show detailed explanation for no proposals
+                parts.append("<p class='note'><strong>No deployment proposals this run.</strong></p>")
+                parts.append("<p class='small'><strong>Reason:</strong> All EDAP expansions either exceed FPR threshold (>0.5%) or lack strong justification per EDAP criteria.</p>")
+                
+                # Show backtest context
+                backtest_data = load_json(ART / "proactive" / "backtest_report.json") or {"rules": {}}
+                if backtest_data.get("rules"):
+                    high_fpr = [pat for pat, metrics in backtest_data["rules"].items() 
+                              if metrics.get("false_positive_rate", 0) > 0.005]
+                    if high_fpr:
+                        parts.append(f"<p class='small'><strong>High FPR patterns:</strong> {len(high_fpr)} patterns exceed 0.5% threshold (safety escalation).</p>")
+                else:
+                    parts.append("<p class='small'><strong>Note:</strong> No backtest metrics available for FPR analysis.</p>")
         except Exception as e:
             parts.append(f"<p class='note'>Error reading agentic proposals: {esc(str(e))}</p>")
     else:

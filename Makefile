@@ -79,7 +79,7 @@ bundle-v02:
 		--outdir artifacts/audit_package_v0_2
 
 backtest:
-	python3 scripts/run_backtest.py --rules artifacts/demo_rules.json --clean samples/clean.csv --labeled samples/labeled.csv --out artifacts/proactive/backtest_report.json || true
+	PYTHONPATH=. python3 scripts/run_backtest.py --rules artifacts/demo_rules.json --clean samples/clean.csv --labeled samples/labeled.csv --out artifacts/proactive/backtest_report.json || true
 
 proactive:
 	@echo "Running proactive narrative expansion..."

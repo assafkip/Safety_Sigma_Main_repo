@@ -1,5 +1,4 @@
 text,label
-no matches here,neg
-another benign line,neg  
-VOID 1234,pos
-hello world,neg
+Please VOID 1234 the check,mindebug
+This message references wa.me/123456789,pos
+Totally benign line,neg

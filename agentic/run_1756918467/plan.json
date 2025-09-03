@@ -1,0 +1,170 @@
+{
+  "candidates": [
+    {
+      "pattern": "WhatsApp",
+      "kind": "behavior_or_platform",
+      "parent_spans": [
+        "span_redirect"
+      ],
+      "operator": "ALT_ENUM",
+      "evidence_sent_id": "S001",
+      "evidence_quote": "Victims are redirected to WhatsApp or Telegram messaging apps.",
+      "status": "ready",
+      "justification": "ALT_ENUM from S001: Victims are redirected to WhatsApp or Telegram messaging apps.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "VOID[ ]\\\\d{3,4}",
+      "kind": "text",
+      "parent_spans": [
+        "span_void",
+        "span_memo"
+      ],
+      "operator": "RANGE_DIGITS",
+      "evidence_sent_id": "S002",
+      "evidence_quote": "The scammer requests a VOID check with a 3-4 digit code written in the memo.",
+      "status": "ready",
+      "justification": "RANGE_DIGITS from S002: The scammer requests a VOID check with a 3-4 digit code written in the memo.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "paypaI\\.com",
+      "kind": "domain_or_url",
+      "parent_spans": [
+        "span_domains"
+      ],
+      "operator": "LITERAL_SET",
+      "evidence_sent_id": "S003",
+      "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "status": "ready",
+      "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "paypai\\.com",
+      "kind": "domain_or_url",
+      "parent_spans": [
+        "span_domains"
+      ],
+      "operator": "LITERAL_SET",
+      "evidence_sent_id": "S003",
+      "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "status": "ready",
+      "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "paypa1\\.com",
+      "kind": "domain_or_url",
+      "parent_spans": [
+        "span_domains"
+      ],
+      "operator": "LITERAL_SET",
+      "evidence_sent_id": "S003",
+      "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "status": "ready",
+      "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "Fraudulent\\ domains\\ include\\ paypaI\\.com",
+      "kind": "domain_or_url",
+      "parent_spans": [
+        "span_domains"
+      ],
+      "operator": "LITERAL_SET",
+      "evidence_sent_id": "S003",
+      "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "status": "ready",
+      "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "paypai\\.com",
+      "kind": "domain_or_url",
+      "parent_spans": [
+        "span_domains"
+      ],
+      "operator": "LITERAL_SET",
+      "evidence_sent_id": "S003",
+      "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "status": "ready",
+      "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "and\\ paypa1\\.com\\ to\\ mimic\\ PayPal",
+      "kind": "domain_or_url",
+      "parent_spans": [
+        "span_domains"
+      ],
+      "operator": "LITERAL_SET",
+      "evidence_sent_id": "S003",
+      "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "status": "ready",
+      "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "gift\\ cards",
+      "kind": "behavior_or_platform",
+      "parent_spans": [
+        "span_payments"
+      ],
+      "operator": "ALT_ENUM",
+      "evidence_sent_id": "S004",
+      "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
+      "status": "ready",
+      "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "wire\\ transfers",
+      "kind": "behavior_or_platform",
+      "parent_spans": [
+        "span_payments"
+      ],
+      "operator": "ALT_ENUM",
+      "evidence_sent_id": "S004",
+      "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
+      "status": "ready",
+      "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    },
+    {
+      "pattern": "or\\ cryptocurrency\\ payments",
+      "kind": "behavior_or_platform",
+      "parent_spans": [
+        "span_payments"
+      ],
+      "operator": "ALT_ENUM",
+      "evidence_sent_id": "S004",
+      "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
+      "status": "ready",
+      "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review"
+    }
+  ]
+}

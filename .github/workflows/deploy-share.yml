@@ -1,0 +1,27 @@
+name: v0.6/0.7 Adapters & Sharing (Advisory)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  adapters_compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run adapter compiles (best-effort)
+        run: |
+          python -m pip install -U pip
+          make adapters || true
+
+  sharing_tools:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export bundle (best-effort)
+        run: |
+          python -m pip install -U pip
+          python scripts/share_export.py || true
+      - name: Import dry-run (best-effort)
+        run: |
+          ls -1 artifacts/*.zip | tail -n 1 | xargs -I{} python scripts/share_import.py {} || true

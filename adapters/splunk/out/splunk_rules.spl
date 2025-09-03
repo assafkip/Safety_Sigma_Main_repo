@@ -1,0 +1,2 @@
+search _raw=".*$1,998.88.*"  /* span: s_amt */
+search _raw=".*Zelle ID 123456789.*"  /* span: s_acc */

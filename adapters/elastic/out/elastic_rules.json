@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Sigma: .*$1,998.88.*",
+    "type": "query",
+    "query": {
+      "regexp": {
+        "message": ".*$1,998.88.*"
+      }
+    },
+    "metadata": {
+      "source_span": "s_amt"
+    }
+  },
+  {
+    "name": "Sigma: .*Zelle ID 123456789.*",
+    "type": "query",
+    "query": {
+      "regexp": {
+        "message": ".*Zelle ID 123456789.*"
+      }
+    },
+    "metadata": {
+      "source_span": "s_acc"
+    }
+  }
+]

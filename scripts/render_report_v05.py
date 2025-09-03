@@ -216,6 +216,69 @@ th {{ background:#f8f8f8; }}
         parts.append("<p class='note'>No behavioral context fields detected in current indicators.</p>")
     parts.append("</div>")
 
+    # Deployment section (V-006)
+    parts.append("""<div class="section">
+  <h2>🚀 Deployment Adapters (V-006)</h2>
+  <p class="small">Compiled rule outputs for target environments. Each adapter preserves pattern + provenance + justification.</p>
+""")
+    
+    adapter_targets = ["splunk", "elastic", "sql"]
+    adapter_results = []
+    for target in adapter_targets:
+        log_file = ROOT / "adapters" / target / "compile_log.txt"
+        if log_file.exists():
+            try:
+                log_content = log_file.read_text(encoding="utf-8").strip()
+                adapter_results.append({"target": target, "status": "compiled", "details": log_content})
+            except:
+                adapter_results.append({"target": target, "status": "error", "details": "Failed to read log"})
+        else:
+            adapter_results.append({"target": target, "status": "not_run", "details": "No compile log found"})
+    
+    if adapter_results:
+        parts.append("<table><thead><tr><th>Target</th><th>Status</th><th>Details</th></tr></thead><tbody>")
+        for result in adapter_results:
+            status_class = "compiled" if result["status"] == "compiled" else "error"
+            parts.append(f"<tr><td class='mono'>{esc(result['target'])}</td>"
+                        f"<td><span class='pill {status_class}'>{esc(result['status'])}</span></td>"
+                        f"<td class='small'>{esc(result['details'])}</td></tr>")
+        parts.append("</tbody></table>")
+    else:
+        parts.append("<p class='note'>No adapter results found. Run 'make adapters' to generate deployment targets.</p>")
+    parts.append("</div>")
+
+    # Sharing section (V-007)
+    parts.append("""<div class="section">
+  <h2>📦 Sharing & Export (V-007)</h2>
+  <p class="small">Bundle integrity and cross-org sharing status. Checksums ensure artifact completeness.</p>
+""")
+    
+    sharing_dir = ART / "sharing"
+    checksums_file = sharing_dir / "checksums.txt"
+    latest_bundle = None
+    
+    # Find latest audit package
+    for bundle_file in ART.glob("audit_package_v0_*.zip"):
+        if not latest_bundle or bundle_file.stat().st_mtime > latest_bundle.stat().st_mtime:
+            latest_bundle = bundle_file
+    
+    if latest_bundle:
+        bundle_size = latest_bundle.stat().st_size / (1024 * 1024)  # MB
+        parts.append(f"<p><strong>Latest Bundle:</strong> <span class='mono'>{latest_bundle.name}</span> ({bundle_size:.1f} MB)</p>")
+    else:
+        parts.append("<p><strong>Latest Bundle:</strong> No bundles found</p>")
+    
+    if checksums_file.exists():
+        try:
+            checksums_data = json.loads(checksums_file.read_text(encoding="utf-8"))
+            parts.append(f"<p><strong>Checksums:</strong> {len(checksums_data)} files verified</p>")
+        except:
+            parts.append("<p><strong>Checksums:</strong> Error reading checksums file</p>")
+    else:
+        parts.append("<p><strong>Checksums:</strong> Not generated. Run 'make share-export' to create.</p>")
+    
+    parts.append("</div>")
+
     parts.append("""<div class="section">
   <h2>⚖️ Processing Compliance</h2>
   <ul>

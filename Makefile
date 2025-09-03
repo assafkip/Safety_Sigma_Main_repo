@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test help
 
 # Default target
 help:
@@ -16,6 +16,8 @@ help:
 	@echo "  bundle-v04   - Build Audit Package v0.4 with proactive lane"
 	@echo "  report-v05   - Generate HTML report v0.5 with backtesting metrics"
 	@echo "  bundle-v05   - Build Audit Package v0.5 with backtesting & behavioral context"
+	@echo "  agentic      - Run agentic orchestrator (advisory)"
+	@echo "  agentic-test - Test agentic workflow components"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -91,6 +93,12 @@ report-v05:
 
 bundle-v05:
 	python3 scripts/build_audit_package.py --pdf Reports/atlas-highlights-scams-and-fraud.pdf --outdir artifacts/audit_package_v0_5
+
+agentic:
+	python3 scripts/run_agentic.py
+
+agentic-test:
+	pytest -q tests/agentic/test_agentic_workflow.py
 
 clean:
 	@echo "Cleaning build artifacts..."

@@ -1,0 +1,43 @@
+{
+  "all_gates_passed": true,
+  "gates": {
+    "V-001": {
+      "passed": true,
+      "issues": [],
+      "test_cases": []
+    },
+    "V-002": {
+      "passed": true,
+      "issues": [],
+      "categories_found": [],
+      "ungrounded_categories": []
+    },
+    "V-003": {
+      "passed": true,
+      "issues": [],
+      "missing_provenance": [],
+      "missing_spans": []
+    },
+    "V-004": {
+      "passed": true,
+      "issues": []
+    },
+    "V-005": {
+      "passed": true,
+      "issues": [],
+      "unspecified_found": []
+    }
+  },
+  "summary": {
+    "total_gates": 5,
+    "passed_gates": 5,
+    "gate_status": {
+      "V-001": true,
+      "V-002": true,
+      "V-003": true,
+      "V-004": true,
+      "V-005": true
+    }
+  },
+  "issues": []
+}

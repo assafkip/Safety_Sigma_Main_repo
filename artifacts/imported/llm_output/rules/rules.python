@@ -1,0 +1,8 @@
+# Safety Sigma Python Rules
+# Generated from IR extractions
+
+def check_indicators(text):
+    """Check text against extracted indicators"""
+    matches = []
+
+    return matches

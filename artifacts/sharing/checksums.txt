@@ -1,0 +1,82 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "9a6fc860ac87bc99110e8cd5212fe596ba7a9c04ba623474e804899a10cccdfb"
+  },
+  {
+    "path": "manifest.json",
+    "sha256": "0634c33f39f894ad22bd6e519f870e2866416b22b2299474fb381ed1b707d08f"
+  },
+  {
+    "path": "input/atlas-highlights-scams-and-fraud.pdf",
+    "sha256": "640528d0111fef08e19fe8a00b50af16166441e8bfd274adc477b8eec0596f54"
+  },
+  {
+    "path": "scripted/rules.json",
+    "sha256": "b9fa004d22ef96a11bf60756936ce21dbd70f80bf10d7808b99e851a93daa400"
+  },
+  {
+    "path": "scripted/report.html",
+    "sha256": "ab3e16304a39cd79e8409f1f087caea27e09724e21cd76721880e57b677ad4b7"
+  },
+  {
+    "path": "tests/junit_audit.xml",
+    "sha256": "8aaa7a589baf45d07a67a941eb7e750b8255a92f3d475637bd5191f672ee1608"
+  },
+  {
+    "path": "tests/junit_unit.xml",
+    "sha256": "b5e80c2acedcbb9cffdce4b48d2e968b1a2562e499d494c15c7c410751f0b330"
+  },
+  {
+    "path": "tests/junit_golden.xml",
+    "sha256": "5f2c42259ababfa4d0ad4daa41f4a464417bb32eb8b5d146ba2b0162c46c34f5"
+  },
+  {
+    "path": "llm_output/pipeline_report.json",
+    "sha256": "e9a38bc38424bcfa15a1c4af53bce1d313dae40b9470c7f44f7bd9a7d12b47d3"
+  },
+  {
+    "path": "llm_output/ir.json",
+    "sha256": "365067c9e644779dee85bd626250073d53fcf47f03ff3b8d9dd2ced10467a514"
+  },
+  {
+    "path": "llm_output/validation_report.json",
+    "sha256": "fd74719568fe0f564631b014dbc4a1a82d5ccab5c482348cbb31e289095b5ad0"
+  },
+  {
+    "path": "llm_output/narrative.md",
+    "sha256": "0399b9b01678fb2c246f3701d56248d1aa60c4172c6adf5db3f6390e333e88e3"
+  },
+  {
+    "path": "proactive/expansions.json",
+    "sha256": "e379f853c07bfa4ea380dd7af613157933a4dd12a1d5ea49dab750c627d31817"
+  },
+  {
+    "path": "advisory/sources.json",
+    "sha256": "2b49cbb20c166158a01202176fd126e2f7b089c296f27a37d7a058eac4123e31"
+  },
+  {
+    "path": "advisory/narrative_advisory.md",
+    "sha256": "d78a314b8d56d15cefb669e01cd9c9d2ee0bc96acf89059a9ccc4a3d437f2fa1"
+  },
+  {
+    "path": "llm_output/audit/log.jsonl",
+    "sha256": "721e704d7a911ee38051674ce8b8e60d8df2766d8f9c49d986733105fe789dba"
+  },
+  {
+    "path": "llm_output/rules/rules.regex",
+    "sha256": "5ecaef7a857e861f5eb6b40e446f32109ca6ac8fc99ffce73d2fe51beb559a1c"
+  },
+  {
+    "path": "llm_output/rules/rules.python",
+    "sha256": "6a14f0723b8be3d38015ffcf6978a4e421026856e510c51ae9bae07d1d24335a"
+  },
+  {
+    "path": "llm_output/rules/rules.json",
+    "sha256": "7abbae9eae9e1a2650973aee49cb12e26ebbe312ea9b3590d7943969111c7415"
+  },
+  {
+    "path": "docs/ops/privacy_legal_note_v0.1.md",
+    "sha256": "305428c33a878de00cb771aaabd4ee2991c67032b7546454b260f88822673ead"
+  }
+]

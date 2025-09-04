@@ -1,0 +1,24 @@
+# v1.1 pilot config (shadow mode)
+dataset:
+  snowflake:
+    account: ${SNOWFLAKE_ACCOUNT}
+    user: ${SNOWFLAKE_USER}
+    role: ${SNOWFLAKE_READER_ROLE}
+    warehouse: ${SNOWFLAKE_WAREHOUSE}
+    database: ${SNOWFLAKE_DATABASE}
+    schema: ${SNOWFLAKE_SCHEMA}
+    table: ${SNOWFLAKE_TABLE}
+    time_window_days: 60
+evaluation:
+  n_min: 1000
+  composite:
+    # ASSUMPTION: initial weights, persisted in audit
+    fpr_weight: 0.8
+    tpr_weight: 0.2
+adapters:
+  snowflake: true
+  sift: true
+  unit21: true
+report:
+  html_export: true
+  pdf_export: true

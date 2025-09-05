@@ -30,7 +30,15 @@ def main():
             "name": f"Sigma: {pat[:40]}",
             "type": "query",
             "query": {"regexp": {"message": pat}},
-            "metadata": {"source_span": span}
+            "metadata": {
+                "source_span": span,
+                "severity_label": "Medium",
+                "rule_owner": "Sigma",
+                "detection_type": "hunting",
+                "sla": 48,
+                "staleness_days": 0,
+                "log_field_targets": ["message"]
+            }
         })
     (out_dir/"elastic_rules.json").write_text(json.dumps(rules, indent=2), encoding="utf-8")
     (Path(__file__).parent/"compile_log.txt").write_text(f"compiled={len(rules)} errors={errs}\n", encoding="utf-8")

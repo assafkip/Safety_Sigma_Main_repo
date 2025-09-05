@@ -1,28 +1,3 @@
 {
-  "rules": {
-    "VOID[ ]\\d{3,4}": {
-      "matches": 2,
-      "samples_tested": 6,
-      "tp": 0,
-      "fp": 1,
-      "false_positive_rate": 0.166667,
-      "true_positive_rate": 0.0
-    },
-    "\\$\\d+,\\d+\\.\\d{2}": {
-      "matches": 0,
-      "samples_tested": 6,
-      "tp": 0,
-      "fp": 0,
-      "false_positive_rate": 0.0,
-      "true_positive_rate": 0.0
-    },
-    "Zelle ID \\d+": {
-      "matches": 0,
-      "samples_tested": 6,
-      "tp": 0,
-      "fp": 0,
-      "false_positive_rate": 0.0,
-      "true_positive_rate": 0.0
-    }
-  }
+  "rules": {}
 }

@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-09-04 08:01:15",
+  "version": "v1.0-pilot",
+  "summary": {
+    "total_tests": 23,
+    "failures": 3,
+    "errors": 2,
+    "skipped": 0,
+    "success": false,
+    "duration_seconds": 0.02
+  },
+  "failed_tests": [
+    "test_sql_adapter_metadata (test_adapter_metadata.TestAdapterMetadata.test_sql_adapter_metadata)",
+    "test_complete_pilot_readiness_workflow (test_v10_integration.TestV10Integration.test_complete_pilot_readiness_workflow)",
+    "test_report_rendering_with_v10_features (test_v10_integration.TestV10Integration.test_report_rendering_with_v10_features)"
+  ],
+  "error_tests": [
+    "test_confidence_scoring (unittest.loader._FailedTest.test_confidence_scoring)",
+    "test_risk_tier_policy_compliance (test_v10_integration.TestV10Integration.test_risk_tier_policy_compliance)"
+  ],
+  "pilot_readiness": {
+    "governance_validation": "failed",
+    "confidence_scoring": "implemented",
+    "risk_tier_classification": "implemented",
+    "metadata_enrichment": "implemented",
+    "adapter_enhancements": "implemented"
+  }
+}

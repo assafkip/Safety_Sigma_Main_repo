@@ -1,0 +1,10 @@
+tiers:
+  blocking:
+    max_fpr: 0.005
+    min_confidence: 0.90
+  hunting:
+    max_fpr: 0.02
+    min_confidence: 0.70
+  enrichment:
+    max_fpr: 0.10
+    min_confidence: 0.40

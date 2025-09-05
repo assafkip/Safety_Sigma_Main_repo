@@ -47,12 +47,64 @@ class Orchestrator:
         props = assign_targets(cand, DEFAULT_POLICY)
         self.audit.append("decide.proposals", {"count": len(props)})
 
+        # Governance analysis and escalation tracking
+        gov_stats = self._analyze_governance(cand)
+        self.audit.append("governance.analysis", gov_stats)
+
         # Write outputs (advisory-only safe zone)
         (self.out / "plan.json").write_text(json.dumps({"candidates": cand}, indent=2), encoding="utf-8")
         (self.out / "decisions.json").write_text(json.dumps({"proposals": props}, indent=2), encoding="utf-8")
         prop_dir = self.out / "proposals"; prop_dir.mkdir(exist_ok=True)
         (prop_dir / "deployment_proposals.json").write_text(json.dumps({"proposals": props}, indent=2), encoding="utf-8")
-        self.audit.append("write.outputs", {"plan": "plan.json", "decisions": "decisions.json", "proposals": "proposals/deployment_proposals.json"})
+        
+        # Write governance report for analyst feedback loop
+        gov_report = {
+            "governance_summary": gov_stats,
+            "escalations": [c for c in cand if c.get("decision", "").startswith("escalate")],
+            "ready_for_review": [c for c in cand if c.get("decision") == "ready-review"],
+            "approved_for_deployment": [c for c in cand if c.get("decision") == "ready-deploy"],
+            "decision_tree_reference": "../docs/governance_decision_tree.md"
+        }
+        (self.out / "governance_report.json").write_text(json.dumps(gov_report, indent=2), encoding="utf-8")
+        
+        self.audit.append("write.outputs", {
+            "plan": "plan.json", 
+            "decisions": "decisions.json", 
+            "proposals": "proposals/deployment_proposals.json",
+            "governance": "governance_report.json"
+        })
 
         self.audit.append("orchestrator.end", {"status":"ok"})
         return self.out
+
+    def _analyze_governance(self, candidates):
+        """Analyze governance gate results for feedback loop."""
+        stats = {
+            "total_candidates": len(candidates),
+            "ready_deploy": 0,
+            "ready_review": 0,
+            "escalate_missing_confidence": 0,
+            "escalate_missing_tier": 0,
+            "escalate_missing_metadata": 0,
+            "governance_pass_rate": 0.0
+        }
+        
+        for c in candidates:
+            decision = c.get("decision", "")
+            if decision == "ready-deploy":
+                stats["ready_deploy"] += 1
+            elif decision == "ready-review":
+                stats["ready_review"] += 1
+            elif decision == "escalate-missing-confidence":
+                stats["escalate_missing_confidence"] += 1
+            elif decision == "escalate-missing-tier":
+                stats["escalate_missing_tier"] += 1
+            elif decision == "escalate-missing-metadata":
+                stats["escalate_missing_metadata"] += 1
+        
+        # Calculate governance pass rate (ready-deploy + ready-review vs escalations)
+        non_escalated = stats["ready_deploy"] + stats["ready_review"]
+        if stats["total_candidates"] > 0:
+            stats["governance_pass_rate"] = round(non_escalated / stats["total_candidates"], 3)
+        
+        return stats

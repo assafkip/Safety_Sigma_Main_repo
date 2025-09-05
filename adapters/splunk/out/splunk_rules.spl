@@ -1,2 +1,12 @@
-search _raw=".*$1,998.88.*"  /* span: s_amt */
-search _raw=".*Zelle ID 123456789.*"  /* span: s_acc */
+/* Sigma Rule Metadata */
+/* severity_label: Medium */
+/* rule_owner: Sigma */
+/* detection_type: hunting */
+/* sla: 48 hours */
+/* log_field_targets: _raw, message */
+
+/* Field Mapping Guide: Map to your index fields */
+/* Common fields: caller_id, payment_method, message */
+
+search _raw=".*gift cards.*"  /* span: span_123, owner: Sigma, sla: 48h, fields: _raw */
+search _raw=".*wire transfer.*"  /* span: span_456, owner: Sigma, sla: 48h, fields: _raw */

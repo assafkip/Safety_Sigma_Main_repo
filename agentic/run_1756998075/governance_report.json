@@ -1,10 +1,15 @@
 {
-  "schema_version": "v0.5",
-  "processing_mode": "proactive_edap",
-  "total_sentences": 4,
-  "total_expansions": 12,
-  "ready_expansions": 12,
-  "expansions": [
+  "governance_summary": {
+    "total_candidates": 12,
+    "ready_deploy": 0,
+    "ready_review": 12,
+    "escalate_missing_confidence": 0,
+    "escalate_missing_tier": 0,
+    "escalate_missing_metadata": 0,
+    "governance_pass_rate": 1.0
+  },
+  "escalations": [],
+  "ready_for_review": [
     {
       "pattern": "WhatsApp",
       "kind": "behavior_platform",
@@ -25,7 +30,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "VOID[ ]\\\\d{3,4}",
@@ -48,7 +57,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypaI\\.com",
@@ -70,7 +83,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypai\\.com",
@@ -92,7 +109,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypa1\\.com",
@@ -114,7 +135,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "Fraudulent\\ domains\\ include\\ paypaI\\.com",
@@ -136,7 +161,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypai\\.com",
@@ -158,7 +187,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "and\\ paypa1\\.com\\ to\\ mimic\\ PayPal",
@@ -180,7 +213,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "gift\\ cards",
@@ -202,7 +239,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "wire\\ transfers",
@@ -224,7 +265,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "or\\ cryptocurrency\\ payments",
@@ -246,7 +291,11 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "cryptocurrency\\ payments",
@@ -268,12 +317,13 @@
         "fp": 0
       },
       "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "risk_tier": "enrichment",
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     }
   ],
-  "edap_criteria": {
-    "E1_ALT_ENUM": 5,
-    "E2_RANGE_DIGITS": 1,
-    "E3_LITERAL_SET": 6
-  }
+  "approved_for_deployment": [],
+  "decision_tree_reference": "../docs/governance_decision_tree.md"
 }

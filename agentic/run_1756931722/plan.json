@@ -1,13 +1,8 @@
 {
-  "schema_version": "v0.5",
-  "processing_mode": "proactive_edap",
-  "total_sentences": 4,
-  "total_expansions": 12,
-  "ready_expansions": 12,
-  "expansions": [
+  "candidates": [
     {
       "pattern": "WhatsApp",
-      "kind": "behavior_platform",
+      "kind": "behavior_or_platform",
       "parent_spans": [
         "span_redirect"
       ],
@@ -16,16 +11,10 @@
       "evidence_quote": "Victims are redirected to WhatsApp or Telegram messaging apps.",
       "status": "ready",
       "justification": "ALT_ENUM from S001: Victims are redirected to WhatsApp or Telegram messaging apps.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "VOID[ ]\\\\d{3,4}",
@@ -39,16 +28,10 @@
       "evidence_quote": "The scammer requests a VOID check with a 3-4 digit code written in the memo.",
       "status": "ready",
       "justification": "RANGE_DIGITS from S002: The scammer requests a VOID check with a 3-4 digit code written in the memo.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypaI\\.com",
@@ -61,16 +44,10 @@
       "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
       "status": "ready",
       "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypai\\.com",
@@ -83,16 +60,10 @@
       "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
       "status": "ready",
       "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypa1\\.com",
@@ -105,16 +76,10 @@
       "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
       "status": "ready",
       "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "Fraudulent\\ domains\\ include\\ paypaI\\.com",
@@ -127,16 +92,10 @@
       "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
       "status": "ready",
       "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "paypai\\.com",
@@ -149,16 +108,10 @@
       "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
       "status": "ready",
       "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "and\\ paypa1\\.com\\ to\\ mimic\\ PayPal",
@@ -171,20 +124,14 @@
       "evidence_quote": "Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
       "status": "ready",
       "justification": "LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "gift\\ cards",
-      "kind": "behavior_payment",
+      "kind": "behavior_or_platform",
       "parent_spans": [
         "span_payments"
       ],
@@ -193,20 +140,14 @@
       "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
       "status": "ready",
       "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "wire\\ transfers",
-      "kind": "behavior_payment",
+      "kind": "behavior_or_platform",
       "parent_spans": [
         "span_payments"
       ],
@@ -215,20 +156,14 @@
       "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
       "status": "ready",
       "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     },
     {
       "pattern": "or\\ cryptocurrency\\ payments",
-      "kind": "behavior_payment",
+      "kind": "behavior_or_platform",
       "parent_spans": [
         "span_payments"
       ],
@@ -237,43 +172,10 @@
       "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
       "status": "ready",
       "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
-    },
-    {
-      "pattern": "cryptocurrency\\ payments",
-      "kind": "behavior_payment",
-      "parent_spans": [
-        "span_payments"
-      ],
-      "operator": "ALT_ENUM",
-      "evidence_sent_id": "S004",
-      "evidence_quote": "The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
-      "status": "ready",
-      "justification": "ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.",
-      "metrics": {
-        "false_positive_rate": 1.0,
-        "true_positive_rate": 0.0,
-        "samples_tested": 0,
-        "matches": 0,
-        "tp": 0,
-        "fp": 0
-      },
-      "confidence_score": 0.0,
-      "risk_tier": "enrichment"
+      "deployment_candidate": false,
+      "fpr": 1.0,
+      "decision": "ready-review",
+      "prior_case_count": 0
     }
-  ],
-  "edap_criteria": {
-    "E1_ALT_ENUM": 5,
-    "E2_RANGE_DIGITS": 1,
-    "E3_LITERAL_SET": 6
-  }
+  ]
 }

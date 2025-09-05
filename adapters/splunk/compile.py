@@ -31,8 +31,23 @@ def main():
             continue
         # Minimal SPL (illustrative); real adapters will template this.
         span = r.get('meta', {}).get('source_span', '') if isinstance(r.get('meta'), dict) else ''
-        lines.append(f"search _raw=\"{pat}\"  /* span: {span} */")
-    (out_dir/"splunk_rules.spl").write_text("\n".join(lines), encoding="utf-8")
+        lines.append(f"search _raw=\"{pat}\"  /* span: {span}, owner: Sigma, sla: 48h, fields: _raw */")
+    
+    # Add metadata comments
+    metadata_lines = [
+        "/* Sigma Rule Metadata */",
+        "/* severity_label: Medium */", 
+        "/* rule_owner: Sigma */",
+        "/* detection_type: hunting */",
+        "/* sla: 48 hours */",
+        "/* log_field_targets: _raw, message */",
+        "",
+        "/* Field Mapping Guide: Map to your index fields */",
+        "/* Common fields: caller_id, payment_method, message */",
+        ""
+    ]
+    final_lines = metadata_lines + lines
+    (out_dir/"splunk_rules.spl").write_text("\n".join(final_lines), encoding="utf-8")
     (Path(__file__).parent/"compile_log.txt").write_text(f"compiled={len(lines)} errors={errs}\n", encoding="utf-8")
     return 1 if errs else 0
 

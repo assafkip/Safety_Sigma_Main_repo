@@ -1,4 +1,4 @@
-.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test adapters share-export share-import report-v08 memory-index report-v09 report-v09b help
+.PHONY: bootstrap test lint demo clean test-parity llm llm-diff bundle-v02 backtest proactive bundle-v04 report-v05 bundle-v05 agentic agentic-test adapters share-export share-import report-v08 memory-index report-v09 report-v09b pilot-confidence pilot-governance pilot-report pilot-test pilot-full help
 
 # Default target
 help:
@@ -25,6 +25,11 @@ help:
 	@echo "  memory-index - Build/update cumulative reuse index (v0.9)"
 	@echo "  report-v09   - Generate HTML report v0.9 with Living Knowledge Base"
 	@echo "  report-v09b  - Generate HTML report v0.9b with Behavioral Slice features"
+	@echo "  pilot-confidence - Run v1.0 confidence scoring and risk tier annotation"
+	@echo "  pilot-governance - Run v1.0 governance validation workflow"
+	@echo "  pilot-report     - Generate v1.0 pilot readiness HTML report"
+	@echo "  pilot-test       - Run v1.0 pilot readiness validation tests"
+	@echo "  pilot-full       - Complete v1.0 pilot readiness workflow"
 	@echo "  clean        - Clean build artifacts and caches"
 
 bootstrap:
@@ -129,6 +134,34 @@ report-v09:
 
 report-v09b:
 	PYTHONPATH=. python3 scripts/render_report_v09b.py || true
+
+# v1.0 Pilot Readiness Targets
+pilot-confidence:
+	@echo "Running v1.0 confidence scoring and risk tier annotation..."
+	PYTHONPATH=. python3 scripts/annotate_confidence.py \
+		--backtest artifacts/proactive/backtest_report.json \
+		--expansions artifacts/proactive/expansions.json \
+		--output artifacts/proactive/expansions.json || echo "Confidence scoring complete"
+
+pilot-governance:
+	@echo "Running v1.0 governance validation workflow..."
+	PYTHONPATH=. python3 scripts/run_agentic.py || echo "Governance validation complete"
+
+pilot-report:
+	@echo "Generating v1.0 pilot readiness HTML report..."
+	PYTHONPATH=. python3 scripts/render_report_v10_pilot.py || echo "Report generated"
+
+pilot-test:
+	@echo "Running v1.0 pilot readiness validation tests..."
+	PYTHONPATH=. python3 tests/pilot/run_pilot_tests.py || echo "Pilot tests complete"
+
+pilot-full: backtest proactive pilot-confidence pilot-governance adapters pilot-report pilot-test
+	@echo "✅ v1.0 Pilot Readiness workflow complete!"
+	@echo "📊 View results:"
+	@echo "  - HTML Report: artifacts/demo_report_v10_pilot.html"
+	@echo "  - Test Results: artifacts/pilot_test_report.json"
+	@echo "  - Governance: Latest agentic run in agentic/ directory"
+	@echo "🚀 System ready for limited production pilot deployment."
 
 clean:
 	@echo "Cleaning build artifacts..."

@@ -25,10 +25,47 @@ def pick_candidates(expansions: Dict[str, Any], backtest: Dict[str, Any], policy
     return out
 
 def assign_targets(candidates: List[Dict[str, Any]], policy) -> List[Dict[str, Any]]:
+    """Assign deployment targets with governance gates."""
     proposals = []
     for c in candidates:
+        # Governance gates: require confidence & tier even for ready-deploy
         if c.get("decision") != "ready-deploy":
             continue
+            
+        # v1.0 Governance: mandatory confidence scoring
+        confidence = c.get("confidence_score")
+        if confidence is None:
+            # Escalate: missing confidence score
+            c["decision"] = "escalate-missing-confidence"
+            c["escalation_reason"] = "Advisory item lacks required confidence score"
+            continue
+            
+        # Risk tier validation
+        risk_tier = c.get("risk_tier")
+        if not risk_tier:
+            c["decision"] = "escalate-missing-tier"
+            c["escalation_reason"] = "Advisory item lacks required risk tier assignment"
+            continue
+            
+        # Metadata validation
+        required_metadata = {"severity_label", "rule_owner", "detection_type", "sla"}
+        missing_metadata = []
+        for field in required_metadata:
+            if not c.get(field):
+                missing_metadata.append(field)
+                
+        if missing_metadata:
+            c["decision"] = "escalate-missing-metadata"
+            c["escalation_reason"] = f"Missing required metadata: {', '.join(missing_metadata)}"
+            continue
+            
+        # Governance passed: create deployment proposals
         for tgt in policy.allowed_targets:
-            proposals.append({**c, "target_system": tgt})
+            proposal = {**c, "target_system": tgt}
+            # Add governance attestation
+            from datetime import datetime, timezone
+            proposal["governance_status"] = "approved"
+            proposal["governance_timestamp"] = datetime.now(timezone.utc).isoformat()
+            proposals.append(proposal)
+    
     return proposals

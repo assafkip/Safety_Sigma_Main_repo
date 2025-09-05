@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛡️ Safety Sigma v1.0 Pilot Readiness Report</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 40px auto; max-width: 1200px; line-height: 1.55; background: #fafafa; }
+.header { background: linear-gradient(135deg,#2c5aa0,#1e3a8a); color:#fff; padding:20px; border-radius:10px; }
+.section { background:#fff; margin:20px 0; padding:20px; border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,.08); }
+.pilot-readiness { border-left: 4px solid #2c5aa0; }
+h2 { border-bottom:2px solid #eee; padding-bottom:8px; color:#333; }
+.pill { display:inline-block; background:#eee; border-radius:999px; padding:2px 10px; margin-right:8px; font-size:.9em; }
+.advisory { background:linear-gradient(135deg,#ff6b6b,#ee5a52); color:#fff; padding:12px; border-radius:8px; font-weight:700; }
+.small { color:#666; font-size:.95em; }
+blockquote, .quote { background:#f8f8f8; padding:10px; border-left:3px solid #ddd; margin:8px 0; }
+p { margin:8px 0 16px 0; }
+table { width:100%; border-collapse:collapse; margin-top:12px; }
+th,td { padding:10px; border-bottom:1px solid #eee; text-align:left; vertical-align:top; }
+th { background:#f8f8f8; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.note { color:#666; }
+
+/* v1.0 Pilot Readiness Styles */
+.governance-summary { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+.gov-metric { text-align: center; padding: 15px; background: #f8f9fa; border-radius: 8px; min-width: 120px; }
+.gov-metric.success { background: #d4edda; border-left: 4px solid #28a745; }
+.gov-metric.warning { background: #fff3cd; border-left: 4px solid #ffc107; }
+.gov-metric.error { background: #f8d7da; border-left: 4px solid #dc3545; }
+.gov-number { font-size: 2em; font-weight: bold; }
+.gov-label { font-size: 0.9em; color: #666; }
+
+.badge { padding: 3px 8px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+.tier-blocking { background: #dc3545; color: white; }
+.tier-hunting { background: #fd7e14; color: white; }
+.tier-enrichment { background: #20c997; color: white; }
+.tier-unknown { background: #6c757d; color: white; }
+
+.confidence-bar { position: relative; width: 80px; height: 20px; background: #e9ecef; border-radius: 10px; }
+.confidence-fill { height: 100%; border-radius: 10px; }
+.confidence-high { background: #28a745; }
+.confidence-medium { background: #ffc107; }
+.confidence-low { background: #dc3545; }
+.confidence-text { position: absolute; top: 0; left: 0; width: 100%; text-align: center; line-height: 20px; font-size: 0.75em; font-weight: bold; }
+.confidence-missing { color: #dc3545; font-weight: bold; font-size: 0.8em; }
+
+.gov-approved { color: #28a745; font-weight: bold; }
+.gov-review { color: #ffc107; font-weight: bold; }
+.gov-escalate { color: #dc3545; font-weight: bold; }
+.gov-unknown { color: #6c757d; }
+
+.pilot-table th { background: #2c5aa0; color: white; }
+.pilot-table tr:hover { background: #f8f9fa; }
+
+.escalation-details { background: #f8d7da; padding: 15px; border-radius: 8px; margin: 15px 0; }
+.escalation-details h3 { color: #721c24; margin-top: 0; }
+</style>
+</head><body>
+<div class="header">
+  <h1>🛡️ Safety Sigma v1.0 Pilot Readiness — Production-Ready Governance</h1>
+  <p class="small"><strong>Generated:</strong> 2025-09-04 08:01:15 • <strong>Source PDF:</strong> atlas-highlights-scams-and-fraud.pdf</p>
+  <p class="small"><span class="pill">Scripted = authoritative</span>
+                 <span class="pill">LLM = advisory</span>
+                 <span class="pill">EDAP = advisory</span>
+                 <span class="pill">v1.0 Governance = pilot</span>
+                 <span class="pill">Confidence Scoring</span>
+                 <span class="pill">Risk Tiers</span></p>
+</div>
+
+<div class="advisory">v1.0 PILOT READINESS — Enhanced with confidence scoring, risk tier classification, metadata validation, and governance gates for limited production deployment.</div>
+<div class="section pilot-readiness">
+  <h2>🎯 v1.0 Pilot Readiness Dashboard</h2>
+  <p class="small">Governance gates for production deployment. All items must pass confidence scoring, risk tier classification, and metadata validation.</p>
+<div class="governance-summary">
+    <div class="gov-metric">
+        <div class="gov-number">12</div>
+        <div class="gov-label">Total Candidates</div>
+    </div>
+    <div class="gov-metric success">
+        <div class="gov-number">0</div>
+        <div class="gov-label">Ready Deploy</div>
+    </div>
+    <div class="gov-metric warning">
+        <div class="gov-number">12</div>
+        <div class="gov-label">Needs Review</div>
+    </div>
+    <div class="gov-metric error">
+        <div class="gov-number">0</div>
+        <div class="gov-label">Escalated</div>
+    </div>
+    <div class="gov-metric">
+        <div class="gov-number">100.0%</div>
+        <div class="gov-label">Pass Rate</div>
+    </div>
+</div></div><div class="section">
+  <h2>📊 Extraction Summary (Scripted — authoritative)</h2>
+  <p class="small">Indicators shown here are verbatim, source-grounded, and traced with spans. They satisfy the validation contract (V-001..V-005).</p>
+  <ul>
+    <li><strong>Total indicators:</strong> 2</li>
+    <li><strong>Unique for display:</strong> 2</li>
+    <li><strong>Categories:</strong> 1</li>
+  </ul>
+</div>
+
+<div class="section"><h2>🔍 Key Indicators (Scripted — authoritative)</h2>
+<table><thead><tr><th>Kind</th><th>Value</th><th>Category</th><th>Span</th></tr></thead><tbody><tr><td>amount</td><td><strong>$1,998.88</strong></td><td>financial</td><td class='mono'>s_amt</td></tr><tr><td>account</td><td><strong>Zelle ID 123456789</strong></td><td>financial</td><td class='mono'>s_acc</td></tr></tbody></table></div><div class="section">
+  <h2>🧪 Proactive Scenarios (EDAP) — v1.0 Pilot Ready</h2>
+  <p class="small">Enhanced with confidence scoring, risk tier classification, and governance validation for production deployment readiness.</p>
+<table class='pilot-table'><thead><tr><th>Pattern</th><th>Confidence</th><th>Risk Tier</th><th>Governance</th><th>FPR</th><th>Evidence</th><th>Metadata</th></tr></thead><tbody><tr>
+                <td class='mono'>WhatsApp</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>Victims are redirected to WhatsApp or Telegram messaging apps.</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>cryptocurrency\ payments</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>The scheme involves such as gift cards, wire transfers, or cryptocurrency paymen...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>gift\ cards</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>The scheme involves such as gift cards, wire transfers, or cryptocurrency paymen...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>or\ cryptocurrency\ payments</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>The scheme involves such as gift cards, wire transfers, or cryptocurrency paymen...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>wire\ transfers</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>The scheme involves such as gift cards, wire transfers, or cryptocurrency paymen...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>Fraudulent\ domains\ include\ paypaI\.com</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPa...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>and\ paypa1\.com\ to\ mimic\ PayPal</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPa...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>paypa1\.com</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPa...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>paypaI\.com</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPa...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>paypai\.com</td>
+                <td><div class="confidence-bar">
+        <div class="confidence-fill confidence-low" style="width: 0%"></div>
+        <span class="confidence-text">0.000</span>
+    </div></td>
+                <td><span class="badge tier-enrichment">ENRICHMENT</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPa...</td>
+                <td class='small'>❌ Missing: severity_label, rule_owner, detection_type, sla</td>
+            </tr><tr>
+                <td class='mono'>VOID[ ]\d{3,4}</td>
+                <td><span class="confidence-missing">NO SCORE</span></td>
+                <td><span class="badge tier-unknown">UNKNOWN</span></td>
+                <td><span class="gov-unknown"></span></td>
+                <td>N/A</td>
+                <td class='small'>The scammer requests a VOID check with a 3-4 digit code written in the memo.</td>
+                <td class='small'>✓ Complete</td>
+            </tr></tbody></table></div><div class="section">
+  <h2>📊 Backtest Metrics — v1.0 Enhanced</h2>
+  <p class="small">Performance metrics with confidence scoring integration. FPR thresholds determine risk tier assignments.</p>
+<p class='note'>No backtest metrics available. Run backtesting to see v1.0 confidence scoring.</p></div><div class="section">
+  <h2>⚖️ Governance Framework</h2>
+  <p class="small">v1.0 governance decision tree ensures all deployed rules meet production standards.</p>
+  <ul>
+    <li><strong>Gate 1:</strong> Confidence Scoring (composite FPR/TPR metrics)</li>
+    <li><strong>Gate 2:</strong> Risk Tier Classification (blocking/hunting/enrichment)</li>
+    <li><strong>Gate 3:</strong> Metadata Validation (owner, severity, SLA, detection type)</li>
+    <li><strong>Gate 4:</strong> Policy Compliance (FPR thresholds, justification requirements)</li>
+  </ul>
+  <p><strong>Decision Tree:</strong> <a href="../docs/governance_decision_tree.md">governance_decision_tree.md</a></p>
+</div><div class="section">
+  <h2>🚀 v1.0 Deployment Pipeline</h2>
+  <p class="small">Enhanced adapters with governance metadata for production deployment.</p>
+<table class='pilot-table'><thead><tr><th>Target</th><th>Status</th><th>v1.0 Enhancements</th><th>Details</th></tr></thead><tbody><tr><td class='mono'>splunk</td><td>✅ Ready</td><td class='small'>Governance metadata, field mapping, SLA tracking</td><td class='small'>compiled=2 errors=0</td></tr><tr><td class='mono'>elastic</td><td>✅ Ready</td><td class='small'>Governance metadata, field mapping, SLA tracking</td><td class='small'>compiled=2 errors=0</td></tr><tr><td class='mono'>sql</td><td>✅ Ready</td><td class='small'>Governance metadata, field mapping, SLA tracking</td><td class='small'>compiled=2 errors=0</td></tr></tbody></table></div><div class="section">
+  <h2>⚖️ v1.0 Processing Compliance</h2>
+  <ul>
+    <li><strong>Authoritative Lane:</strong> V-001..V-005 validation gates preserved</li>
+    <li><strong>Advisory Lane:</strong> Enhanced with confidence scoring and governance validation</li>
+    <li><strong>Pilot Readiness:</strong> Production deployment gates with escalation paths</li>
+    <li><strong>Risk Management:</strong> Tiered FPR thresholds with mandatory metadata</li>
+  </ul>
+</div>
+
+<div class="section"><p class="small">Generated by Safety Sigma v1.0 Pilot Readiness · Enhanced governance framework for limited production deployment.</p></div>
+</body></html>

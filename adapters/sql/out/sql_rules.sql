@@ -1,5 +1,5 @@
--- Sigma pattern (span: s_amt)
-SELECT * FROM events WHERE REGEXP_LIKE(message, '.*$1,998.88.*');
+-- Sigma pattern (span: span_123)
+SELECT * FROM events WHERE REGEXP_LIKE(message, '.*gift cards.*');
 
--- Sigma pattern (span: s_acc)
-SELECT * FROM events WHERE REGEXP_LIKE(message, '.*Zelle ID 123456789.*');
+-- Sigma pattern (span: span_456)
+SELECT * FROM events WHERE REGEXP_LIKE(message, '.*wire transfer.*');

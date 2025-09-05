@@ -1,0 +1,170 @@
+{
+  "items": {
+    "amount::$1,998.88": {
+      "kinds": [
+        "amount"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "account::Zelle ID 123456789": {
+      "kinds": [
+        "account"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "behavior_or_platform::WhatsApp": {
+      "kinds": [
+        "behavior_or_platform"
+      ],
+      "cases": [],
+      "count": 4,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-03T20:35:22Z"
+    },
+    "text::VOID[ ]\\\\d{3,4}": {
+      "kinds": [
+        "text"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "domain_or_url::paypaI\\.com": {
+      "kinds": [
+        "domain_or_url"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "domain_or_url::paypai\\.com": {
+      "kinds": [
+        "domain_or_url"
+      ],
+      "cases": [],
+      "count": 10,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "domain_or_url::paypa1\\.com": {
+      "kinds": [
+        "domain_or_url"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "domain_or_url::Fraudulent\\ domains\\ include\\ paypaI\\.com": {
+      "kinds": [
+        "domain_or_url"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "domain_or_url::and\\ paypa1\\.com\\ to\\ mimic\\ PayPal": {
+      "kinds": [
+        "domain_or_url"
+      ],
+      "cases": [],
+      "count": 5,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-04T15:01:15Z",
+      "categories": []
+    },
+    "behavior_or_platform::gift\\ cards": {
+      "kinds": [
+        "behavior_or_platform"
+      ],
+      "cases": [],
+      "count": 4,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-03T20:35:22Z"
+    },
+    "behavior_or_platform::wire\\ transfers": {
+      "kinds": [
+        "behavior_or_platform"
+      ],
+      "cases": [],
+      "count": 4,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-03T20:35:22Z"
+    },
+    "behavior_or_platform::or\\ cryptocurrency\\ payments": {
+      "kinds": [
+        "behavior_or_platform"
+      ],
+      "cases": [],
+      "count": 4,
+      "first_seen": "2025-09-03T19:40:38Z",
+      "last_seen": "2025-09-03T20:35:22Z"
+    },
+    "behavior_platform::WhatsApp": {
+      "kinds": [
+        "behavior_platform"
+      ],
+      "cases": [],
+      "categories": [],
+      "count": 1,
+      "first_seen": "2025-09-04T15:01:15Z",
+      "last_seen": "2025-09-04T15:01:15Z"
+    },
+    "behavior_payment::gift\\ cards": {
+      "kinds": [
+        "behavior_payment"
+      ],
+      "cases": [],
+      "categories": [],
+      "count": 1,
+      "first_seen": "2025-09-04T15:01:15Z",
+      "last_seen": "2025-09-04T15:01:15Z"
+    },
+    "behavior_payment::wire\\ transfers": {
+      "kinds": [
+        "behavior_payment"
+      ],
+      "cases": [],
+      "categories": [],
+      "count": 1,
+      "first_seen": "2025-09-04T15:01:15Z",
+      "last_seen": "2025-09-04T15:01:15Z"
+    },
+    "behavior_payment::or\\ cryptocurrency\\ payments": {
+      "kinds": [
+        "behavior_payment"
+      ],
+      "cases": [],
+      "categories": [],
+      "count": 1,
+      "first_seen": "2025-09-04T15:01:15Z",
+      "last_seen": "2025-09-04T15:01:15Z"
+    },
+    "behavior_payment::cryptocurrency\\ payments": {
+      "kinds": [
+        "behavior_payment"
+      ],
+      "cases": [],
+      "categories": [],
+      "count": 1,
+      "first_seen": "2025-09-04T15:01:15Z",
+      "last_seen": "2025-09-04T15:01:15Z"
+    }
+  }
+}

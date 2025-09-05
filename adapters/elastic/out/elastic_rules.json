@@ -1,26 +1,42 @@
 [
   {
-    "name": "Sigma: .*$1,998.88.*",
+    "name": "Sigma: .*gift cards.*",
     "type": "query",
     "query": {
       "regexp": {
-        "message": ".*$1,998.88.*"
+        "message": ".*gift cards.*"
       }
     },
     "metadata": {
-      "source_span": "s_amt"
+      "source_span": "span_123",
+      "severity_label": "Medium",
+      "rule_owner": "Sigma",
+      "detection_type": "hunting",
+      "sla": 48,
+      "staleness_days": 0,
+      "log_field_targets": [
+        "message"
+      ]
     }
   },
   {
-    "name": "Sigma: .*Zelle ID 123456789.*",
+    "name": "Sigma: .*wire transfer.*",
     "type": "query",
     "query": {
       "regexp": {
-        "message": ".*Zelle ID 123456789.*"
+        "message": ".*wire transfer.*"
       }
     },
     "metadata": {
-      "source_span": "s_acc"
+      "source_span": "span_456",
+      "severity_label": "Medium",
+      "rule_owner": "Sigma",
+      "detection_type": "hunting",
+      "sla": 48,
+      "staleness_days": 0,
+      "log_field_targets": [
+        "message"
+      ]
     }
   }
 ]

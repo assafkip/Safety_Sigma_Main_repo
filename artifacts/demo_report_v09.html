@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛡️ Safety Sigma v0.9 Report</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 40px auto; max-width: 1100px; line-height: 1.55; background: #fafafa; }
+.header { background: linear-gradient(135deg,#495057,#343a40); color:#fff; padding:20px; border-radius:10px; }
+.section { background:#fff; margin:20px 0; padding:20px; border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,.08); }
+h2 { border-bottom:2px solid #eee; padding-bottom:8px; color:#333; }
+.pill { display:inline-block; background:#eee; border-radius:999px; padding:2px 10px; margin-right:8px; font-size:.9em; }
+.advisory { background:linear-gradient(135deg,#ff6b6b,#ee5a52); color:#fff; padding:12px; border-radius:8px; font-weight:700; }
+.small { color:#666; font-size:.95em; }
+blockquote, .quote { background:#f8f8f8; padding:10px; border-left:3px solid #ddd; margin:8px 0; }
+p { margin:8px 0 16px 0; }
+table { width:100%; border-collapse:collapse; margin-top:12px; }
+th,td { padding:10px; border-bottom:1px solid #eee; text-align:left; vertical-align:top; }
+th { background:#f8f8f8; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.note { color:#666; }
+</style>
+</head><body>
+<div class="header">
+  <h1>🛡️ Safety Sigma v0.9 — Scripted (AUTHORITATIVE) + LLM (ADVISORY) + Proactive (EDAP) + Agentic + Memory</h1>
+  <p class="small"><strong>Generated:</strong> 2025-09-03 13:36:00 • <strong>Source PDF:</strong> atlas-highlights-scams-and-fraud.pdf</p>
+  <p class="small"><span class="pill">Scripted = authoritative (V-001..V-005)</span>
+                 <span class="pill">LLM = advisory</span>
+                 <span class="pill">Proactive EDAP = advisory</span>
+                 <span class="pill">Agentic = advisory</span>
+                 <span class="pill">Memory = cumulative</span></p>
+</div>
+
+<div class="section">
+  <h2>📊 Extraction Summary (Scripted — authoritative)</h2>
+  <p class="small">Indicators shown here are verbatim, source-grounded, and traced with spans. They satisfy the validation contract (V-001..V-005).</p>
+  <ul>
+    <li><strong>Total indicators:</strong> 2</li>
+    <li><strong>Unique for display:</strong> 2</li>
+    <li><strong>Categories:</strong> 1</li>
+  </ul>
+</div>
+
+<div class="advisory">NON-AUTHORITATIVE Content Below — for analyst convenience only. Verify against authoritative artifacts.</div>
+
+<div class="section">
+  <h2>📝 Advisory Narrative (LLM lane)</h2>
+  <p class="note">See the bundle's <span class="mono">llm_output/narrative.md</span> for full text. Every claim quotes a span; the LLM lane is advisory.</p>
+</div>
+<div class="section"><h2>🔍 Key Indicators (Scripted — authoritative)</h2>
+<table><thead><tr><th>Kind</th><th>Value</th><th>Category</th><th>Span</th></tr></thead><tbody><tr><td>amount</td><td><strong>$1,998.88</strong></td><td>financial</td><td class='mono'>s_amt</td></tr><tr><td>account</td><td><strong>Zelle ID 123456789</strong></td><td>financial</td><td class='mono'>s_acc</td></tr></tbody></table></div><div class="section">
+  <h2>🧪 Proactive Scenarios (EDAP)</h2>
+  <p class="small">These expansions are derived from explicit narrative in the input PDF. Each row includes a pattern, its operator, parent spans, and an evidence quote. Items marked <strong>ready</strong> met EDAP criteria (explicit enumeration, explicit range, or repetition evidence) and are suitable for preventive deployment after local backtesting.</p>
+<table><thead><tr><th>Pattern</th><th>Operator</th><th>Status</th><th>Parent Spans</th><th>Evidence Quote</th><th>Justification</th></tr></thead><tbody><tr><td class='mono'>WhatsApp</td><td>ALT_ENUM</td><td>ready</td><td class='mono'>span_redirect</td><td>Victims are redirected to WhatsApp or Telegram messaging apps.</td><td>ALT_ENUM from S001: Victims are redirected to WhatsApp or Telegram messaging apps.</td></tr><tr><td class='mono'>gift\ cards</td><td>ALT_ENUM</td><td>ready</td><td class='mono'>span_payments</td><td>The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.</td><td>ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.</td></tr><tr><td class='mono'>or\ cryptocurrency\ payments</td><td>ALT_ENUM</td><td>ready</td><td class='mono'>span_payments</td><td>The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.</td><td>ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.</td></tr><tr><td class='mono'>wire\ transfers</td><td>ALT_ENUM</td><td>ready</td><td class='mono'>span_payments</td><td>The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.</td><td>ALT_ENUM from S004: The scheme involves such as gift cards, wire transfers, or cryptocurrency payments.</td></tr><tr><td class='mono'>Fraudulent\ domains\ include\ paypaI\.com</td><td>LITERAL_SET</td><td>ready</td><td class='mono'>span_domains</td><td>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td><td>LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td></tr><tr><td class='mono'>and\ paypa1\.com\ to\ mimic\ PayPal</td><td>LITERAL_SET</td><td>ready</td><td class='mono'>span_domains</td><td>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td><td>LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td></tr><tr><td class='mono'>paypa1\.com</td><td>LITERAL_SET</td><td>ready</td><td class='mono'>span_domains</td><td>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td><td>LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td></tr><tr><td class='mono'>paypaI\.com</td><td>LITERAL_SET</td><td>ready</td><td class='mono'>span_domains</td><td>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td><td>LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td></tr><tr><td class='mono'>paypai\.com</td><td>LITERAL_SET</td><td>ready</td><td class='mono'>span_domains</td><td>Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td><td>LITERAL_SET from S003: Fraudulent domains include paypaI.com, paypai.com, and paypa1.com to mimic PayPal.</td></tr><tr><td class='mono'>VOID[ ]\d{3,4}</td><td>RANGE_DIGITS</td><td>ready</td><td class='mono'>span_memo, span_void</td><td>The scammer requests a VOID check with a 3-4 digit code written in the memo.</td><td></td></tr></tbody></table></div><div class="section">
+  <h2>📊 Backtest Metrics (v0.5)</h2>
+  <p class="small">Performance metrics for each pattern against test corpora. FPR = False Positive Rate, TPR = True Positive Rate.</p>
+<p class='note'>No backtest metrics available. Run backtesting to see performance data.</p></div><div class="section">
+  <h2>🔍 Behavioral Context (advisory)</h2>
+  <p class="small">Optional behavioral fields for enhanced fraud detection. These are advisory enhancements and do not affect the authoritative scripted lane.</p>
+  <ul>
+    <li><strong>ip_reputation</strong> (low|med|high): IP reputation score based on threat intelligence</li>
+    <li><strong>velocity_event_count</strong> (int): Number of events in time window</li>  
+    <li><strong>account_age_days</strong> (int): Account age in days</li>
+  </ul>
+<p class='note'>No behavioral context fields detected in current indicators.</p></div><div class="section">
+  <h2>🚀 Deployment Adapters (V-006)</h2>
+  <p class="small">Compiled rule outputs for target environments. Each adapter preserves pattern + provenance + justification.</p>
+<table><thead><tr><th>Target</th><th>Status</th><th>Details</th></tr></thead><tbody><tr><td class='mono'>splunk</td><td><span class='pill compiled'>compiled</span></td><td class='small'>compiled=2 errors=0</td></tr><tr><td class='mono'>elastic</td><td><span class='pill compiled'>compiled</span></td><td class='small'>compiled=2 errors=0</td></tr><tr><td class='mono'>sql</td><td><span class='pill compiled'>compiled</span></td><td class='small'>compiled=2 errors=0</td></tr></tbody></table></div><div class="section">
+  <h2>📦 Sharing & Export (V-007)</h2>
+  <p class="small">Bundle integrity and cross-org sharing status. Checksums ensure artifact completeness.</p>
+<p><strong>Latest Bundle:</strong> <span class='mono'>audit_package_v0_7_1756920258.zip</span> (4.1 MB)</p><p><strong>Checksums:</strong> 20 files verified</p></div><div class="section">
+  <h2>📚 Living Knowledge Base</h2>
+  <p class="small">Every past case becomes structured context. Prior-case counts help de-duplicate work and show pattern evolution.</p>
+<p><strong>Knowledge Stats:</strong> 12 unique patterns, 52 total occurrences, 0 cases referenced</p><table><thead><tr><th>Pattern Key</th><th>Occurrences</th><th>Prior Cases</th><th>Velocity</th></tr></thead><tbody><tr><td class='mono'>domain_or_url::paypai\.com</td><td>8</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>amount::$1,998.88</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>account::Zelle ID 123456789</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>behavior_or_platform::WhatsApp</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>text::VOID[ ]\\d{3,4}</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>domain_or_url::paypaI\.com</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>domain_or_url::paypa1\.com</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>domain_or_url::Fraudulent\ domains\ include\ paypaI\.com</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>domain_or_url::and\ paypa1\.com\ to\ mimic\ PayPal</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>behavior_or_platform::gift\ cards</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>behavior_or_platform::wire\ transfers</td><td>4</td><td class='small'>-</td><td>-</td></tr><tr><td class='mono'>behavior_or_platform::or\ cryptocurrency\ payments</td><td>4</td><td class='small'>-</td><td>-</td></tr></tbody></table></div><div class="section">
+  <h2>🔄 Reuse Signals</h2>
+  <p class="small">Pattern reuse context helps analysts understand which indicators appeared in previous investigations.</p>
+<p class='note'>No current patterns found in prior cases. This appears to be a novel investigation.</p></div><div class="section">
+  <h2>🤖 Agentic Plan (Advisory)</h2>
+  <p class="small">AI agents analyze EDAP expansions and backtest metrics to propose deployment actions. All agent decisions are advisory-only and require analyst approval.</p>
+<p class='note'><strong>No deployment proposals this run.</strong></p><p class='small'><strong>Reason:</strong> All EDAP expansions either exceed FPR threshold (>0.5%) or lack strong justification per EDAP criteria.</p><p class='small'><strong>Note:</strong> No backtest metrics available for FPR analysis.</p></div><div class="section">
+  <h2>⚖️ Processing Compliance</h2>
+  <ul>
+    <li><strong>Zero-inference (Scripted):</strong> verbatim indicators; span-level provenance; categories appear only if explicitly in source.</li>
+    <li><strong>Validation Gates:</strong> V-001..V-005 apply to the scripted lane (authoritative).</li>
+    <li><strong>Proactive EDAP:</strong> evidence-driven expansions; traceable to quotes; advisory unless explicitly promoted by EDAP rules.</li>
+  </ul>
+</div>
+
+<div class="section"><p class="small">Generated by Safety Sigma v0.9 · Scripted authoritative core + LLM/advisory + Proactive/EDAP + Backtesting + Behavioral Context + Living Knowledge Base.</p></div>
+</body></html>
